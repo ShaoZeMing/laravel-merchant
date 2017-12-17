@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Form\Field;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 use ShaoZeMing\Merchant\Form;
 use ShaoZeMing\Merchant\Form\Field;
 use ShaoZeMing\Merchant\Form\NestedForm;
@@ -420,7 +420,7 @@ $('#has-many-{$this->column}').on('click', '.remove', function () {
 
 EOT;
 
-        Admin::script($script);
+        Merchant::script($script);
     }
 
     /**
@@ -475,7 +475,7 @@ if ($('.has-error').length) {
 }
 EOT;
 
-        Admin::script($script);
+        Merchant::script($script);
     }
 
     /**

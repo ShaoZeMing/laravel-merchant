@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Displayers;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class Actions extends AbstractDisplayer
 {
@@ -210,7 +210,7 @@ $('.grid-row-delete').unbind('click').click(function() {
 
 SCRIPT;
 
-        Admin::script($script);
+        Merchant::script($script);
 
         return <<<EOT
 <a href="javascript:void(0);" data-id="{$this->getKey()}" class="grid-row-delete">

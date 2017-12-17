@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Tools;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 use ShaoZeMing\Merchant\Grid;
 
 class PerPageSelector extends AbstractTool
@@ -65,7 +65,7 @@ class PerPageSelector extends AbstractTool
      */
     public function render()
     {
-        Admin::script($this->script());
+        Merchant::script($this->script());
 
         $options = $this->getOptions()->map(function ($option) {
             $selected = ($option == $this->perPage) ? 'selected' : '';

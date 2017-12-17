@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Filter;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class Between extends AbstractFilter
 {
@@ -121,6 +121,6 @@ class Between extends AbstractFilter
             });
 EOT;
 
-        Admin::script($script);
+        Merchant::script($script);
     }
 }

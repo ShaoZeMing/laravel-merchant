@@ -24,6 +24,6 @@ class Admin extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \ShaoZeMing\Merchant\Admin::class;
+        return \ShaoZeMing\Merchant\Merchant::class;
     }
 }

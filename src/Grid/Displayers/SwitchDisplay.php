@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Displayers;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class SwitchDisplay extends AbstractDisplayer
 {
@@ -58,7 +58,7 @@ $('.$class').bootstrapSwitch({
 
 EOT;
 
-        Admin::script($script);
+        Merchant::script($script);
 
         $key = $this->row->{$this->grid->getKeyName()};
 

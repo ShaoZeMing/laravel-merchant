@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Form;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 use ShaoZeMing\Merchant\Form;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\URL;
@@ -530,7 +530,7 @@ if ($('.has-error').length) {
 }
 
 SCRIPT;
-            Admin::script($script);
+            Merchant::script($script);
         }
 
         $data = [

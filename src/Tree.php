@@ -355,7 +355,7 @@ SCRIPT;
      */
     public function render()
     {
-        Admin::script($this->script());
+        Merchant::script($this->script());
 
         view()->share([
             'path'           => $this->path,

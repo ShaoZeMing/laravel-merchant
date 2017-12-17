@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Tools;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 use Illuminate\Support\Collection;
 
 class BatchActions extends AbstractTool
@@ -75,13 +75,13 @@ class BatchActions extends AbstractTool
      */
     protected function setUpScripts()
     {
-        Admin::script($this->script());
+        Merchant::script($this->script());
 
         foreach ($this->actions as $action) {
             $abstract = $action['abstract'];
             $abstract->setResource($this->grid->resource());
 
-            Admin::script($abstract->script());
+            Merchant::script($abstract->script());
         }
     }
 

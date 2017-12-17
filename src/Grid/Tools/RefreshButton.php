@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Tools;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class RefreshButton extends AbstractTool
 {
@@ -32,7 +32,7 @@ EOT;
      */
     public function render()
     {
-        Admin::script($this->script());
+        Merchant::script($this->script());
 
         $refresh = trans('merchant.refresh');
 

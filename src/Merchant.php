@@ -15,7 +15,7 @@ use InvalidArgumentException;
 /**
  * Class Admin.
  */
-class Admin
+class Merchant
 {
     /**
      * @var Navbar

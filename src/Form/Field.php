@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Form;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 use ShaoZeMing\Merchant\Form;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;
@@ -904,7 +904,7 @@ class Field implements Renderable
      */
     public function render()
     {
-        Admin::script($this->script);
+        Merchant::script($this->script);
 
         return view($this->getView(), $this->variables());
     }

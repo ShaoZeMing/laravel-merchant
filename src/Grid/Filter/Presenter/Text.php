@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Filter\Presenter;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class Text extends Presenter
 {
@@ -161,7 +161,7 @@ class Text extends Presenter
     {
         $options = json_encode($options);
 
-        Admin::script("$('#filter-modal input.{$this->filter->getId()}').inputmask($options);");
+        Merchant::script("$('#filter-modal input.{$this->filter->getId()}').inputmask($options);");
 
         $this->icon = $icon;
 

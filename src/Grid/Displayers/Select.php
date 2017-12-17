@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Displayers;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class Select extends AbstractDisplayer
 {
@@ -35,7 +35,7 @@ $('.$class').select2().on('change', function(){
 
 EOT;
 
-        Admin::script($script);
+        Merchant::script($script);
 
         $key = $this->row->{$this->grid->getKeyName()};
 

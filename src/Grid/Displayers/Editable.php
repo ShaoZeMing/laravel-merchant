@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Displayers;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class Editable extends AbstractDisplayer
 {
@@ -144,7 +144,7 @@ class Editable extends AbstractDisplayer
 
         $options = json_encode($this->options);
 
-        Admin::script("$('.$class').editable($options);");
+        Merchant::script("$('.$class').editable($options);");
 
         $attributes = [
             'href'       => '#',

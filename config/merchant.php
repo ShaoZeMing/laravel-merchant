@@ -24,7 +24,7 @@ return [
 
         'prefix' => 'merchant',
 
-        'namespace' => 'App\\Admin\\Controllers',
+        'namespace' => 'App\\Http\\Controllers\\Merchant',
 
         'middleware' => ['web', 'merchant'],
     ],
@@ -32,7 +32,7 @@ return [
     /*
      * Laravel-merchant install directory.
      */
-    'directory' => app_path('Admin'),
+    'directory' => app_path('Http/Merchant'),
 
     /*
      * Laravel-merchant html title.

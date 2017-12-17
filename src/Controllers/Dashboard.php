@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Controllers;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class Dashboard
 {
@@ -94,7 +94,7 @@ class Dashboard
 
         foreach ($extensions as &$extension) {
             $name = explode('/', $extension['name']);
-            $extension['installed'] = array_key_exists(end($name), Admin::$extensions);
+            $extension['installed'] = array_key_exists(end($name), Merchant::$extensions);
         }
 
         return view('merchant::dashboard.extensions', compact('extensions'));

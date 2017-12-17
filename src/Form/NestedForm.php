@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Form;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 use ShaoZeMing\Merchant\Form;
 use Illuminate\Support\Collection;
 
@@ -319,7 +319,7 @@ class NestedForm
              * Get and remove the last script of Admin::$script stack.
              */
             if ($field->getScript()) {
-                $scripts[] = array_pop(Admin::$script);
+                $scripts[] = array_pop(Merchant::$script);
             }
         }
 

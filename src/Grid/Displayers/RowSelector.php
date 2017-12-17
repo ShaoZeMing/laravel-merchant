@@ -2,13 +2,13 @@
 
 namespace ShaoZeMing\Merchant\Grid\Displayers;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class RowSelector extends AbstractDisplayer
 {
     public function display()
     {
-        Admin::script($this->script());
+        Merchant::script($this->script());
 
         return <<<EOT
 <input type="checkbox" class="grid-row-checkbox" data-id="{$this->getKey()}" />

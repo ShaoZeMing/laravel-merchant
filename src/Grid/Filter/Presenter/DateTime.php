@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Filter\Presenter;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class DateTime extends Presenter
 {
@@ -43,7 +43,7 @@ class DateTime extends Presenter
     {
         $script = "$('#{$this->filter->getId()}').datetimepicker(".json_encode($this->options).');';
 
-        Admin::script($script);
+        Merchant::script($script);
     }
 
     public function variables() : array

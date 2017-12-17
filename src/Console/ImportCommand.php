@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Console;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 use Illuminate\Console\Command;
 
 class ImportCommand extends Command
@@ -30,11 +30,11 @@ class ImportCommand extends Command
     {
         $extension = $this->argument('extension');
 
-        if (empty($extension) || !array_has(Admin::$extensions, $extension)) {
-            $extension = $this->choice('Please choose a extension to import', array_keys(Admin::$extensions));
+        if (empty($extension) || !array_has(Merchant::$extensions, $extension)) {
+            $extension = $this->choice('Please choose a extension to import', array_keys(Merchant::$extensions));
         }
 
-        $className = array_get(Admin::$extensions, $extension);
+        $className = array_get(Merchant::$extensions, $extension);
 
         if (!class_exists($className) || !method_exists($className, 'import')) {
             $this->error("Invalid Extension [$className]");

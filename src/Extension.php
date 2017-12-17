@@ -10,7 +10,7 @@ abstract class Extension
 {
     public static function config($key, $default = null)
     {
-        $name = array_search(get_called_class(), Admin::$extensions);
+        $name = array_search(get_called_class(), Merchant::$extensions);
 
         $key = sprintf('merchant.extensions.%s.%s', strtolower($name), $key);
 

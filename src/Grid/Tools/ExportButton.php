@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Tools;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 use ShaoZeMing\Merchant\Grid;
 
 class ExportButton extends AbstractTool
@@ -38,7 +38,7 @@ $('.export-selected').click(function (e) {
 
 SCRIPT;
 
-        Admin::script($script);
+        Merchant::script($script);
     }
 
     /**

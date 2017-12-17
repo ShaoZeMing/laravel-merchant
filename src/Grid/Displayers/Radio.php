@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Displayers;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class Radio extends AbstractDisplayer
 {
@@ -22,7 +22,7 @@ class Radio extends AbstractDisplayer
 EOT;
         }
 
-        Admin::script($this->script());
+        Merchant::script($this->script());
 
         return <<<EOT
 <form class="form-group grid-radio-$name" style="text-align: left" data-key="{$this->getKey()}">

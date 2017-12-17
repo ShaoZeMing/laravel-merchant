@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Displayers;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class Checkbox extends AbstractDisplayer
 {
@@ -26,7 +26,7 @@ class Checkbox extends AbstractDisplayer
 EOT;
         }
 
-        Admin::script($this->script());
+        Merchant::script($this->script());
 
         return <<<EOT
 <form class="form-group grid-checkbox-$name" style="text-align:left;" data-key="{$this->getKey()}">

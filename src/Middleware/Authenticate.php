@@ -3,7 +3,7 @@
 namespace ShaoZeMing\Merchant\Middleware;
 
 use Closure;
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 use Illuminate\Support\Facades\Auth;
 
 class Authenticate

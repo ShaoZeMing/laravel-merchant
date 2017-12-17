@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Displayers;
 
-use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Merchant;
 
 class Orderable extends AbstractDisplayer
 {
@@ -12,7 +12,7 @@ class Orderable extends AbstractDisplayer
             throw new \Exception('To use orderable grid, please install package [spatie/eloquent-sortable] first.');
         }
 
-        Admin::script($this->script());
+        Merchant::script($this->script());
 
         return <<<EOT
 
