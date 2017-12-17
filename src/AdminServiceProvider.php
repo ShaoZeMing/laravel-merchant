@@ -54,7 +54,7 @@ class AdminServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'merchant');
 
-        if (file_exists($routes = merchant_path('routes.php'))) {
+        if (file_exists($routes = merchant_path('merchant.php'))) {
             $this->loadRoutesFrom($routes);
         }
 
