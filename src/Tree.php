@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin;
+namespace ShaoZeMing\Merchant;
 
 use Closure;
-use Encore\Admin\Tree\Tools;
+use ShaoZeMing\Merchant\Tree\Tools;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,8 +35,8 @@ class Tree implements Renderable
      * @var string
      */
     protected $view = [
-        'tree'   => 'admin::tree',
-        'branch' => 'admin::tree.branch',
+        'tree'   => 'merchant::tree',
+        'branch' => 'merchant::tree.branch',
     ];
 
     /**
@@ -219,12 +219,12 @@ class Tree implements Renderable
      */
     protected function script()
     {
-        $deleteConfirm = trans('admin.delete_confirm');
-        $saveSucceeded = trans('admin.save_succeeded');
-        $refreshSucceeded = trans('admin.refresh_succeeded');
-        $deleteSucceeded = trans('admin.delete_succeeded');
-        $confirm = trans('admin.confirm');
-        $cancel = trans('admin.cancel');
+        $deleteConfirm = trans('merchant.delete_confirm');
+        $saveSucceeded = trans('merchant.save_succeeded');
+        $refreshSucceeded = trans('merchant.refresh_succeeded');
+        $deleteSucceeded = trans('merchant.delete_succeeded');
+        $confirm = trans('merchant.confirm');
+        $cancel = trans('merchant.cancel');
 
         $nestableOptions = json_encode($this->nestableOptions);
 

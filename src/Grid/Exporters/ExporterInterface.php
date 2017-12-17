@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Exporters;
+namespace ShaoZeMing\Merchant\Grid\Exporters;
 
 interface ExporterInterface
 {

@@ -1,6 +1,6 @@
 # Form
 
-`Encore\Admin\Widgets\Form` class is used to quickly build a form：
+`ShaoZeMing\Merchant\Widgets\Form` class is used to quickly build a form：
 
 ```php
 
@@ -162,7 +162,7 @@ $form->rate($column[, $label]);
 ```
 
 #### Image upload
-You can use compression, crop, add watermarks and other methods, please refer to [[Intervention](http://image.intervention.io/getting_started/introduction)],The image upload directory is configured in `upload` in the file `config/admin.php`. If the directory does not exist, it needs to be created and write-enabled. :
+You can use compression, crop, add watermarks and other methods, please refer to [[Intervention](http://image.intervention.io/getting_started/introduction)],The image upload directory is configured in `upload` in the file `config/merchant.php`. If the directory does not exist, it needs to be created and write-enabled. :
 ```php
 $form->image($column[, $label]);
 
@@ -177,8 +177,8 @@ $form->image($column[, $label])->insert($watermark, 'center');
 ```
 
 #### File upload
-文件上传目录在文件`config/admin.php`中的`upload.file`中配置，如果目录不存在，需要创建该目录并开放写权限。
-The file upload directory is configured in `upload` in the file `config/admin.php`. If the directory does not exist, create the directory and open the write permissions.
+文件上传目录在文件`config/merchant.php`中的`upload.file`中配置，如果目录不存在，需要创建该目录并开放写权限。
+The file upload directory is configured in `upload` in the file `config/merchant.php`. If the directory does not exist, create the directory and open the write permissions.
 ```php
 $form->file($column[, $label]);
 

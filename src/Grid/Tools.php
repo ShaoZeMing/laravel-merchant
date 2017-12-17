@@ -1,11 +1,11 @@
 <?php
 
-namespace Encore\Admin\Grid;
+namespace ShaoZeMing\Merchant\Grid;
 
-use Encore\Admin\Grid;
-use Encore\Admin\Grid\Tools\AbstractTool;
-use Encore\Admin\Grid\Tools\BatchActions;
-use Encore\Admin\Grid\Tools\RefreshButton;
+use ShaoZeMing\Merchant\Grid;
+use ShaoZeMing\Merchant\Grid\Tools\AbstractTool;
+use ShaoZeMing\Merchant\Grid\Tools\BatchActions;
+use ShaoZeMing\Merchant\Grid\Tools\RefreshButton;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 

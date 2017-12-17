@@ -1,6 +1,6 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
+use ShaoZeMing\Merchant\Auth\Database\Administrator;
 
 class UsersTest extends TestCase
 {
@@ -12,12 +12,12 @@ class UsersTest extends TestCase
 
         $this->user = Administrator::first();
 
-        $this->be($this->user, 'admin');
+        $this->be($this->user, 'merchant');
     }
 
     public function testUsersIndexPage()
     {
-        $this->visit('admin/auth/users')
+        $this->visit('merchant/auth/users')
             ->see('Administrator');
     }
 
@@ -31,28 +31,28 @@ class UsersTest extends TestCase
         ];
 
         // create user
-        $this->visit('admin/auth/users/create')
+        $this->visit('merchant/auth/users/create')
             ->see('Create')
             ->submitForm('Submit', $user)
-            ->seePageIs('admin/auth/users')
-            ->seeInDatabase(config('admin.database.users_table'), ['username' => 'Test']);
+            ->seePageIs('merchant/auth/users')
+            ->seeInDatabase(config('merchant.database.users_table'), ['username' => 'Test']);
 
         // assign role to user
-        $this->visit('admin/auth/users/2/edit')
+        $this->visit('merchant/auth/users/2/edit')
             ->see('Edit')
             ->submitForm('Submit', ['roles' => [1]])
-            ->seePageIs('admin/auth/users')
-            ->seeInDatabase(config('admin.database.role_users_table'), ['user_id' => 2, 'role_id' => 1]);
+            ->seePageIs('merchant/auth/users')
+            ->seeInDatabase(config('merchant.database.role_users_table'), ['user_id' => 2, 'role_id' => 1]);
 
-        $this->visit('admin/auth/logout')
-            ->dontSeeIsAuthenticated('admin')
-            ->seePageIs('admin/auth/login')
+        $this->visit('merchant/auth/logout')
+            ->dontSeeIsAuthenticated('merchant')
+            ->seePageIs('merchant/auth/login')
             ->submitForm('Login', ['username' => $user['username'], 'password' => $user['password']])
             ->see('dashboard')
-            ->seeIsAuthenticated('admin')
-            ->seePageIs('admin');
+            ->seeIsAuthenticated('merchant')
+            ->seePageIs('merchant');
 
-        $this->assertTrue($this->app['auth']->guard('admin')->getUser()->isAdministrator());
+        $this->assertTrue($this->app['auth']->guard('merchant')->getUser()->isAdministrator());
 
         $this->see('<span>Users</span>')
             ->see('<span>Roles</span>')
@@ -63,11 +63,11 @@ class UsersTest extends TestCase
 
     public function testUpdateUser()
     {
-        $this->visit('admin/auth/users/'.$this->user->id.'/edit')
+        $this->visit('merchant/auth/users/'.$this->user->id.'/edit')
             ->see('Create')
             ->submitForm('Submit', ['name' => 'test', 'roles' => [1]])
-            ->seePageIs('admin/auth/users')
-            ->seeInDatabase(config('admin.database.users_table'), ['name' => 'test']);
+            ->seePageIs('merchant/auth/users')
+            ->seeInDatabase(config('merchant.database.users_table'), ['name' => 'test']);
     }
 
     public function testResetPassword()
@@ -80,16 +80,16 @@ class UsersTest extends TestCase
             'roles'                 => [1],
         ];
 
-        $this->visit('admin/auth/users/'.$this->user->id.'/edit')
+        $this->visit('merchant/auth/users/'.$this->user->id.'/edit')
             ->see('Create')
             ->submitForm('Submit', $data)
-            ->seePageIs('admin/auth/users')
-            ->visit('admin/auth/logout')
-            ->dontSeeIsAuthenticated('admin')
-            ->seePageIs('admin/auth/login')
+            ->seePageIs('merchant/auth/users')
+            ->visit('merchant/auth/logout')
+            ->dontSeeIsAuthenticated('merchant')
+            ->seePageIs('merchant/auth/login')
             ->submitForm('Login', ['username' => $this->user->username, 'password' => $password])
             ->see('dashboard')
-            ->seeIsAuthenticated('admin')
-            ->seePageIs('admin');
+            ->seeIsAuthenticated('merchant')
+            ->seePageIs('merchant');
     }
 }

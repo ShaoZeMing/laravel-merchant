@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace ShaoZeMing\Merchant\Console;
 
-use Encore\Admin\Admin;
+use ShaoZeMing\Merchant\Admin;
 use Illuminate\Console\Command;
 
 class ImportCommand extends Command
@@ -12,7 +12,7 @@ class ImportCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'admin:import {extension?}';
+    protected $signature = 'merchant:import {extension?}';
 
     /**
      * The console command description.

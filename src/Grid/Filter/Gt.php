@@ -1,13 +1,13 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter;
+namespace ShaoZeMing\Merchant\Grid\Filter;
 
 class Gt extends AbstractFilter
 {
     /**
      * {@inheritdoc}
      */
-    protected $view = 'admin::filter.gt';
+    protected $view = 'merchant::filter.gt';
 
     /**
      * Get condition of this filter.

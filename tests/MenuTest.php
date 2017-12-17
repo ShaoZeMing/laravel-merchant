@@ -1,7 +1,7 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
-use Encore\Admin\Auth\Database\Menu;
+use ShaoZeMing\Merchant\Auth\Database\Administrator;
+use ShaoZeMing\Merchant\Auth\Database\Menu;
 
 class MenuTest extends TestCase
 {
@@ -9,12 +9,12 @@ class MenuTest extends TestCase
     {
         parent::setUp();
 
-        $this->be(Administrator::first(), 'admin');
+        $this->be(Administrator::first(), 'merchant');
     }
 
     public function testMenuIndex()
     {
-        $this->visit('admin/auth/menu')
+        $this->visit('merchant/auth/menu')
             ->see('Menu')
             ->see('Index')
             ->see('Auth')
@@ -28,48 +28,48 @@ class MenuTest extends TestCase
     {
         $item = ['parent_id' => '0', 'title' => 'Test', 'uri' => 'test'];
 
-        $this->visit('admin/auth/menu')
-            ->seePageIs('admin/auth/menu')
+        $this->visit('merchant/auth/menu')
+            ->seePageIs('merchant/auth/menu')
             ->see('Menu')
             ->submitForm('Submit', $item)
-            ->seePageIs('admin/auth/menu')
-            ->seeInDatabase(config('admin.database.menu_table'), $item)
+            ->seePageIs('merchant/auth/menu')
+            ->seeInDatabase(config('merchant.database.menu_table'), $item)
             ->assertEquals(8, Menu::count());
 
         $this->expectException(\Laravel\BrowserKitTesting\HttpException::class);
 
-        $this->visit('admin')
+        $this->visit('merchant')
             ->see('Test')
             ->click('Test');
     }
 
     public function testDeleteMenu()
     {
-        $this->delete('admin/auth/menu/8')
+        $this->delete('merchant/auth/menu/8')
             ->assertEquals(7, Menu::count());
     }
 
     public function testEditMenu()
     {
-        $this->visit('admin/auth/menu/1/edit')
+        $this->visit('merchant/auth/menu/1/edit')
             ->see('Menu')
             ->submitForm('Submit', ['title' => 'blablabla'])
-            ->seePageIs('admin/auth/menu')
-            ->seeInDatabase(config('admin.database.menu_table'), ['title' => 'blablabla'])
+            ->seePageIs('merchant/auth/menu')
+            ->seeInDatabase(config('merchant.database.menu_table'), ['title' => 'blablabla'])
             ->assertEquals(7, Menu::count());
     }
 
     public function testShowPage()
     {
-        $this->visit('admin/auth/menu/1')
-            ->seePageIs('admin/auth/menu/1/edit');
+        $this->visit('merchant/auth/menu/1')
+            ->seePageIs('merchant/auth/menu/1/edit');
     }
 
     public function testEditMenuParent()
     {
         $this->expectException(\Laravel\BrowserKitTesting\HttpException::class);
 
-        $this->visit('admin/auth/menu/5/edit')
+        $this->visit('merchant/auth/menu/5/edit')
             ->see('Menu')
             ->submitForm('Submit', ['parent_id' => 5]);
     }

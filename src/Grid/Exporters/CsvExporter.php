@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Exporters;
+namespace ShaoZeMing\Merchant\Grid\Exporters;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;

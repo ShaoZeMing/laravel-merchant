@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace ShaoZeMing\Merchant\Form;
 
-use Encore\Admin\Form;
+use ShaoZeMing\Merchant\Form;
 use Illuminate\Support\Collection;
 
 /**

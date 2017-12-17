@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
 use Illuminate\Contracts\Support\Arrayable;
 
@@ -9,11 +9,11 @@ class Checkbox extends MultipleSelect
     protected $inline = true;
 
     protected static $css = [
-        '/vendor/laravel-admin/AdminLTE/plugins/iCheck/all.css',
+        '/vendor/laravel-merchant/AdminLTE/plugins/iCheck/all.css',
     ];
 
     protected static $js = [
-        '/vendor/laravel-admin/AdminLTE/plugins/iCheck/icheck.min.js',
+        '/vendor/laravel-merchant/AdminLTE/plugins/iCheck/icheck.min.js',
     ];
 
     /**

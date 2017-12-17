@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace ShaoZeMing\Merchant\Form;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Form;
+use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Form;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
@@ -85,7 +85,7 @@ class Builder
      *
      * @var string
      */
-    protected $view = 'admin::form';
+    protected $view = 'merchant::form';
 
     /**
      * Builder constructor.
@@ -333,15 +333,15 @@ class Builder
     public function title()
     {
         if ($this->mode == static::MODE_CREATE) {
-            return trans('admin.create');
+            return trans('merchant.create');
         }
 
         if ($this->mode == static::MODE_EDIT) {
-            return trans('admin.edit');
+            return trans('merchant.edit');
         }
 
         if ($this->mode == static::MODE_VIEW) {
-            return trans('admin.view');
+            return trans('merchant.view');
         }
 
         return '';
@@ -444,7 +444,7 @@ class Builder
             return '';
         }
 
-        $text = trans('admin.submit');
+        $text = trans('merchant.submit');
 
         return <<<EOT
 <div class="btn-group pull-right">
@@ -464,7 +464,7 @@ EOT;
             return '';
         }
 
-        $text = trans('admin.reset');
+        $text = trans('merchant.reset');
 
         return <<<EOT
 <div class="btn-group pull-left">

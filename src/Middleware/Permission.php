@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace ShaoZeMing\Merchant\Middleware;
 
-use Encore\Admin\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Admin;
 use Illuminate\Http\Request;
 
 class Permission
@@ -24,7 +24,7 @@ class Permission
         if (!Admin::user()->allPermissions()->first(function ($permission) use ($request) {
             return $permission->shouldPassThrough($request);
         })) {
-            \Encore\Admin\Auth\Permission::error();
+            \ShaoZeMing\Merchant\Auth\Permission::error();
         }
 
         return $next($request);

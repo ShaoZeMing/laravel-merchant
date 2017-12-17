@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace ShaoZeMing\Merchant\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 
@@ -9,7 +9,7 @@ class InfoBox extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.info-box';
+    protected $view = 'merchant::widgets.info-box';
 
     /**
      * @var array

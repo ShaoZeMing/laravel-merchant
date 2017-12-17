@@ -1,6 +1,6 @@
 # Model-Form
 
-The `Encore\Admin\Form` class is used to generate a data model-based form. For example, there is a` movies` table in the database
+The `ShaoZeMing\Merchant\Form` class is used to generate a data model-based form. For example, there is a` movies` table in the database
 
 ```sql
 CREATE TABLE `movies` (
@@ -23,8 +23,8 @@ The corresponding data model is `App\Models\Movie`, and the following code can g
 ```php
 
 use App\Models\Movie;
-use Encore\Admin\Form;
-use Encore\Admin\Facades\Admin;
+use ShaoZeMing\Merchant\Form;
+use ShaoZeMing\Merchant\Facades\Admin;
 
 $grid = Admin::form(Movie::class, function(Form $grid){
 
@@ -82,10 +82,10 @@ $form->select($column[, $label])->options([1 => 'foo', 2 => 'bar', 'val' => 'Opt
 
 Or load option by ajax
 ```php
-$form->select($column[, $label])->options('/admin/demo/options');
+$form->select($column[, $label])->options('/merchant/demo/options');
 ```
 
-The json format returned from url `/admin/demo/options`:
+The json format returned from url `/merchant/demo/options`:
 ```
 [
     {
@@ -106,10 +106,10 @@ $form->multipleSelect($column[, $label])->options([1 => 'foo', 2 => 'bar', 'val'
 
 Or load option by ajax
 ```php
-$form->multipleSelect($column[, $label])->options('/admin/demo/options');
+$form->multipleSelect($column[, $label])->options('/merchant/demo/options');
 ```
 
-The json format returned from url `/admin/demo/options`:
+The json format returned from url `/merchant/demo/options`:
 ```
 [
     {
@@ -231,7 +231,7 @@ $form->rate($column[, $label]);
 ```
 
 #### image upload
-You can use compression, crop, add watermarks and other methods, please refer to [[Intervention] (http://image.intervention.io/getting_started/introduction)], picture upload directory in the file `config / admin.php` `Upload.image` configuration, if the directory does not exist, you need to create the directory and open write permissions:
+You can use compression, crop, add watermarks and other methods, please refer to [[Intervention] (http://image.intervention.io/getting_started/introduction)], picture upload directory in the file `config / merchant.php` `Upload.image` configuration, if the directory does not exist, you need to create the directory and open write permissions:
 ```php
 $form->image($column[, $label]);
 
@@ -246,7 +246,7 @@ $form->image($column[, $label])->insert($watermark, 'center');
 ```
 
 #### file upload
-The file upload directory is configured in `upload.file` in the file `config/admin.php`. If the directory does not exist, it needs to be created and write-enabled.
+The file upload directory is configured in `upload.file` in the file `config/merchant.php`. If the directory does not exist, it needs to be created and write-enabled.
 ```php
 $form->file($column[, $label]);
 

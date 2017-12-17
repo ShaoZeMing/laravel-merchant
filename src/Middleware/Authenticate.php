@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace ShaoZeMing\Merchant\Middleware;
 
 use Closure;
-use Encore\Admin\Admin;
+use ShaoZeMing\Merchant\Admin;
 use Illuminate\Support\Facades\Auth;
 
 class Authenticate
@@ -18,8 +18,8 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::guard('admin')->guest() && !$this->shouldPassThrough($request)) {
-            return redirect()->guest(admin_base_path('auth/login'));
+        if (Auth::guard('merchant')->guest() && !$this->shouldPassThrough($request)) {
+            return redirect()->guest(merchant_base_path('auth/login'));
         }
 
         return $next($request);
@@ -35,8 +35,8 @@ class Authenticate
     protected function shouldPassThrough($request)
     {
         $excepts = [
-            admin_base_path('auth/login'),
-            admin_base_path('auth/logout'),
+            merchant_base_path('auth/login'),
+            merchant_base_path('auth/logout'),
         ];
 
         foreach ($excepts as $except) {

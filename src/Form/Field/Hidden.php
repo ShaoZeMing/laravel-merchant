@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
-use Encore\Admin\Form\Field;
+use ShaoZeMing\Merchant\Form\Field;
 
 class Hidden extends Field
 {

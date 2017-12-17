@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter\Presenter;
+namespace ShaoZeMing\Merchant\Grid\Filter\Presenter;
 
-use Encore\Admin\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Admin;
 
 class Checkbox extends Radio
 {

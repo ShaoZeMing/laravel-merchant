@@ -1,11 +1,11 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
 class Number extends Text
 {
     protected static $js = [
-        '/vendor/laravel-admin/number-input/bootstrap-number-input.js',
+        '/vendor/laravel-merchant/number-input/bootstrap-number-input.js',
     ];
 
     public function render()

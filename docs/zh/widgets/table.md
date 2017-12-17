@@ -1,9 +1,9 @@
 # Table
 
-`Encore\Admin\Widgets\Table`类用来生成表格：
+`ShaoZeMing\Merchant\Widgets\Table`类用来生成表格：
 
 ```php
-use Encore\Admin\Widgets\Table;
+use ShaoZeMing\Merchant\Widgets\Table;
 
 // table 1
 $headers = ['Id', 'Email', 'Name', 'Company'];

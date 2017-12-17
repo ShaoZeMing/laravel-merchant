@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
 use Closure;
-use Encore\Admin\Form\Field;
+use ShaoZeMing\Merchant\Form\Field;
 
 class Display extends Field
 {

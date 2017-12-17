@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Layout;
+namespace ShaoZeMing\Merchant\Layout;
 
 use Illuminate\Contracts\Support\Renderable;
 

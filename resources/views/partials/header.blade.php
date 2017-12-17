@@ -2,11 +2,11 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="{{ admin_base_path('/') }}" class="logo">
+    <a href="{{ merchant_base_path('/') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini">{!! config('admin.logo-mini', config('admin.name')) !!}</span>
+        <span class="logo-mini">{!! config('merchant.logo-mini', config('merchant.name')) !!}</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">{!! config('admin.logo', config('admin.name')) !!}</span>
+        <span class="logo-lg">{!! config('merchant.logo', config('merchant.name')) !!}</span>
     </a>
 
     <!-- Header Navbar -->
@@ -40,15 +40,15 @@
 
                             <p>
                                 {{ Admin::user()->name }}
-                                <small>Member since admin {{ Admin::user()->created_at }}</small>
+                                <small>Member since merchant {{ Admin::user()->created_at }}</small>
                             </p>
                         </li>
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="{{ admin_base_path('auth/setting') }}" class="btn btn-default btn-flat">{{ trans('admin.setting') }}</a>
+                                <a href="{{ merchant_base_path('auth/setting') }}" class="btn btn-default btn-flat">{{ trans('merchant.setting') }}</a>
                             </div>
                             <div class="pull-right">
-                                <a href="{{ admin_base_path('auth/logout') }}" class="btn btn-default btn-flat">{{ trans('admin.logout') }}</a>
+                                <a href="{{ merchant_base_path('auth/logout') }}" class="btn btn-default btn-flat">{{ trans('merchant.logout') }}</a>
                             </div>
                         </li>
                     </ul>

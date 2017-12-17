@@ -1,6 +1,6 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
+use ShaoZeMing\Merchant\Auth\Database\Administrator;
 use Tests\Models\User as UserModel;
 
 class UserFormTest extends TestCase
@@ -9,12 +9,12 @@ class UserFormTest extends TestCase
     {
         parent::setUp();
 
-        $this->be(Administrator::first(), 'admin');
+        $this->be(Administrator::first(), 'merchant');
     }
 
     public function testCreatePage()
     {
-        $this->visit('admin/users/create')
+        $this->visit('merchant/users/create')
             ->seeElement('input[type=text][name=username]')
             ->seeElement('input[type=email][name=email]')
             ->seeElement('input[type=text][name=mobile]')
@@ -59,11 +59,11 @@ class UserFormTest extends TestCase
             ],
         ];
 
-        $this->visit('admin/users/create')
+        $this->visit('merchant/users/create')
             ->attach(__DIR__.'/assets/test.jpg', 'avatar')
 
             ->submitForm('Submit', $data)
-            ->seePageIs('admin/users')
+            ->seePageIs('merchant/users')
             ->seeInElement('td', 1)
             ->seeInElement('td', $data['username'])
             ->seeInElement('td', $data['email'])
@@ -117,7 +117,7 @@ class UserFormTest extends TestCase
 
         $user = UserModel::with('profile')->find($id);
 
-        $this->visit("admin/users/$id/edit")
+        $this->visit("merchant/users/$id/edit")
             ->seeElement("input[type=text][name=username][value='{$user->username}']")
             ->seeElement("input[type=email][name=email][value='{$user->email}']")
             ->seeElement("input[type=text][name=mobile][value='{$user->mobile}']")
@@ -143,12 +143,12 @@ class UserFormTest extends TestCase
 
         $id = rand(1, 10);
 
-        $this->visit("admin/users/$id/edit")
+        $this->visit("merchant/users/$id/edit")
             ->type('hello world', 'username')
             ->type('123', 'password')
             ->type('123', 'password_confirmation')
             ->press('Submit')
-            ->seePageIs('admin/users')
+            ->seePageIs('merchant/users')
             ->seeInDatabase('test_users', ['username' => 'hello world']);
 
         $user = UserModel::with('profile')->find($id);
@@ -162,29 +162,29 @@ class UserFormTest extends TestCase
 
         $id = rand(1, 10);
 
-        $this->visit("admin/users/$id/edit")
+        $this->visit("merchant/users/$id/edit")
             ->type('', 'email')
             ->press('Submit')
-            ->seePageIs("admin/users/$id/edit")
+            ->seePageIs("merchant/users/$id/edit")
             ->see('The email field is required');
 
         $this->type('xxaxx', 'email')
             ->press('Submit')
-            ->seePageIs("admin/users/$id/edit")
+            ->seePageIs("merchant/users/$id/edit")
             ->see('The email must be a valid email address.');
 
-        $this->visit("admin/users/$id/edit")
+        $this->visit("merchant/users/$id/edit")
             ->type('123', 'password')
             ->type('1234', 'password_confirmation')
             ->press('Submit')
-            ->seePageIs("admin/users/$id/edit")
+            ->seePageIs("merchant/users/$id/edit")
             ->see('The Password confirmation does not match.');
 
         $this->type('xx@xx.xx', 'email')
             ->type('123', 'password')
             ->type('123', 'password_confirmation')
             ->press('Submit')
-            ->seePageIs('admin/users')
+            ->seePageIs('merchant/users')
             ->seeInDatabase('test_users', ['email' => 'xx@xx.xx']);
     }
 }

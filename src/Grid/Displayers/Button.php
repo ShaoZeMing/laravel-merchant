@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace ShaoZeMing\Merchant\Grid\Displayers;
 
 class Button extends AbstractDisplayer
 {

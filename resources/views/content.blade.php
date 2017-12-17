@@ -1,16 +1,16 @@
-@extends('admin::index')
+@extends('merchant::index')
 
 @section('content')
     <section class="content-header">
         <h1>
-            {{ $header or trans('admin.title') }}
-            <small>{{ $description or trans('admin.description') }}</small>
+            {{ $header or trans('merchant.title') }}
+            <small>{{ $description or trans('merchant.description') }}</small>
         </h1>
 
         <!-- breadcrumb start -->
         @if ($breadcrumb)
         <ol class="breadcrumb" style="margin-right: 30px;">
-            <li><a href="{{ admin_url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="{{ merchant_url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
             @foreach($breadcrumb as $item)
                 @if($loop->last)
                     <li class="active">
@@ -21,7 +21,7 @@
                     </li>
                 @else
                 <li>
-                    <a href="{{ admin_url(array_get($item, 'url')) }}">
+                    <a href="{{ merchant_url(array_get($item, 'url')) }}">
                         @if (array_has($item, 'icon'))
                             <i class="fa fa-{{ $item['icon'] }}"></i>
                         @endif
@@ -38,10 +38,10 @@
 
     <section class="content">
 
-        @include('admin::partials.error')
-        @include('admin::partials.success')
-        @include('admin::partials.exception')
-        @include('admin::partials.toastr')
+        @include('merchant::partials.error')
+        @include('merchant::partials.success')
+        @include('merchant::partials.exception')
+        @include('merchant::partials.toastr')
 
         {!! $content !!}
 

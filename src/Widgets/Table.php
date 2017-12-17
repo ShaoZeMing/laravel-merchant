@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace ShaoZeMing\Merchant\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Arr;
@@ -10,7 +10,7 @@ class Table extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.table';
+    protected $view = 'merchant::widgets.table';
 
     /**
      * @var array

@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Auth\Database;
+namespace ShaoZeMing\Merchant\Auth\Database;
 
-use Encore\Admin\Traits\AdminBuilder;
+use ShaoZeMing\Merchant\Traits\AdminBuilder;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Model;
@@ -25,11 +25,11 @@ class Administrator extends Model implements AuthenticatableContract
      */
     public function __construct(array $attributes = [])
     {
-        $connection = config('admin.database.connection') ?: config('database.default');
+        $connection = config('merchant.database.connection') ?: config('database.default');
 
         $this->setConnection($connection);
 
-        $this->setTable(config('admin.database.users_table'));
+        $this->setTable(config('merchant.database.users_table'));
 
         parent::__construct($attributes);
     }

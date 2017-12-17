@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
-use Encore\Admin\Form\Field;
+use ShaoZeMing\Merchant\Form\Field;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -16,7 +16,7 @@ class MultipleFile extends Field
      * @var array
      */
     protected static $css = [
-        '/vendor/laravel-admin/bootstrap-fileinput/css/fileinput.min.css?v=4.3.7',
+        '/vendor/laravel-merchant/bootstrap-fileinput/css/fileinput.min.css?v=4.3.7',
     ];
 
     /**
@@ -25,8 +25,8 @@ class MultipleFile extends Field
      * @var array
      */
     protected static $js = [
-        '/vendor/laravel-admin/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js?v=4.3.7',
-        '/vendor/laravel-admin/bootstrap-fileinput/js/fileinput.min.js?v=4.3.7',
+        '/vendor/laravel-merchant/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js?v=4.3.7',
+        '/vendor/laravel-merchant/bootstrap-fileinput/js/fileinput.min.js?v=4.3.7',
     ];
 
     /**
@@ -49,7 +49,7 @@ class MultipleFile extends Field
      */
     public function defaultDirectory()
     {
-        return config('admin.upload.directory.file');
+        return config('merchant.upload.directory.file');
     }
 
     /**

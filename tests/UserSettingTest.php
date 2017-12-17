@@ -1,6 +1,6 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
+use ShaoZeMing\Merchant\Auth\Database\Administrator;
 use Illuminate\Support\Facades\File;
 
 class UserSettingTest extends TestCase
@@ -9,12 +9,12 @@ class UserSettingTest extends TestCase
     {
         parent::setUp();
 
-        $this->be(Administrator::first(), 'admin');
+        $this->be(Administrator::first(), 'merchant');
     }
 
     public function testVisitSettingPage()
     {
-        $this->visit('admin/auth/setting')
+        $this->visit('merchant/auth/setting')
             ->see('User setting')
             ->see('Username')
             ->see('Name')
@@ -32,21 +32,21 @@ class UserSettingTest extends TestCase
             'name' => 'tester',
         ];
 
-        $this->visit('admin/auth/setting')
+        $this->visit('merchant/auth/setting')
             ->submitForm('Submit', $data)
-            ->seePageIs('admin/auth/setting');
+            ->seePageIs('merchant/auth/setting');
 
-        $this->seeInDatabase('admin_users', ['name' => $data['name']]);
+        $this->seeInDatabase('merchant_users', ['name' => $data['name']]);
     }
 
     public function testUpdateAvatar()
     {
         File::cleanDirectory(public_path('uploads/images'));
 
-        $this->visit('admin/auth/setting')
+        $this->visit('merchant/auth/setting')
             ->attach(__DIR__.'/assets/test.jpg', 'avatar')
             ->press('Submit')
-            ->seePageIs('admin/auth/setting');
+            ->seePageIs('merchant/auth/setting');
 
         $avatar = Administrator::first()->avatar;
 
@@ -60,9 +60,9 @@ class UserSettingTest extends TestCase
             'password_confirmation' => '123',
         ];
 
-        $this->visit('admin/auth/setting')
+        $this->visit('merchant/auth/setting')
             ->submitForm('Submit', $data)
-            ->seePageIs('admin/auth/setting')
+            ->seePageIs('merchant/auth/setting')
             ->see('The Password confirmation does not match.');
     }
 
@@ -73,24 +73,24 @@ class UserSettingTest extends TestCase
             'password_confirmation' => '123456',
         ];
 
-        $this->visit('admin/auth/setting')
+        $this->visit('merchant/auth/setting')
             ->submitForm('Submit', $data)
-            ->seePageIs('admin/auth/setting');
+            ->seePageIs('merchant/auth/setting');
 
         $this->assertTrue(app('hash')->check($data['password'], Administrator::first()->makeVisible('password')->password));
 
-        $this->visit('admin/auth/logout')
-            ->seePageIs('admin/auth/login')
-            ->dontSeeIsAuthenticated('admin');
+        $this->visit('merchant/auth/logout')
+            ->seePageIs('merchant/auth/login')
+            ->dontSeeIsAuthenticated('merchant');
 
-        $credentials = ['username' => 'admin', 'password' => '123456'];
+        $credentials = ['username' => 'merchant', 'password' => '123456'];
 
-        $this->visit('admin/auth/login')
+        $this->visit('merchant/auth/login')
             ->see('login')
             ->submitForm('Login', $credentials)
             ->see('dashboard')
-            ->seeCredentials($credentials, 'admin')
-            ->seeIsAuthenticated('admin')
-            ->seePageIs('admin');
+            ->seeCredentials($credentials, 'merchant')
+            ->seeIsAuthenticated('merchant')
+            ->seePageIs('merchant');
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace ShaoZeMing\Merchant\Grid\Tools;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Grid;
+use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Grid;
 
 class ExportButton extends AbstractTool
 {
@@ -54,10 +54,10 @@ SCRIPT;
 
         $this->setUpScripts();
 
-        $export = trans('admin.export');
-        $all = trans('admin.all');
-        $currentPage = trans('admin.current_page');
-        $selectedRows = trans('admin.selected_rows');
+        $export = trans('merchant.export');
+        $all = trans('merchant.all');
+        $currentPage = trans('merchant.current_page');
+        $selectedRows = trans('merchant.selected_rows');
 
         $page = request('page', 1);
 

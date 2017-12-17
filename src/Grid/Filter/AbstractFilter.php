@@ -1,15 +1,15 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter;
+namespace ShaoZeMing\Merchant\Grid\Filter;
 
-use Encore\Admin\Grid\Filter;
-use Encore\Admin\Grid\Filter\Presenter\Checkbox;
-use Encore\Admin\Grid\Filter\Presenter\DateTime;
-use Encore\Admin\Grid\Filter\Presenter\MultipleSelect;
-use Encore\Admin\Grid\Filter\Presenter\Presenter;
-use Encore\Admin\Grid\Filter\Presenter\Radio;
-use Encore\Admin\Grid\Filter\Presenter\Select;
-use Encore\Admin\Grid\Filter\Presenter\Text;
+use ShaoZeMing\Merchant\Grid\Filter;
+use ShaoZeMing\Merchant\Grid\Filter\Presenter\Checkbox;
+use ShaoZeMing\Merchant\Grid\Filter\Presenter\DateTime;
+use ShaoZeMing\Merchant\Grid\Filter\Presenter\MultipleSelect;
+use ShaoZeMing\Merchant\Grid\Filter\Presenter\Presenter;
+use ShaoZeMing\Merchant\Grid\Filter\Presenter\Radio;
+use ShaoZeMing\Merchant\Grid\Filter\Presenter\Select;
+use ShaoZeMing\Merchant\Grid\Filter\Presenter\Text;
 
 /**
  * Class AbstractFilter.
@@ -79,7 +79,7 @@ abstract class AbstractFilter
     /**
      * @var string
      */
-    protected $view = 'admin::filter.where';
+    protected $view = 'merchant::filter.where';
 
     /**
      * AbstractFilter constructor.

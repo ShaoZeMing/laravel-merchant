@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace ShaoZeMing\Merchant\Grid\Tools;
 
-use Encore\Admin\Grid;
+use ShaoZeMing\Merchant\Grid;
 
 class Footer extends AbstractTool
 {

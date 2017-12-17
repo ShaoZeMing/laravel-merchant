@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Traits;
+namespace ShaoZeMing\Merchant\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -294,7 +294,7 @@ trait ModelTree
             $parentColumn = $branch->getParentColumn();
 
             if (Request::has($parentColumn) && Request::input($parentColumn) == $branch->getKey()) {
-                throw new \Exception(trans('admin.parent_select_error'));
+                throw new \Exception(trans('merchant.parent_select_error'));
             }
 
             if (Request::has('_order')) {

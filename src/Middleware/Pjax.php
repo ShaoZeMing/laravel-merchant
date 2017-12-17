@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace ShaoZeMing\Merchant\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
@@ -23,7 +23,7 @@ class Pjax
     {
         $response = $next($request);
 
-        if (!$request->pjax() || $response->isRedirection() || Auth::guard('admin')->guest()) {
+        if (!$request->pjax() || $response->isRedirection() || Auth::guard('merchant')->guest()) {
             return $response;
         }
 

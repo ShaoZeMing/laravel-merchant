@@ -4,11 +4,11 @@
 
     <div class="{{$viewClass['field']}}">
 
-        @include('admin::form.error')
+        @include('merchant::form.error')
 
         <textarea class="form-control" id="{{$id}}" name="{{$name}}" placeholder="{{ $placeholder }}" {!! $attributes !!} >{{ old($column, $value) }}</textarea>
 
-        @include('admin::form.help-block')
+        @include('merchant::form.help-block')
 
     </div>
 </div>

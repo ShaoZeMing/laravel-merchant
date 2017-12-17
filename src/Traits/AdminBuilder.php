@@ -1,10 +1,10 @@
 <?php
 
-namespace Encore\Admin\Traits;
+namespace ShaoZeMing\Merchant\Traits;
 
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Tree;
+use ShaoZeMing\Merchant\Form;
+use ShaoZeMing\Merchant\Grid;
+use ShaoZeMing\Merchant\Tree;
 
 trait AdminBuilder
 {

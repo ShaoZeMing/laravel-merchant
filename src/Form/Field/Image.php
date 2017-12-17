@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -11,7 +11,7 @@ class Image extends File
     /**
      * {@inheritdoc}
      */
-    protected $view = 'admin::form.file';
+    protected $view = 'merchant::form.file';
 
     /**
      *  Validation rules.

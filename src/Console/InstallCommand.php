@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace ShaoZeMing\Merchant\Console;
 
-use Encore\Admin\Auth\Database\Administrator;
+use ShaoZeMing\Merchant\Auth\Database\Administrator;
 use Illuminate\Console\Command;
 
 class InstallCommand extends Command
@@ -12,14 +12,14 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $name = 'admin:install';
+    protected $name = 'merchant:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install the admin package';
+    protected $description = 'Install the merchant package';
 
     /**
      * Install directory.
@@ -50,7 +50,7 @@ class InstallCommand extends Command
         $this->call('migrate');
 
         if (Administrator::count() == 0) {
-            $this->call('db:seed', ['--class' => \Encore\Admin\Auth\Database\AdminTablesSeeder::class]);
+            $this->call('db:seed', ['--class' => \ShaoZeMing\Merchant\Auth\Database\AdminTablesSeeder::class]);
         }
     }
 
@@ -61,7 +61,7 @@ class InstallCommand extends Command
      */
     protected function initAdminDirectory()
     {
-        $this->directory = config('admin.directory');
+        $this->directory = config('merchant.directory');
 
         if (is_dir($this->directory)) {
             $this->line("<error>{$this->directory} directory already exists !</error> ");
@@ -93,7 +93,7 @@ class InstallCommand extends Command
 
         $this->laravel['files']->put(
             $homeController,
-            str_replace('DummyNamespace', config('admin.route.namespace'), $contents)
+            str_replace('DummyNamespace', config('merchant.route.namespace'), $contents)
         );
         $this->line('<info>HomeController file was created:</info> '.str_replace(base_path(), '', $homeController));
     }
@@ -110,7 +110,7 @@ class InstallCommand extends Command
 
         $this->laravel['files']->put(
             $exampleController,
-            str_replace('DummyNamespace', config('admin.route.namespace'), $contents)
+            str_replace('DummyNamespace', config('merchant.route.namespace'), $contents)
         );
         $this->line('<info>ExampleController file was created:</info> '.str_replace(base_path(), '', $exampleController));
     }
@@ -139,7 +139,7 @@ class InstallCommand extends Command
         $file = $this->directory.'/routes.php';
 
         $contents = $this->getStub('routes');
-        $this->laravel['files']->put($file, str_replace('DummyNamespace', config('admin.route.namespace'), $contents));
+        $this->laravel['files']->put($file, str_replace('DummyNamespace', config('merchant.route.namespace'), $contents));
         $this->line('<info>Routes file was created:</info> '.str_replace(base_path(), '', $file));
     }
 

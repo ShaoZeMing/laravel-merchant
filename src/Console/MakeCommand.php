@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace ShaoZeMing\Merchant\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -13,14 +13,14 @@ class MakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $name = 'admin:make';
+    protected $name = 'merchant:make';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Make empty admin controller';
+    protected $description = 'Make empty merchant controller';
 
     /**
      * Execute the console command.
@@ -96,7 +96,7 @@ class MakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        $directory = config('admin.directory');
+        $directory = config('merchant.directory');
 
         $namespace = ucfirst(basename($directory));
 

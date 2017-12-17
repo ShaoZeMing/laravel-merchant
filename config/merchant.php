@@ -3,17 +3,17 @@
 return [
 
     /*
-     * Laravel-admin name.
+     * Laravel-merchant name.
      */
-    'name' => 'Laravel-admin',
+    'name' => 'Laravel-merchant',
 
     /*
-     * Logo in admin panel header.
+     * Logo in merchant panel header.
      */
-    'logo' => '<b>Laravel</b> admin',
+    'logo' => '<b>Laravel</b> merchant',
 
     /*
-     * Mini-logo in admin panel header.
+     * Mini-logo in merchant panel header.
      */
     'logo-mini' => '<b>La</b>',
 
@@ -22,20 +22,20 @@ return [
      */
     'route' => [
 
-        'prefix' => 'admin',
+        'prefix' => 'merchant',
 
         'namespace' => 'App\\Admin\\Controllers',
 
-        'middleware' => ['web', 'admin'],
+        'middleware' => ['web', 'merchant'],
     ],
 
     /*
-     * Laravel-admin install directory.
+     * Laravel-merchant install directory.
      */
     'directory' => app_path('Admin'),
 
     /*
-     * Laravel-admin html title.
+     * Laravel-merchant html title.
      */
     'title' => 'Admin',
 
@@ -45,30 +45,30 @@ return [
     'secure' => false,
 
     /*
-     * Laravel-admin auth setting.
+     * Laravel-merchant auth setting.
      */
     'auth' => [
         'guards' => [
-            'admin' => [
+            'merchant' => [
                 'driver'   => 'session',
-                'provider' => 'admin',
+                'provider' => 'merchant',
             ],
         ],
 
         'providers' => [
-            'admin' => [
+            'merchant' => [
                 'driver' => 'eloquent',
-                'model'  => Encore\Admin\Auth\Database\Administrator::class,
+                'model'  => ShaoZeMing\Merchant\Auth\Database\Administrator::class,
             ],
         ],
     ],
 
     /*
-     * Laravel-admin upload setting.
+     * Laravel-merchant upload setting.
      */
     'upload' => [
 
-        'disk' => 'admin',
+        'disk' => 'merchant',
 
         'directory' => [
             'image' => 'images',
@@ -77,7 +77,7 @@ return [
     ],
 
     /*
-     * Laravel-admin database setting.
+     * Laravel-merchant database setting.
      */
     'database' => [
 
@@ -85,31 +85,31 @@ return [
         'connection' => '',
 
         // User tables and model.
-        'users_table' => 'admin_users',
-        'users_model' => Encore\Admin\Auth\Database\Administrator::class,
+        'users_table' => 'merchant_users',
+        'users_model' => ShaoZeMing\Merchant\Auth\Database\Administrator::class,
 
         // Role table and model.
-        'roles_table' => 'admin_roles',
-        'roles_model' => Encore\Admin\Auth\Database\Role::class,
+        'roles_table' => 'merchant_roles',
+        'roles_model' => ShaoZeMing\Merchant\Auth\Database\Role::class,
 
         // Permission table and model.
-        'permissions_table' => 'admin_permissions',
-        'permissions_model' => Encore\Admin\Auth\Database\Permission::class,
+        'permissions_table' => 'merchant_permissions',
+        'permissions_model' => ShaoZeMing\Merchant\Auth\Database\Permission::class,
 
         // Menu table and model.
-        'menu_table' => 'admin_menu',
-        'menu_model' => Encore\Admin\Auth\Database\Menu::class,
+        'menu_table' => 'merchant_menu',
+        'menu_model' => ShaoZeMing\Merchant\Auth\Database\Menu::class,
 
         // Pivot table for table above.
-        'operation_log_table'    => 'admin_operation_log',
-        'user_permissions_table' => 'admin_user_permissions',
-        'role_users_table'       => 'admin_role_users',
-        'role_permissions_table' => 'admin_role_permissions',
-        'role_menu_table'        => 'admin_role_menu',
+        'operation_log_table'    => 'merchant_operation_log',
+        'user_permissions_table' => 'merchant_user_permissions',
+        'role_users_table'       => 'merchant_role_users',
+        'role_permissions_table' => 'merchant_role_permissions',
+        'role_menu_table'        => 'merchant_role_menu',
     ],
 
     /*
-     * By setting this option to open or close operation log in laravel-admin.
+     * By setting this option to open or close operation log in laravel-merchant.
      */
     'operation_log' => [
 
@@ -118,11 +118,11 @@ return [
         /*
          * Routes that will not log to database.
          *
-         * All method to path like: admin/auth/logs
-         * or specific method to path like: get:admin/auth/logs
+         * All method to path like: merchant/auth/logs
+         * or specific method to path like: get:merchant/auth/logs
          */
         'except' => [
-            'admin/auth/logs*',
+            'merchant/auth/logs*',
         ],
     ],
 

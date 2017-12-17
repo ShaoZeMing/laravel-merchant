@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter\Presenter;
+namespace ShaoZeMing\Merchant\Grid\Filter\Presenter;
 
 class MultipleSelect extends Select
 {

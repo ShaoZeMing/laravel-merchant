@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin;
+namespace ShaoZeMing\Merchant;
 
-use Encore\Admin\Auth\Database\Menu;
-use Encore\Admin\Auth\Database\Permission;
+use ShaoZeMing\Merchant\Auth\Database\Menu;
+use ShaoZeMing\Merchant\Auth\Database\Permission;
 use Illuminate\Support\Facades\Route;
 
 abstract class Extension
@@ -12,7 +12,7 @@ abstract class Extension
     {
         $name = array_search(get_called_class(), Admin::$extensions);
 
-        $key = sprintf('admin.extensions.%s.%s', strtolower($name), $key);
+        $key = sprintf('merchant.extensions.%s.%s', strtolower($name), $key);
 
         return config($key, $default);
     }
@@ -24,9 +24,9 @@ abstract class Extension
     protected static function routes($callback)
     {
         /* @var \Illuminate\Routing\Router $router */
-        Route::group(['prefix' => config('admin.route.prefix')], function ($router) use ($callback) {
+        Route::group(['prefix' => config('merchant.route.prefix')], function ($router) use ($callback) {
             $attributes = array_merge([
-                'middleware' => config('admin.route.middleware'),
+                'middleware' => config('merchant.route.middleware'),
             ], static::config('route', []));
 
             $router->group($attributes, $callback);

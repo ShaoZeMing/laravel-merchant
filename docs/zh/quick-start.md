@@ -17,27 +17,27 @@ CREATE TABLE `users` (
 ```
 对应的数据模型为文件 `App\User.php`
 
-`laravel-admin`可以通过使用以下几步来快速生成`users`表的`CURD`操作页面：
+`laravel-merchant`可以通过使用以下几步来快速生成`users`表的`CURD`操作页面：
 
 ### 1.添加路由器
 
 使用下面的命令来创建一个对应`App\User`模型的路由器
 ```php
-php artisan admin:make UserController --model=App\\User
+php artisan merchant:make UserController --model=App\\User
 ```
 
 上面的命令会创建路由器文件`app/Admin/Controllers/UserController.php`.
 
 ### 2.添加路由配置
 
-在`laravel-admin`的路由配置文件`app/Admin/routes.php`里添加一行：
+在`laravel-merchant`的路由配置文件`app/Admin/routes.php`里添加一行：
 ```
 $router->resource('users', UserController::class);
 ```
 
 ### 3.添加左侧菜单栏连接
 
-打开`http://localhost:8000/admin/auth/menu`,添加对应的menu
+打开`http://localhost:8000/merchant/auth/menu`,添加对应的menu
 
 然后就能在后台管理页面的左侧边栏看到用户管理页面的链接入口了。
 

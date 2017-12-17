@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Auth\Database;
+namespace ShaoZeMing\Merchant\Auth\Database;
 
 use Illuminate\Database\Seeder;
 
@@ -16,8 +16,8 @@ class AdminTablesSeeder extends Seeder
         // create a user.
         Administrator::truncate();
         Administrator::create([
-            'username' => 'admin',
-            'password' => bcrypt('admin'),
+            'username' => 'merchant',
+            'password' => bcrypt('merchant'),
             'name'     => 'Administrator',
         ]);
 

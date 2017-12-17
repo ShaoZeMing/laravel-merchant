@@ -1,22 +1,22 @@
-laravel-admin
+laravel-merchant
 =====
 
-[![Build Status](https://travis-ci.org/z-song/laravel-admin.svg?branch=master)](https://travis-ci.org/z-song/laravel-admin)
+[![Build Status](https://travis-ci.org/z-song/laravel-merchant.svg?branch=master)](https://travis-ci.org/z-song/laravel-merchant)
 [![StyleCI](https://styleci.io/repos/48796179/shield)](https://styleci.io/repos/48796179)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/z-song/laravel-admin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/z-song/laravel-admin/?branch=master)
-[![Packagist](https://img.shields.io/packagist/l/encore/laravel-admin.svg?maxAge=2592000)](https://packagist.org/packages/encore/laravel-admin)
-[![Total Downloads](https://img.shields.io/packagist/dt/encore/laravel-admin.svg?style=flat-square)](https://packagist.org/packages/encore/laravel-admin)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/z-song/laravel-merchant/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/z-song/laravel-merchant/?branch=master)
+[![Packagist](https://img.shields.io/packagist/l/encore/laravel-merchant.svg?maxAge=2592000)](https://packagist.org/packages/encore/laravel-merchant)
+[![Total Downloads](https://img.shields.io/packagist/dt/encore/laravel-merchant.svg?style=flat-square)](https://packagist.org/packages/encore/laravel-merchant)
 
-`laravel-admin` 是一个可以快速帮你构建后台管理的工具，它提供的页面组件和表单元素等功能，能帮助你使用很少的代码就实现功能完善的后台管理功能。
+`laravel-merchant` 是一个可以快速帮你构建后台管理的工具，它提供的页面组件和表单元素等功能，能帮助你使用很少的代码就实现功能完善的后台管理功能。
 
-[Demo](http://120.26.143.106/admin) 账号/密码:admin/admin
+[Demo](http://120.26.143.106/merchant) 账号/密码:merchant/merchant
 
-Inspired by [SleepingOwlAdmin](https://github.com/sleeping-owl/admin) and [rapyd-laravel](https://github.com/zofe/rapyd-laravel).
+Inspired by [SleepingOwlAdmin](https://github.com/sleeping-owl/merchant) and [rapyd-laravel](https://github.com/zofe/rapyd-laravel).
 
 截图
 ------------
 
-![laravel-admin](https://cloud.githubusercontent.com/assets/1479100/19625297/3b3deb64-9947-11e6-807c-cffa999004be.jpg)
+![laravel-merchant](https://cloud.githubusercontent.com/assets/1479100/19625297/3b3deb64-9947-11e6-807c-cffa999004be.jpg)
 
 安装
 ------------
@@ -25,34 +25,34 @@ Inspired by [SleepingOwlAdmin](https://github.com/sleeping-owl/admin) and [rapyd
 
 ```
 Laravel 5.2
-composer require encore/laravel-admin "dev-master"
+composer require encore/laravel-merchant "dev-master"
 
 Laravel 5.3
-composer require encore/laravel-admin "1.3.x-dev"
+composer require encore/laravel-merchant "1.3.x-dev"
 
 Laravel 5.1
-composer require encore/laravel-admin "1.1.x-dev"
+composer require encore/laravel-merchant "1.1.x-dev"
 ```
 
 在`config/app.php`加入`ServiceProvider`:
 
 ```
-Encore\Admin\AdminServiceProvider::class
+ShaoZeMing\Merchant\AdminServiceProvider::class
 ```
 
 然后运行下面的命令完成安装：
 
 ```
-php artisan vendor:publish --tag=laravel-admin
-php artisan admin:install
+php artisan vendor:publish --tag=laravel-merchant
+php artisan merchant:install
 ```
 
-启动服务后，在浏览器打开 `http://localhost/admin/` ,使用用户名 `admin` 和密码 `admin`登陆.
+启动服务后，在浏览器打开 `http://localhost/merchant/` ,使用用户名 `merchant` 和密码 `merchant`登陆.
 
 默认配置
 ------------
 
-安装完成之后，`laravel-admin`所有的配置都在`config/admin.php`文件中。
+安装完成之后，`laravel-merchant`所有的配置都在`config/merchant.php`文件中。
 
 使用文档
 ------------
@@ -111,27 +111,27 @@ CREATE TABLE `users` (
 ```
 对应的数据模型为文件 `App\User.php`
 
-`laravel-admin`可以通过使用以下几步来快速生成`users`表的`CURD`操作页面：
+`laravel-merchant`可以通过使用以下几步来快速生成`users`表的`CURD`操作页面：
 
 ### 1.添加路由器
 
 使用下面的命令来创建一个对应`App\User`模型的路由器
 ```php
-php artisan admin:make UserController --model=App\\User
+php artisan merchant:make UserController --model=App\\User
 ```
 
 上面的命令会创建路由器文件`app/Admin/Controllers/UserController.php`.
 
 ### 2.添加路由配置
 
-在`laravel-admin`的路由配置文件`app/Admin/routes.php`里添加一行：
+在`laravel-merchant`的路由配置文件`app/Admin/routes.php`里添加一行：
 ```
 $router->resource('users', UserController::class);
 ```
 
 ### 3.添加左侧菜单栏连接
 
-打开`http://localhost:8000/admin/auth/menu`,添加对应的menu
+打开`http://localhost:8000/merchant/auth/menu`,添加对应的menu
 
 然后就能在后台管理页面的左侧边栏看到用户管理页面的链接入口了。
 
@@ -141,7 +141,7 @@ $router->resource('users', UserController::class);
 
 其它
 ------------
-`laravel-admin` 基于以下组件或者服务:
+`laravel-merchant` 基于以下组件或者服务:
 
 + [Laravel](https://laravel.com/)
 + [AdminLTE](https://almsaeedstudio.com/)
@@ -165,4 +165,4 @@ QQ群:278455482
 
 License
 ------------
-`laravel-admin` is licensed under [The MIT License (MIT)](LICENSE).
+`laravel-merchant` is licensed under [The MIT License (MIT)](LICENSE).

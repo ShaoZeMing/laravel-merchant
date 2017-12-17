@@ -1,16 +1,16 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
 class Date extends Text
 {
     protected static $css = [
-        '/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
+        '/vendor/laravel-merchant/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
     ];
 
     protected static $js = [
-        '/vendor/laravel-admin/moment/min/moment-with-locales.min.js',
-        '/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
+        '/vendor/laravel-merchant/moment/min/moment-with-locales.min.js',
+        '/vendor/laravel-merchant/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
     ];
 
     protected $format = 'YYYY-MM-DD';

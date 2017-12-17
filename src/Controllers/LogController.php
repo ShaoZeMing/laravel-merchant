@@ -1,12 +1,12 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace ShaoZeMing\Merchant\Controllers;
 
-use Encore\Admin\Auth\Database\Administrator;
-use Encore\Admin\Auth\Database\OperationLog;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use ShaoZeMing\Merchant\Auth\Database\Administrator;
+use ShaoZeMing\Merchant\Auth\Database\OperationLog;
+use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Grid;
+use ShaoZeMing\Merchant\Layout\Content;
 use Illuminate\Routing\Controller;
 
 class LogController extends Controller
@@ -19,8 +19,8 @@ class LogController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-            $content->header(trans('admin.operation_log'));
-            $content->description(trans('admin.list'));
+            $content->header(trans('merchant.operation_log'));
+            $content->description(trans('merchant.list'));
 
             $grid = Admin::grid(OperationLog::class, function (Grid $grid) {
                 $grid->model()->orderBy('id', 'DESC');
@@ -44,7 +44,7 @@ class LogController extends Controller
                     return '<pre>'.json_encode($input, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE).'</pre>';
                 });
 
-                $grid->created_at(trans('admin.created_at'));
+                $grid->created_at(trans('merchant.created_at'));
 
                 $grid->actions(function (Grid\Displayers\Actions $actions) {
                     $actions->disableEdit();
@@ -71,12 +71,12 @@ class LogController extends Controller
         if (OperationLog::destroy(array_filter($ids))) {
             return response()->json([
                 'status'  => true,
-                'message' => trans('admin.delete_succeeded'),
+                'message' => trans('merchant.delete_succeeded'),
             ]);
         } else {
             return response()->json([
                 'status'  => false,
-                'message' => trans('admin.delete_failed'),
+                'message' => trans('merchant.delete_failed'),
             ]);
         }
     }

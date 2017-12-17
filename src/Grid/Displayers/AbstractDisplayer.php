@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace ShaoZeMing\Merchant\Grid\Displayers;
 
-use Encore\Admin\Grid;
-use Encore\Admin\Grid\Column;
+use ShaoZeMing\Merchant\Grid;
+use ShaoZeMing\Merchant\Grid\Column;
 
 abstract class AbstractDisplayer
 {
@@ -72,7 +72,7 @@ abstract class AbstractDisplayer
      */
     protected function trans($text)
     {
-        return trans("admin.$text");
+        return trans("merchant.$text");
     }
 
     /**

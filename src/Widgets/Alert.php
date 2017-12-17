@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace ShaoZeMing\Merchant\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 
@@ -9,7 +9,7 @@ class Alert extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.alert';
+    protected $view = 'merchant::widgets.alert';
 
     /**
      * @var string|\Symfony\Component\Translation\TranslatorInterface
@@ -42,7 +42,7 @@ class Alert extends Widget implements Renderable
     {
         $this->content = (string) $content;
 
-        $this->title = $title ?: trans('admin.alert');
+        $this->title = $title ?: trans('merchant.alert');
 
         $this->style($style);
     }

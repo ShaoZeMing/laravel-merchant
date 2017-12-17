@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter;
+namespace ShaoZeMing\Merchant\Grid\Filter;
 
 class Year extends Date
 {

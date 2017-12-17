@@ -24,7 +24,7 @@ You can follow these steps to setup `CURD` interfaces of table `users`:
 Use the following command to create a controller for `App\User` model
 
 ```php
-php artisan admin:make UserController --model=App\\User
+php artisan merchant:make UserController --model=App\\User
 ```
 The above command will create the controller in `app/Admin/Controllers/UserController.php`.
 
@@ -37,7 +37,7 @@ $router->resource('users', UserController::class);
 
 #### 3.add left menu item
 
-Open `http://localhost:8000/admin/auth/menu`, add menu link and refresh the page, then you can find a link item in left menu bar.
+Open `http://localhost:8000/merchant/auth/menu`, add menu link and refresh the page, then you can find a link item in left menu bar.
 
 #### 3.build grid and form
 

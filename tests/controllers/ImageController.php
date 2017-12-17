@@ -3,11 +3,11 @@
 namespace Tests\Controllers;
 
 use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\ModelForm;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use ShaoZeMing\Merchant\Controllers\ModelForm;
+use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Form;
+use ShaoZeMing\Merchant\Grid;
+use ShaoZeMing\Merchant\Layout\Content;
 use Tests\Models\Image;
 
 class ImageController extends Controller

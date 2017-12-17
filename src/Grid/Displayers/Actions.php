@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace ShaoZeMing\Merchant\Grid\Displayers;
 
-use Encore\Admin\Admin;
+use ShaoZeMing\Merchant\Admin;
 
 class Actions extends AbstractDisplayer
 {
@@ -166,9 +166,9 @@ EOT;
      */
     protected function deleteAction()
     {
-        $deleteConfirm = trans('admin.delete_confirm');
-        $confirm = trans('admin.confirm');
-        $cancel = trans('admin.cancel');
+        $deleteConfirm = trans('merchant.delete_confirm');
+        $confirm = trans('merchant.confirm');
+        $cancel = trans('merchant.cancel');
 
         $script = <<<SCRIPT
 

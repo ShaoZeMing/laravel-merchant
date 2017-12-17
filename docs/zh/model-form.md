@@ -1,6 +1,6 @@
 # 基于数据模型的表单
 
-`Encore\Admin\Form`类用于生成基于数据模型的表单，先来个例子，数据库中有`movies`表
+`ShaoZeMing\Merchant\Form`类用于生成基于数据模型的表单，先来个例子，数据库中有`movies`表
 
 ```sql
 CREATE TABLE `movies` (
@@ -23,8 +23,8 @@ CREATE TABLE `movies` (
 ```php
 
 use App\Models\Movie;
-use Encore\Admin\Form;
-use Encore\Admin\Facades\Admin;
+use ShaoZeMing\Merchant\Form;
+use ShaoZeMing\Merchant\Facades\Admin;
 
 $grid = Admin::form(Movie::class, function(Form $grid){
 
@@ -89,10 +89,10 @@ $form->select('user_id')->options(function ($id) {
     if ($user) {
         return [$user->id => $user->name];
     }
-})->ajax('/admin/api/users');
+})->ajax('/merchant/api/users');
 ```
 
-url `/admin/api/users`接口的代码：
+url `/merchant/api/users`接口的代码：
 
 ```php
 public function users(Request $request)
@@ -167,10 +167,10 @@ $form->select('friends')->options(function ($ids) {
 
     return User::find($ids)->pluck('name', 'id');
     
-})->ajax('/admin/api/users');
+})->ajax('/merchant/api/users');
 ```
 
-url `/admin/api/users`接口的代码：
+url `/merchant/api/users`接口的代码：
 
 ```php
 public function users(Request $request)
@@ -321,7 +321,7 @@ $form->rate($column[, $label]);
 ```
 
 #### 图片上传
-可以使用压缩、裁切、添加水印等各种方法，请参考[[Intervention](http://image.intervention.io/getting_started/introduction)]，图片上传目录在文件`config/admin.php`中的`upload.image`中配置，如果目录不存在，需要创建该目录并开放写权限。：
+可以使用压缩、裁切、添加水印等各种方法，请参考[[Intervention](http://image.intervention.io/getting_started/introduction)]，图片上传目录在文件`config/merchant.php`中的`upload.image`中配置，如果目录不存在，需要创建该目录并开放写权限。：
 ```php
 $form->image($column[, $label]);
 
@@ -336,7 +336,7 @@ $form->image($column[, $label])->insert($watermark, 'center');
 ```
 
 #### 文件上传
-文件上传目录在文件`config/admin.php`中的`upload.file`中配置，如果目录不存在，需要创建该目录并开放写权限。
+文件上传目录在文件`config/merchant.php`中的`upload.file`中配置，如果目录不存在，需要创建该目录并开放写权限。
 ```php
 $form->file($column[, $label]);
 

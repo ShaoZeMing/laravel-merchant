@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form\Field;
+use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Form\Field;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
 
@@ -13,14 +13,14 @@ class Select extends Field
      * @var array
      */
     protected static $css = [
-        '/vendor/laravel-admin/AdminLTE/plugins/select2/select2.min.css',
+        '/vendor/laravel-merchant/AdminLTE/plugins/select2/select2.min.css',
     ];
 
     /**
      * @var array
      */
     protected static $js = [
-        '/vendor/laravel-admin/AdminLTE/plugins/select2/select2.full.min.js',
+        '/vendor/laravel-merchant/AdminLTE/plugins/select2/select2.full.min.js',
     ];
 
     /**

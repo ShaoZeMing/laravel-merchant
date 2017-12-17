@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace ShaoZeMing\Merchant\Grid\Tools;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Grid;
+use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Grid;
 
 class PerPageSelector extends AbstractTool
 {
@@ -74,8 +74,8 @@ class PerPageSelector extends AbstractTool
             return "<option value=\"$url\" $selected>$option</option>";
         })->implode("\r\n");
 
-        $show = trans('admin.show');
-        $entries = trans('admin.entries');
+        $show = trans('merchant.show');
+        $entries = trans('merchant.entries');
 
         return <<<EOT
 

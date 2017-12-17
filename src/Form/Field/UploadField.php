@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
-use Encore\Admin\Form;
+use ShaoZeMing\Merchant\Form;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\MessageBag;
@@ -50,7 +50,7 @@ trait UploadField
      */
     protected function initStorage()
     {
-        $this->disk(config('admin.upload.disk'));
+        $this->disk(config('merchant.upload.disk'));
     }
 
     /**
@@ -63,7 +63,7 @@ trait UploadField
         $defaultOptions = [
             'overwriteInitial'     => false,
             'initialPreviewAsData' => true,
-            'browseLabel'          => trans('admin.browse'),
+            'browseLabel'          => trans('merchant.browse'),
             'showRemove'           => false,
             'showUpload'           => false,
 //            'initialCaption'       => $this->initialCaption($this->value),
@@ -288,7 +288,7 @@ trait UploadField
             return $path;
         }
 
-        return Storage::disk(config('admin.upload.disk'))->url($path);
+        return Storage::disk(config('merchant.upload.disk'))->url($path);
     }
 
     /**

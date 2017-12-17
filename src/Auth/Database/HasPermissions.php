@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Auth\Database;
+namespace ShaoZeMing\Merchant\Auth\Database;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
@@ -18,10 +18,10 @@ trait HasPermissions
     public function getAvatarAttribute($avatar)
     {
         if ($avatar) {
-            return Storage::disk(config('admin.upload.disk'))->url($avatar);
+            return Storage::disk(config('merchant.upload.disk'))->url($avatar);
         }
 
-        return admin_asset('/vendor/laravel-admin/AdminLTE/dist/img/user2-160x160.jpg');
+        return merchant_asset('/vendor/laravel-merchant/AdminLTE/dist/img/user2-160x160.jpg');
     }
 
     /**
@@ -31,9 +31,9 @@ trait HasPermissions
      */
     public function roles() : BelongsToMany
     {
-        $pivotTable = config('admin.database.role_users_table');
+        $pivotTable = config('merchant.database.role_users_table');
 
-        $relatedModel = config('admin.database.roles_model');
+        $relatedModel = config('merchant.database.roles_model');
 
         return $this->belongsToMany($relatedModel, $pivotTable, 'user_id', 'role_id');
     }
@@ -45,9 +45,9 @@ trait HasPermissions
      */
     public function permissions() : BelongsToMany
     {
-        $pivotTable = config('admin.database.user_permissions_table');
+        $pivotTable = config('merchant.database.user_permissions_table');
 
-        $relatedModel = config('admin.database.permissions_model');
+        $relatedModel = config('merchant.database.permissions_model');
 
         return $this->belongsToMany($relatedModel, $pivotTable, 'user_id', 'permission_id');
     }

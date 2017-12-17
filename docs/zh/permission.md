@@ -1,8 +1,8 @@
 # 权限控制
 
-`laravel-admin`已经内置了`RBAC`权限控制模块，展开左侧边栏的`Auth`，下面有用户、权限、角色三项的管理面板，权限控制的使用如下：
+`laravel-merchant`已经内置了`RBAC`权限控制模块，展开左侧边栏的`Auth`，下面有用户、权限、角色三项的管理面板，权限控制的使用如下：
 ```php
-use Encore\Admin\Auth\Permission;
+use ShaoZeMing\Merchant\Auth\Permission;
 
 class PostController extends Controller
 {
@@ -26,9 +26,9 @@ class PostController extends Controller
 
 ```php
 
-// 允许administrator、editor两个角色访问group里面的路由
+// 允许merchantistrator、editor两个角色访问group里面的路由
 Route::group([
-    'middleware' => 'admin.permission:allow,administrator,editor',
+    'middleware' => 'merchant.permission:allow,merchantistrator,editor',
 ], function ($router) {
 
     $router->resource('users', UserController::class);
@@ -38,7 +38,7 @@ Route::group([
 
 // 禁止developer、operator两个角色访问group里面的路由
 Route::group([
-    'middleware' => 'admin.permission:deny,developer,operator',
+    'middleware' => 'merchant.permission:deny,developer,operator',
 ], function ($router) {
 
     $router->resource('users', UserController::class);
@@ -48,7 +48,7 @@ Route::group([
 
 // 有edit-post、create-post、delete-post三个权限的用户可以访问group里面的路由
 Route::group([
-    'middleware' => 'admin.permission:check,edit-post,create-post,delete-post',
+    'middleware' => 'merchant.permission:check,edit-post,create-post,delete-post',
 ], function ($router) {
 
     $router->resource('posts', PostController::class);

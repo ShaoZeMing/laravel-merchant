@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace ShaoZeMing\Merchant\Grid\Tools;
 
 abstract class BatchAction
 {

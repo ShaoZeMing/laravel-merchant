@@ -1,3 +1,3 @@
 @foreach($js as $j)
-<script src="{{ admin_asset ("$j") }}"></script>
+<script src="{{ merchant_asset ("$j") }}"></script>
 @endforeach

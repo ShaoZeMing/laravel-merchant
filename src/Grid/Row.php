@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid;
+namespace ShaoZeMing\Merchant\Grid;
 
 class Row
 {
