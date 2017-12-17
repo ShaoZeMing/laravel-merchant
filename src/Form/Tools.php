@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace ShaoZeMing\Merchant\Form;
 
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
+use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Form;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
@@ -57,7 +57,7 @@ EOT;
 
         Admin::script($script);
 
-        $text = trans('admin.back');
+        $text = trans('merchant.back');
 
         return <<<EOT
 <div class="btn-group pull-right" style="margin-right: 10px">
@@ -71,7 +71,7 @@ EOT;
         $slice = Str::contains($this->form->getResource(0), '/edit') ? null : -1;
         $resource = $this->form->getResource($slice);
 
-        $text = trans('admin.list');
+        $text = trans('merchant.list');
 
         return <<<EOT
 <div class="btn-group pull-right" style="margin-right: 10px">

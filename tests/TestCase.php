@@ -20,12 +20,12 @@ class TestCase extends BaseTestCase
 
         $app->booting(function () {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('Admin', \Encore\Admin\Facades\Admin::class);
+            $loader->alias('Admin', \ShaoZeMing\Merchant\Facades\Admin::class);
         });
 
         $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
 
-        $app->register('Encore\Admin\AdminServiceProvider');
+        $app->register('ShaoZeMing\Merchant\AdminServiceProvider');
 
         return $app;
     }
@@ -34,30 +34,30 @@ class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $adminConfig = require __DIR__.'/config/admin.php';
+        $merchantConfig = require __DIR__.'/config/merchant.php';
 
         $this->app['config']->set('database.default', 'mysql');
         $this->app['config']->set('database.connections.mysql.host', env('MYSQL_HOST', 'localhost'));
-        $this->app['config']->set('database.connections.mysql.database', 'laravel_admin');
+        $this->app['config']->set('database.connections.mysql.database', 'laravel_merchant');
         $this->app['config']->set('database.connections.mysql.username', 'root');
         $this->app['config']->set('database.connections.mysql.password', '');
         $this->app['config']->set('app.key', 'AckfSECXIvnK5r28GVIWUAxmbBSjTsmF');
         $this->app['config']->set('filesystems', require __DIR__.'/config/filesystems.php');
-        $this->app['config']->set('admin', $adminConfig);
+        $this->app['config']->set('merchant', $merchantConfig);
 
-        foreach (array_dot(array_get($adminConfig, 'auth'), 'auth.') as $key => $value) {
+        foreach (array_dot(array_get($merchantConfig, 'auth'), 'auth.') as $key => $value) {
             $this->app['config']->set($key, $value);
         }
 
-        $this->artisan('vendor:publish', ['--provider' => 'Encore\Admin\AdminServiceProvider']);
+        $this->artisan('vendor:publish', ['--provider' => 'ShaoZeMing\Merchant\AdminServiceProvider']);
 
         Schema::defaultStringLength(191);
 
-        $this->artisan('admin:install');
+        $this->artisan('merchant:install');
 
         $this->migrateTestTables();
 
-        if (file_exists($routes = admin_path('routes.php'))) {
+        if (file_exists($routes = merchant_path('routes.php'))) {
             require $routes;
         }
 
@@ -72,7 +72,7 @@ class TestCase extends BaseTestCase
 
         (new CreateTestTables())->down();
 
-        DB::select("delete from `migrations` where `migration` = '2016_01_04_173148_create_admin_tables'");
+        DB::select("delete from `migrations` where `migration` = '2016_01_04_173148_create_merchant_tables'");
 
         parent::tearDown();
     }

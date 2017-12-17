@@ -1,17 +1,17 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
-use Encore\Admin\Form\Field;
+use ShaoZeMing\Merchant\Form\Field;
 
 class SwitchField extends Field
 {
     protected static $css = [
-        '/vendor/laravel-admin/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css',
+        '/vendor/laravel-merchant/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css',
     ];
 
     protected static $js = [
-        '/vendor/laravel-admin/bootstrap-switch/dist/js/bootstrap-switch.min.js',
+        '/vendor/laravel-merchant/bootstrap-switch/dist/js/bootstrap-switch.min.js',
     ];
 
     protected $states = [

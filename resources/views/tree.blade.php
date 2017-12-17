@@ -4,22 +4,22 @@
 
         <div class="btn-group">
             <a class="btn btn-primary btn-sm {{ $id }}-tree-tools" data-action="expand">
-                <i class="fa fa-plus-square-o"></i>&nbsp;{{ trans('admin.expand') }}
+                <i class="fa fa-plus-square-o"></i>&nbsp;{{ trans('merchant.expand') }}
             </a>
             <a class="btn btn-primary btn-sm {{ $id }}-tree-tools" data-action="collapse">
-                <i class="fa fa-minus-square-o"></i>&nbsp;{{ trans('admin.collapse') }}
+                <i class="fa fa-minus-square-o"></i>&nbsp;{{ trans('merchant.collapse') }}
             </a>
         </div>
 
         @if($useSave)
         <div class="btn-group">
-            <a class="btn btn-info btn-sm  {{ $id }}-save"><i class="fa fa-save"></i>&nbsp;{{ trans('admin.save') }}</a>
+            <a class="btn btn-info btn-sm  {{ $id }}-save"><i class="fa fa-save"></i>&nbsp;{{ trans('merchant.save') }}</a>
         </div>
         @endif
 
         @if($useRefresh)
         <div class="btn-group">
-            <a class="btn btn-warning btn-sm {{ $id }}-refresh"><i class="fa fa-refresh"></i>&nbsp;{{ trans('admin.refresh') }}</a>
+            <a class="btn btn-warning btn-sm {{ $id }}-refresh"><i class="fa fa-refresh"></i>&nbsp;{{ trans('merchant.refresh') }}</a>
         </div>
         @endif
 
@@ -29,7 +29,7 @@
 
         @if($useCreate)
         <div class="btn-group pull-right">
-            <a class="btn btn-success btn-sm" href="{{ $path }}/create"><i class="fa fa-save"></i>&nbsp;{{ trans('admin.new') }}</a>
+            <a class="btn btn-success btn-sm" href="{{ $path }}/create"><i class="fa fa-save"></i>&nbsp;{{ trans('merchant.new') }}</a>
         </div>
         @endif
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Layout;
+namespace ShaoZeMing\Merchant\Layout;
 
 use Closure;
 use Illuminate\Contracts\Support\Renderable;
@@ -203,7 +203,7 @@ class Content implements Renderable
             'content'     => $this->build(),
         ];
 
-        return view('admin::content', $items)->render();
+        return view('merchant::content', $items)->render();
     }
 
     /**

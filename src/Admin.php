@@ -1,11 +1,11 @@
 <?php
 
-namespace Encore\Admin;
+namespace ShaoZeMing\Merchant;
 
 use Closure;
-use Encore\Admin\Auth\Database\Menu;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Widgets\Navbar;
+use ShaoZeMing\Merchant\Auth\Database\Menu;
+use ShaoZeMing\Merchant\Layout\Content;
+use ShaoZeMing\Merchant\Widgets\Navbar;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -46,7 +46,7 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \Encore\Admin\Grid
+     * @return \ShaoZeMing\Merchant\Grid
      */
     public function grid($model, Closure $callable)
     {
@@ -57,7 +57,7 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \Encore\Admin\Form
+     * @return \ShaoZeMing\Merchant\Form
      */
     public function form($model, Closure $callable)
     {
@@ -69,7 +69,7 @@ class Admin
      *
      * @param $model
      *
-     * @return \Encore\Admin\Tree
+     * @return \ShaoZeMing\Merchant\Tree
      */
     public function tree($model, Closure $callable = null)
     {
@@ -79,7 +79,7 @@ class Admin
     /**
      * @param Closure $callable
      *
-     * @return \Encore\Admin\Layout\Content
+     * @return \ShaoZeMing\Merchant\Layout\Content
      */
     public function content(Closure $callable = null)
     {
@@ -123,7 +123,7 @@ class Admin
 
         static::$css = array_merge(static::$css, $css);
 
-        return view('admin::partials.css', ['css' => array_unique(static::$css)]);
+        return view('merchant::partials.css', ['css' => array_unique(static::$css)]);
     }
 
     /**
@@ -145,7 +145,7 @@ class Admin
 
         static::$js = array_merge(static::$js, $js);
 
-        return view('admin::partials.js', ['js' => array_unique(static::$js)]);
+        return view('merchant::partials.js', ['js' => array_unique(static::$js)]);
     }
 
     /**
@@ -161,7 +161,7 @@ class Admin
             return;
         }
 
-        return view('admin::partials.script', ['script' => array_unique(self::$script)]);
+        return view('merchant::partials.script', ['script' => array_unique(self::$script)]);
     }
 
     /**
@@ -175,13 +175,13 @@ class Admin
     }
 
     /**
-     * Get admin title.
+     * Get merchant title.
      *
      * @return Config
      */
     public function title()
     {
-        return config('admin.title');
+        return config('merchant.title');
     }
 
     /**
@@ -191,7 +191,7 @@ class Admin
      */
     public function user()
     {
-        return Auth::guard('admin')->user();
+        return Auth::guard('merchant')->user();
     }
 
     /**
@@ -213,7 +213,7 @@ class Admin
     /**
      * Get navbar object.
      *
-     * @return \Encore\Admin\Widgets\Navbar
+     * @return \ShaoZeMing\Merchant\Widgets\Navbar
      */
     public function getNavbar()
     {
@@ -232,9 +232,9 @@ class Admin
     public function registerAuthRoutes()
     {
         $attributes = [
-            'prefix'     => config('admin.route.prefix'),
-            'namespace'  => 'Encore\Admin\Controllers',
-            'middleware' => config('admin.route.middleware'),
+            'prefix'     => config('merchant.route.prefix'),
+            'namespace'  => 'ShaoZeMing\Merchant\Controllers',
+            'middleware' => config('merchant.route.middleware'),
         ];
 
         Route::group($attributes, function ($router) {

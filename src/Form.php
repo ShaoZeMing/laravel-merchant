@@ -1,14 +1,14 @@
 <?php
 
-namespace Encore\Admin;
+namespace ShaoZeMing\Merchant;
 
 use Closure;
-use Encore\Admin\Exception\Handler;
-use Encore\Admin\Form\Builder;
-use Encore\Admin\Form\Field;
-use Encore\Admin\Form\Field\File;
-use Encore\Admin\Form\Row;
-use Encore\Admin\Form\Tab;
+use ShaoZeMing\Merchant\Exception\Handler;
+use ShaoZeMing\Merchant\Form\Builder;
+use ShaoZeMing\Merchant\Form\Field;
+use ShaoZeMing\Merchant\Form\Field\File;
+use ShaoZeMing\Merchant\Form\Row;
+use ShaoZeMing\Merchant\Form\Tab;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
@@ -348,7 +348,7 @@ class Form
             return $response;
         }
 
-        if ($response = $this->ajaxResponse(trans('admin.save_succeeded'))) {
+        if ($response = $this->ajaxResponse(trans('merchant.save_succeeded'))) {
             return $response;
         }
 
@@ -362,7 +362,7 @@ class Form
      */
     protected function redirectAfterStore()
     {
-        admin_toastr(trans('admin.save_succeeded'));
+        merchant_toastr(trans('merchant.save_succeeded'));
 
         $url = Input::get(Builder::PREVIOUS_URL_KEY) ?: $this->resource(0);
 
@@ -509,7 +509,7 @@ class Form
         if ($this->handleOrderable($id, $data)) {
             return response([
                 'status'  => true,
-                'message' => trans('admin.update_succeeded'),
+                'message' => trans('merchant.update_succeeded'),
             ]);
         }
 
@@ -544,7 +544,7 @@ class Form
             return $result;
         }
 
-        if ($response = $this->ajaxResponse(trans('admin.update_succeeded'))) {
+        if ($response = $this->ajaxResponse(trans('merchant.update_succeeded'))) {
             return $response;
         }
 
@@ -558,7 +558,7 @@ class Form
      */
     protected function redirectAfterUpdate()
     {
-        admin_toastr(trans('admin.update_succeeded'));
+        merchant_toastr(trans('merchant.update_succeeded'));
 
         $url = Input::get(Builder::PREVIOUS_URL_KEY) ?: $this->resource(-1);
 
@@ -1198,52 +1198,52 @@ class Form
     public static function registerBuiltinFields()
     {
         $map = [
-            'button'         => \Encore\Admin\Form\Field\Button::class,
-            'checkbox'       => \Encore\Admin\Form\Field\Checkbox::class,
-            'color'          => \Encore\Admin\Form\Field\Color::class,
-            'currency'       => \Encore\Admin\Form\Field\Currency::class,
-            'date'           => \Encore\Admin\Form\Field\Date::class,
-            'dateRange'      => \Encore\Admin\Form\Field\DateRange::class,
-            'datetime'       => \Encore\Admin\Form\Field\Datetime::class,
-            'dateTimeRange'  => \Encore\Admin\Form\Field\DatetimeRange::class,
-            'datetimeRange'  => \Encore\Admin\Form\Field\DatetimeRange::class,
-            'decimal'        => \Encore\Admin\Form\Field\Decimal::class,
-            'display'        => \Encore\Admin\Form\Field\Display::class,
-            'divider'        => \Encore\Admin\Form\Field\Divide::class,
-            'divide'         => \Encore\Admin\Form\Field\Divide::class,
-            'embeds'         => \Encore\Admin\Form\Field\Embeds::class,
-            'editor'         => \Encore\Admin\Form\Field\Editor::class,
-            'email'          => \Encore\Admin\Form\Field\Email::class,
-            'file'           => \Encore\Admin\Form\Field\File::class,
-            'hasMany'        => \Encore\Admin\Form\Field\HasMany::class,
-            'hidden'         => \Encore\Admin\Form\Field\Hidden::class,
-            'id'             => \Encore\Admin\Form\Field\Id::class,
-            'image'          => \Encore\Admin\Form\Field\Image::class,
-            'ip'             => \Encore\Admin\Form\Field\Ip::class,
-            'map'            => \Encore\Admin\Form\Field\Map::class,
-            'mobile'         => \Encore\Admin\Form\Field\Mobile::class,
-            'month'          => \Encore\Admin\Form\Field\Month::class,
-            'multipleSelect' => \Encore\Admin\Form\Field\MultipleSelect::class,
-            'number'         => \Encore\Admin\Form\Field\Number::class,
-            'password'       => \Encore\Admin\Form\Field\Password::class,
-            'radio'          => \Encore\Admin\Form\Field\Radio::class,
-            'rate'           => \Encore\Admin\Form\Field\Rate::class,
-            'select'         => \Encore\Admin\Form\Field\Select::class,
-            'slider'         => \Encore\Admin\Form\Field\Slider::class,
-            'switch'         => \Encore\Admin\Form\Field\SwitchField::class,
-            'text'           => \Encore\Admin\Form\Field\Text::class,
-            'textarea'       => \Encore\Admin\Form\Field\Textarea::class,
-            'time'           => \Encore\Admin\Form\Field\Time::class,
-            'timeRange'      => \Encore\Admin\Form\Field\TimeRange::class,
-            'url'            => \Encore\Admin\Form\Field\Url::class,
-            'year'           => \Encore\Admin\Form\Field\Year::class,
-            'html'           => \Encore\Admin\Form\Field\Html::class,
-            'tags'           => \Encore\Admin\Form\Field\Tags::class,
-            'icon'           => \Encore\Admin\Form\Field\Icon::class,
-            'multipleFile'   => \Encore\Admin\Form\Field\MultipleFile::class,
-            'multipleImage'  => \Encore\Admin\Form\Field\MultipleImage::class,
-            'captcha'        => \Encore\Admin\Form\Field\Captcha::class,
-            'listbox'        => \Encore\Admin\Form\Field\Listbox::class,
+            'button'         => \ShaoZeMing\Merchant\Form\Field\Button::class,
+            'checkbox'       => \ShaoZeMing\Merchant\Form\Field\Checkbox::class,
+            'color'          => \ShaoZeMing\Merchant\Form\Field\Color::class,
+            'currency'       => \ShaoZeMing\Merchant\Form\Field\Currency::class,
+            'date'           => \ShaoZeMing\Merchant\Form\Field\Date::class,
+            'dateRange'      => \ShaoZeMing\Merchant\Form\Field\DateRange::class,
+            'datetime'       => \ShaoZeMing\Merchant\Form\Field\Datetime::class,
+            'dateTimeRange'  => \ShaoZeMing\Merchant\Form\Field\DatetimeRange::class,
+            'datetimeRange'  => \ShaoZeMing\Merchant\Form\Field\DatetimeRange::class,
+            'decimal'        => \ShaoZeMing\Merchant\Form\Field\Decimal::class,
+            'display'        => \ShaoZeMing\Merchant\Form\Field\Display::class,
+            'divider'        => \ShaoZeMing\Merchant\Form\Field\Divide::class,
+            'divide'         => \ShaoZeMing\Merchant\Form\Field\Divide::class,
+            'embeds'         => \ShaoZeMing\Merchant\Form\Field\Embeds::class,
+            'editor'         => \ShaoZeMing\Merchant\Form\Field\Editor::class,
+            'email'          => \ShaoZeMing\Merchant\Form\Field\Email::class,
+            'file'           => \ShaoZeMing\Merchant\Form\Field\File::class,
+            'hasMany'        => \ShaoZeMing\Merchant\Form\Field\HasMany::class,
+            'hidden'         => \ShaoZeMing\Merchant\Form\Field\Hidden::class,
+            'id'             => \ShaoZeMing\Merchant\Form\Field\Id::class,
+            'image'          => \ShaoZeMing\Merchant\Form\Field\Image::class,
+            'ip'             => \ShaoZeMing\Merchant\Form\Field\Ip::class,
+            'map'            => \ShaoZeMing\Merchant\Form\Field\Map::class,
+            'mobile'         => \ShaoZeMing\Merchant\Form\Field\Mobile::class,
+            'month'          => \ShaoZeMing\Merchant\Form\Field\Month::class,
+            'multipleSelect' => \ShaoZeMing\Merchant\Form\Field\MultipleSelect::class,
+            'number'         => \ShaoZeMing\Merchant\Form\Field\Number::class,
+            'password'       => \ShaoZeMing\Merchant\Form\Field\Password::class,
+            'radio'          => \ShaoZeMing\Merchant\Form\Field\Radio::class,
+            'rate'           => \ShaoZeMing\Merchant\Form\Field\Rate::class,
+            'select'         => \ShaoZeMing\Merchant\Form\Field\Select::class,
+            'slider'         => \ShaoZeMing\Merchant\Form\Field\Slider::class,
+            'switch'         => \ShaoZeMing\Merchant\Form\Field\SwitchField::class,
+            'text'           => \ShaoZeMing\Merchant\Form\Field\Text::class,
+            'textarea'       => \ShaoZeMing\Merchant\Form\Field\Textarea::class,
+            'time'           => \ShaoZeMing\Merchant\Form\Field\Time::class,
+            'timeRange'      => \ShaoZeMing\Merchant\Form\Field\TimeRange::class,
+            'url'            => \ShaoZeMing\Merchant\Form\Field\Url::class,
+            'year'           => \ShaoZeMing\Merchant\Form\Field\Year::class,
+            'html'           => \ShaoZeMing\Merchant\Form\Field\Html::class,
+            'tags'           => \ShaoZeMing\Merchant\Form\Field\Tags::class,
+            'icon'           => \ShaoZeMing\Merchant\Form\Field\Icon::class,
+            'multipleFile'   => \ShaoZeMing\Merchant\Form\Field\MultipleFile::class,
+            'multipleImage'  => \ShaoZeMing\Merchant\Form\Field\MultipleImage::class,
+            'captcha'        => \ShaoZeMing\Merchant\Form\Field\Captcha::class,
+            'listbox'        => \ShaoZeMing\Merchant\Form\Field\Listbox::class,
         ];
 
         foreach ($map as $abstract => $class) {

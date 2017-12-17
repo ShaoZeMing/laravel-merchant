@@ -66,7 +66,7 @@ $(function(){
 });
 
 (function($){
-    $.fn.admin = LA;
-    $.admin = LA;
+    $.fn.merchant = LA;
+    $.merchant = LA;
 
 })(jQuery);

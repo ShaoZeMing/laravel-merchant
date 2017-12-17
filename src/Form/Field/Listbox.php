@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
 /**
  * Class ListBox.
@@ -12,11 +12,11 @@ class Listbox extends MultipleSelect
     protected $settings = [];
 
     protected static $css = [
-        '/vendor/laravel-admin/bootstrap-duallistbox/dist/bootstrap-duallistbox.min.css',
+        '/vendor/laravel-merchant/bootstrap-duallistbox/dist/bootstrap-duallistbox.min.css',
     ];
 
     protected static $js = [
-        '/vendor/laravel-admin/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js',
+        '/vendor/laravel-merchant/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js',
     ];
 
     public function settings(array $settings)
@@ -29,11 +29,11 @@ class Listbox extends MultipleSelect
     public function render()
     {
         $settings = array_merge($this->settings, [
-            'infoText'          => trans('admin.listbox.text_total'),
-            'infoTextEmpty'     => trans('admin.listbox.text_empty'),
-            'infoTextFiltered'  => trans('admin.listbox.filtered'),
-            'filterTextClear'   => trans('admin.listbox.filter_clear'),
-            'filterPlaceHolder' => trans('admin.listbox.filter_placeholder'),
+            'infoText'          => trans('merchant.listbox.text_total'),
+            'infoTextEmpty'     => trans('merchant.listbox.text_empty'),
+            'infoTextFiltered'  => trans('merchant.listbox.filtered'),
+            'filterTextClear'   => trans('merchant.listbox.filter_clear'),
+            'filterPlaceHolder' => trans('merchant.listbox.filter_placeholder'),
         ]);
 
         $settings = json_encode($settings);

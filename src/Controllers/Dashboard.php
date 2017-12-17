@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace ShaoZeMing\Merchant\Controllers;
 
-use Encore\Admin\Admin;
+use ShaoZeMing\Merchant\Admin;
 
 class Dashboard
 {
@@ -11,7 +11,7 @@ class Dashboard
      */
     public static function title()
     {
-        return view('admin::dashboard.title');
+        return view('merchant::dashboard.title');
     }
 
     /**
@@ -36,7 +36,7 @@ class Dashboard
             ['name' => 'URL',               'value' => config('app.url')],
         ];
 
-        return view('admin::dashboard.environment', compact('envs'));
+        return view('merchant::dashboard.environment', compact('envs'));
     }
 
     /**
@@ -46,48 +46,48 @@ class Dashboard
     {
         $extensions = [
             'helpers' => [
-                'name' => 'laravel-admin-ext/helpers',
-                'link' => 'https://github.com/laravel-admin-extensions/helpers',
+                'name' => 'laravel-merchant-ext/helpers',
+                'link' => 'https://github.com/laravel-merchant-extensions/helpers',
                 'icon' => 'gears',
             ],
             'log-viewer' => [
-                'name' => 'laravel-admin-ext/log-viewer',
-                'link' => 'https://github.com/laravel-admin-extensions/log-viewer',
+                'name' => 'laravel-merchant-ext/log-viewer',
+                'link' => 'https://github.com/laravel-merchant-extensions/log-viewer',
                 'icon' => 'database',
             ],
             'backup' => [
-                'name' => 'laravel-admin-ext/backup',
-                'link' => 'https://github.com/laravel-admin-extensions/backup',
+                'name' => 'laravel-merchant-ext/backup',
+                'link' => 'https://github.com/laravel-merchant-extensions/backup',
                 'icon' => 'copy',
             ],
             'config' => [
-                'name' => 'laravel-admin-ext/config',
-                'link' => 'https://github.com/laravel-admin-extensions/config',
+                'name' => 'laravel-merchant-ext/config',
+                'link' => 'https://github.com/laravel-merchant-extensions/config',
                 'icon' => 'toggle-on',
             ],
             'api-tester' => [
-                'name' => 'laravel-admin-ext/api-tester',
-                'link' => 'https://github.com/laravel-admin-extensions/api-tester',
+                'name' => 'laravel-merchant-ext/api-tester',
+                'link' => 'https://github.com/laravel-merchant-extensions/api-tester',
                 'icon' => 'sliders',
             ],
             'media-manager' => [
-                'name' => 'laravel-admin-ext/media-manager',
-                'link' => 'https://github.com/laravel-admin-extensions/media-manager',
+                'name' => 'laravel-merchant-ext/media-manager',
+                'link' => 'https://github.com/laravel-merchant-extensions/media-manager',
                 'icon' => 'file',
             ],
             'scheduling' => [
-                'name' => 'laravel-admin-ext/scheduling',
-                'link' => 'https://github.com/laravel-admin-extensions/scheduling',
+                'name' => 'laravel-merchant-ext/scheduling',
+                'link' => 'https://github.com/laravel-merchant-extensions/scheduling',
                 'icon' => 'clock-o',
             ],
             'reporter' => [
-                'name' => 'laravel-admin-ext/reporter',
-                'link' => 'https://github.com/laravel-admin-extensions/reporter',
+                'name' => 'laravel-merchant-ext/reporter',
+                'link' => 'https://github.com/laravel-merchant-extensions/reporter',
                 'icon' => 'bug',
             ],
             'translation' => [
-                'name' => 'laravel-admin-ext/translation',
-                'link' => 'https://github.com/laravel-admin-extensions/translation',
+                'name' => 'laravel-merchant-ext/translation',
+                'link' => 'https://github.com/laravel-merchant-extensions/translation',
                 'icon' => 'language',
             ],
         ];
@@ -97,7 +97,7 @@ class Dashboard
             $extension['installed'] = array_key_exists(end($name), Admin::$extensions);
         }
 
-        return view('admin::dashboard.extensions', compact('extensions'));
+        return view('merchant::dashboard.extensions', compact('extensions'));
     }
 
     /**
@@ -109,6 +109,6 @@ class Dashboard
 
         $dependencies = json_decode($json, true)['require'];
 
-        return view('admin::dashboard.dependencies', compact('dependencies'));
+        return view('merchant::dashboard.dependencies', compact('dependencies'));
     }
 }

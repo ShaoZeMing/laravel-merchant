@@ -1,17 +1,17 @@
 <?php
 
-namespace Encore\Admin;
+namespace ShaoZeMing\Merchant;
 
 use Closure;
-use Encore\Admin\Exception\Handler;
-use Encore\Admin\Grid\Column;
-use Encore\Admin\Grid\Displayers\Actions;
-use Encore\Admin\Grid\Displayers\RowSelector;
-use Encore\Admin\Grid\Exporter;
-use Encore\Admin\Grid\Filter;
-use Encore\Admin\Grid\Model;
-use Encore\Admin\Grid\Row;
-use Encore\Admin\Grid\Tools;
+use ShaoZeMing\Merchant\Exception\Handler;
+use ShaoZeMing\Merchant\Grid\Column;
+use ShaoZeMing\Merchant\Grid\Displayers\Actions;
+use ShaoZeMing\Merchant\Grid\Displayers\RowSelector;
+use ShaoZeMing\Merchant\Grid\Exporter;
+use ShaoZeMing\Merchant\Grid\Filter;
+use ShaoZeMing\Merchant\Grid\Model;
+use ShaoZeMing\Merchant\Grid\Row;
+use ShaoZeMing\Merchant\Grid\Tools;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -29,7 +29,7 @@ class Grid
     /**
      * The grid data model instance.
      *
-     * @var \Encore\Admin\Grid\Model
+     * @var \ShaoZeMing\Merchant\Grid\Model
      */
     protected $model;
 
@@ -92,7 +92,7 @@ class Grid
     /**
      * The grid Filter.
      *
-     * @var \Encore\Admin\Grid\Filter
+     * @var \ShaoZeMing\Merchant\Grid\Filter
      */
     protected $filter;
 
@@ -122,7 +122,7 @@ class Grid
      *
      * @var string
      */
-    protected $view = 'admin::grid.table';
+    protected $view = 'merchant::grid.table';
 
     /**
      * Per-page options.
@@ -436,7 +436,7 @@ class Grid
 
         $grid = $this;
         $callback = $this->actionsCallback;
-        $column = $this->addColumn('__actions__', trans('admin.action'));
+        $column = $this->addColumn('__actions__', trans('merchant.action'));
 
         $column->display(function ($value) use ($grid, $column, $callback) {
             $actions = new Actions($value, $grid, $column, $this);
@@ -895,19 +895,19 @@ class Grid
     public static function registerColumnDisplayer()
     {
         $map = [
-            'editable'    => \Encore\Admin\Grid\Displayers\Editable::class,
-            'switch'      => \Encore\Admin\Grid\Displayers\SwitchDisplay::class,
-            'switchGroup' => \Encore\Admin\Grid\Displayers\SwitchGroup::class,
-            'select'      => \Encore\Admin\Grid\Displayers\Select::class,
-            'image'       => \Encore\Admin\Grid\Displayers\Image::class,
-            'label'       => \Encore\Admin\Grid\Displayers\Label::class,
-            'button'      => \Encore\Admin\Grid\Displayers\Button::class,
-            'link'        => \Encore\Admin\Grid\Displayers\Link::class,
-            'badge'       => \Encore\Admin\Grid\Displayers\Badge::class,
-            'progressBar' => \Encore\Admin\Grid\Displayers\ProgressBar::class,
-            'radio'       => \Encore\Admin\Grid\Displayers\Radio::class,
-            'checkbox'    => \Encore\Admin\Grid\Displayers\Checkbox::class,
-            'orderable'   => \Encore\Admin\Grid\Displayers\Orderable::class,
+            'editable'    => \ShaoZeMing\Merchant\Grid\Displayers\Editable::class,
+            'switch'      => \ShaoZeMing\Merchant\Grid\Displayers\SwitchDisplay::class,
+            'switchGroup' => \ShaoZeMing\Merchant\Grid\Displayers\SwitchGroup::class,
+            'select'      => \ShaoZeMing\Merchant\Grid\Displayers\Select::class,
+            'image'       => \ShaoZeMing\Merchant\Grid\Displayers\Image::class,
+            'label'       => \ShaoZeMing\Merchant\Grid\Displayers\Label::class,
+            'button'      => \ShaoZeMing\Merchant\Grid\Displayers\Button::class,
+            'link'        => \ShaoZeMing\Merchant\Grid\Displayers\Link::class,
+            'badge'       => \ShaoZeMing\Merchant\Grid\Displayers\Badge::class,
+            'progressBar' => \ShaoZeMing\Merchant\Grid\Displayers\ProgressBar::class,
+            'radio'       => \ShaoZeMing\Merchant\Grid\Displayers\Radio::class,
+            'checkbox'    => \ShaoZeMing\Merchant\Grid\Displayers\Checkbox::class,
+            'orderable'   => \ShaoZeMing\Merchant\Grid\Displayers\Orderable::class,
         ];
 
         foreach ($map as $abstract => $class) {

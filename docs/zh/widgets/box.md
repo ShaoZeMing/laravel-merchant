@@ -1,9 +1,9 @@
 # Box组件
 
-`Encore\Admin\Widgets\Box`用来生成box组件：
+`ShaoZeMing\Merchant\Widgets\Box`用来生成box组件：
 
 ```php
-use Encore\Admin\Widgets\Box;
+use ShaoZeMing\Merchant\Widgets\Box;
 
 $box = new Box('Box标题', 'Box内容');
 

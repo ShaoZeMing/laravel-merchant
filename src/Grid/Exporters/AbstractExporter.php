@@ -1,13 +1,13 @@
 <?php
 
-namespace Encore\Admin\Grid\Exporters;
+namespace ShaoZeMing\Merchant\Grid\Exporters;
 
-use Encore\Admin\Grid;
+use ShaoZeMing\Merchant\Grid;
 
 abstract class AbstractExporter implements ExporterInterface
 {
     /**
-     * @var \Encore\Admin\Grid
+     * @var \ShaoZeMing\Merchant\Grid
      */
     protected $grid;
 

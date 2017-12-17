@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid;
+namespace ShaoZeMing\Merchant\Grid;
 
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Grid\Filter\AbstractFilter;
+use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Grid\Filter\AbstractFilter;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Request;
 
@@ -70,7 +70,7 @@ class Filter
     /**
      * @var string
      */
-    protected $view = 'admin::filter.modal';
+    protected $view = 'merchant::filter.modal';
 
     /**
      * Create a new filter instance.
@@ -266,7 +266,7 @@ EOT;
     public function __call($method, $arguments)
     {
         if (in_array($method, $this->supports)) {
-            $className = '\\Encore\\Admin\\Grid\\Filter\\'.ucfirst($method);
+            $className = '\\ShaoZeMing\\Merchant\\Grid\\Filter\\'.ucfirst($method);
 
             return $this->addFilter(new $className(...$arguments));
         }

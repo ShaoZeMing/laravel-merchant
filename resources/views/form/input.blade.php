@@ -4,7 +4,7 @@
 
     <div class="{{$viewClass['field']}}">
 
-        @include('admin::form.error')
+        @include('merchant::form.error')
 
         <div class="input-group">
 
@@ -20,7 +20,7 @@
 
         </div>
 
-        @include('admin::form.help-block')
+        @include('merchant::form.help-block')
 
     </div>
 </div>

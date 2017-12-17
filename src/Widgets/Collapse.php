@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace ShaoZeMing\Merchant\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 
@@ -9,7 +9,7 @@ class Collapse extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.collapse';
+    protected $view = 'merchant::widgets.collapse';
 
     /**
      * @var array

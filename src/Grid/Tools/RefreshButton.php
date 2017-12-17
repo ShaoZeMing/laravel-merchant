@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace ShaoZeMing\Merchant\Grid\Tools;
 
-use Encore\Admin\Admin;
+use ShaoZeMing\Merchant\Admin;
 
 class RefreshButton extends AbstractTool
 {
@@ -13,7 +13,7 @@ class RefreshButton extends AbstractTool
      */
     protected function script()
     {
-        $message = trans('admin.refresh_succeeded');
+        $message = trans('merchant.refresh_succeeded');
 
         return <<<EOT
 
@@ -34,7 +34,7 @@ EOT;
     {
         Admin::script($this->script());
 
-        $refresh = trans('admin.refresh');
+        $refresh = trans('merchant.refresh');
 
         return <<<EOT
 <a class="btn btn-sm btn-primary grid-refresh"><i class="fa fa-refresh"></i> $refresh</a>

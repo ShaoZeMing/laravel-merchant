@@ -1,6 +1,6 @@
 # 表单
 
-`Encore\Admin\Widgets\Form`类用来快速构建表单：
+`ShaoZeMing\Merchant\Widgets\Form`类用来快速构建表单：
 
 ```php
 
@@ -156,7 +156,7 @@ $form->rate($column[, $label]);
 ```
 
 #### 图片上传
-可以使用压缩、裁切、添加水印等各种方法，请参考[[Intervention](http://image.intervention.io/getting_started/introduction)]，图片上传目录在文件`config/admin.php`中的`upload.image`中配置，如果目录不存在，需要创建该目录并开放写权限。：
+可以使用压缩、裁切、添加水印等各种方法，请参考[[Intervention](http://image.intervention.io/getting_started/introduction)]，图片上传目录在文件`config/merchant.php`中的`upload.image`中配置，如果目录不存在，需要创建该目录并开放写权限。：
 ```php
 $form->image($column[, $label]);
 
@@ -171,7 +171,7 @@ $form->image($column[, $label])->insert($watermark, 'center');
 ```
 
 #### 文件上传
-文件上传目录在文件`config/admin.php`中的`upload.file`中配置，如果目录不存在，需要创建该目录并开放写权限。
+文件上传目录在文件`config/merchant.php`中的`upload.file`中配置，如果目录不存在，需要创建该目录并开放写权限。
 ```php
 $form->file($column[, $label]);
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace ShaoZeMing\Merchant\Grid\Tools;
 
 class BatchDelete extends BatchAction
 {
@@ -9,9 +9,9 @@ class BatchDelete extends BatchAction
      */
     public function script()
     {
-        $deleteConfirm = trans('admin.delete_confirm');
-        $confirm = trans('admin.confirm');
-        $cancel = trans('admin.cancel');
+        $deleteConfirm = trans('merchant.delete_confirm');
+        $confirm = trans('merchant.confirm');
+        $cancel = trans('merchant.cancel');
 
         return <<<EOT
 

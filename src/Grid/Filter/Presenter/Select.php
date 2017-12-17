@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter\Presenter;
+namespace ShaoZeMing\Merchant\Grid\Filter\Presenter;
 
-use Encore\Admin\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Admin;
 use Illuminate\Contracts\Support\Arrayable;
 
 class Select extends Presenter
@@ -49,7 +49,7 @@ class Select extends Presenter
         }
 
         if (empty($this->script)) {
-            $placeholder = trans('admin.choose');
+            $placeholder = trans('merchant.choose');
 
             $this->script = <<<SCRIPT
 $(".{$this->getElementClass()}").select2({
@@ -97,7 +97,7 @@ EOT;
      */
     public function ajax($resourceUrl)
     {
-        $placeholder = trans('admin.choose');
+        $placeholder = trans('merchant.choose');
 
         $this->script = <<<EOT
 

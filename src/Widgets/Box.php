@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace ShaoZeMing\Merchant\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 
@@ -9,7 +9,7 @@ class Box extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.box';
+    protected $view = 'merchant::widgets.box';
 
     /**
      * @var string

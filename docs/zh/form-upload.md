@@ -18,7 +18,7 @@ $form->image('image_column');
 'disks' => [
     ... ,
 
-    'admin' => [
+    'merchant' => [
         'driver' => 'local',
         'root' => public_path('upload'),
         'visibility' => 'public',
@@ -29,13 +29,13 @@ $form->image('image_column');
 
 设置上传的路径为`public/upload`(public_path('upload'))。
 
-然后选择上传的`disk`，打开`config/admin.php`找到：
+然后选择上传的`disk`，打开`config/merchant.php`找到：
 
 ```php
 
 'upload'  => [
 
-    'disk' => 'admin',
+    'disk' => 'merchant',
 
     'directory'  => [
         'image'  => 'image',
@@ -48,7 +48,7 @@ $form->image('image_column');
 
 ```
 
-将`disk`设置为上面添加的`admin`，`directory.image`和`directory.file`分别为用`$form->image($column)`和`$form->file($column)`上传的图片和文件的上传目录
+将`disk`设置为上面添加的`merchant`，`directory.image`和`directory.file`分别为用`$form->image($column)`和`$form->file($column)`上传的图片和文件的上传目录
 
 `host`为图片和文件的网络访问url前缀。
 
@@ -80,7 +80,7 @@ $form->image('image_column');
 
 ```
 
-然后修改`laravel-admin`的上传配置，打开`config/admin.php`找到：
+然后修改`laravel-merchant`的上传配置，打开`config/merchant.php`找到：
 
 ```php
 

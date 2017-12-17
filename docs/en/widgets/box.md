@@ -1,9 +1,9 @@
 # Box
 
-`Encore\Admin\Widgets\Box` used to generate box components:
+`ShaoZeMing\Merchant\Widgets\Box` used to generate box components:
 
 ```php
-use Encore\Admin\Widgets\Box;
+use ShaoZeMing\Merchant\Widgets\Box;
 
 $box = new Box('Box Title', 'Box content');
 

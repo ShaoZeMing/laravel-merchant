@@ -1,13 +1,13 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
 class Ip extends Text
 {
     protected $rules = 'ip';
 
     protected static $js = [
-        '/vendor/laravel-admin/AdminLTE/plugins/input-mask/jquery.inputmask.bundle.min.js',
+        '/vendor/laravel-merchant/AdminLTE/plugins/input-mask/jquery.inputmask.bundle.min.js',
     ];
 
     /**

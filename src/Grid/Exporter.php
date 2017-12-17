@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid;
+namespace ShaoZeMing\Merchant\Grid;
 
-use Encore\Admin\Grid;
-use Encore\Admin\Grid\Exporters\CsvExporter;
+use ShaoZeMing\Merchant\Grid;
+use ShaoZeMing\Merchant\Grid\Exporters\CsvExporter;
 
 class Exporter
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter\Presenter;
+namespace ShaoZeMing\Merchant\Grid\Filter\Presenter;
 
-use Encore\Admin\Grid\Filter\AbstractFilter;
+use ShaoZeMing\Merchant\Grid\Filter\AbstractFilter;
 
 abstract class Presenter
 {
@@ -30,7 +30,7 @@ abstract class Presenter
     {
         $reflect = new \ReflectionClass(get_called_class());
 
-        return 'admin::filter.'.strtolower($reflect->getShortName());
+        return 'merchant::filter.'.strtolower($reflect->getShortName());
     }
 
     /**

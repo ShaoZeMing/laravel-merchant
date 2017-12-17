@@ -1,9 +1,9 @@
 # Carousel组件
 
-`Encore\Admin\Widgets\Carousel`用来生成滑动相册组件：
+`ShaoZeMing\Merchant\Widgets\Carousel`用来生成滑动相册组件：
 
 ```php
-use Encore\Admin\Widgets\Carousel;
+use ShaoZeMing\Merchant\Widgets\Carousel;
 
 $items = [
     [

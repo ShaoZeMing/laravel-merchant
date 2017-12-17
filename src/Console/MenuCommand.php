@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace ShaoZeMing\Merchant\Console;
 
-use Encore\Admin\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Admin;
 use Illuminate\Console\Command;
 
 class MenuCommand extends Command
@@ -12,14 +12,14 @@ class MenuCommand extends Command
      *
      * @var string
      */
-    protected $name = 'admin:menu';
+    protected $name = 'merchant:menu';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Show the admin menu.';
+    protected $description = 'Show the merchant menu.';
 
     /**
      * Execute the console command.

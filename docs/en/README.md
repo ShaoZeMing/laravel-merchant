@@ -1,53 +1,53 @@
-laravel-admin
+laravel-merchant
 =====
 
-[![Build Status](https://travis-ci.org/z-song/laravel-admin.svg?branch=master)](https://travis-ci.org/z-song/laravel-admin)
+[![Build Status](https://travis-ci.org/z-song/laravel-merchant.svg?branch=master)](https://travis-ci.org/z-song/laravel-merchant)
 [![StyleCI](https://styleci.io/repos/48796179/shield)](https://styleci.io/repos/48796179)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/z-song/laravel-admin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/z-song/laravel-admin/?branch=master)
-[![Packagist](https://img.shields.io/packagist/l/encore/laravel-admin.svg?maxAge=2592000)](https://packagist.org/packages/encore/laravel-admin)
-[![Total Downloads](https://img.shields.io/packagist/dt/encore/laravel-admin.svg?style=flat-square)](https://packagist.org/packages/encore/laravel-admin)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/z-song/laravel-merchant/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/z-song/laravel-merchant/?branch=master)
+[![Packagist](https://img.shields.io/packagist/l/encore/laravel-merchant.svg?maxAge=2592000)](https://packagist.org/packages/encore/laravel-merchant)
+[![Total Downloads](https://img.shields.io/packagist/dt/encore/laravel-merchant.svg?style=flat-square)](https://packagist.org/packages/encore/laravel-merchant)
 
-`laravel-admin` is administrative interface builder for laravel which can help you build CRUD backends just with few lines of code.
+`laravel-merchant` is merchantistrative interface builder for laravel which can help you build CRUD backends just with few lines of code.
 
-[Demo](http://120.26.143.106/admin) use `username/password:admin/admin`
+[Demo](http://120.26.143.106/merchant) use `username/password:merchant/merchant`
 
-Inspired by [SleepingOwlAdmin](https://github.com/sleeping-owl/admin) and [rapyd-laravel](https://github.com/zofe/rapyd-laravel).
+Inspired by [SleepingOwlAdmin](https://github.com/sleeping-owl/merchant) and [rapyd-laravel](https://github.com/zofe/rapyd-laravel).
 
 [中文文档](/docs/zh/README.md)
 
 Screenshots
 ------------
 
-![laravel-admin](https://cloud.githubusercontent.com/assets/1479100/19625297/3b3deb64-9947-11e6-807c-cffa999004be.jpg)
+![laravel-merchant](https://cloud.githubusercontent.com/assets/1479100/19625297/3b3deb64-9947-11e6-807c-cffa999004be.jpg)
 
 Installation
 ------------
 
 ```
 Laravel 5.2
-composer require encore/laravel-admin "dev-master"
+composer require encore/laravel-merchant "dev-master"
 
 Laravel 5.3
-composer require encore/laravel-admin "1.3.x-dev"
+composer require encore/laravel-merchant "1.3.x-dev"
 
 Laravel 5.1
-composer require encore/laravel-admin "1.1.x-dev"
+composer require encore/laravel-merchant "1.1.x-dev"
 ```
 
 In`config/app.php`add`ServiceProvider`:
 
 ```
-Encore\Admin\AdminServiceProvider::class
+ShaoZeMing\Merchant\AdminServiceProvider::class
 ```
 
 Then run these commands to finnish install：
 
 ```
-php artisan vendor:publish --tag=laravel-admin
-php artisan admin:install
+php artisan vendor:publish --tag=laravel-merchant
+php artisan merchant:install
 ```
 
-open `http://localhost/admin/` in browser,use username `admin` and password `admin` to login.
+open `http://localhost/merchant/` in browser,use username `merchant` and password `merchant` to login.
 
 Documentation
 ------------
@@ -84,7 +84,7 @@ app/Admin
 
 `app/Admin/routes.php` is used to define routes，for more detail please read [routes](/docs/zh/router.md).
 
-The `app/Admin/Controllers` directory  is used to store all the controllers, The `HomeController.php` file under this directory is used to handle home request of admin,The `ExampleController.php` file is a controller example.
+The `app/Admin/Controllers` directory  is used to store all the controllers, The `HomeController.php` file under this directory is used to handle home request of merchant,The `ExampleController.php` file is a controller example.
 
 Quick start
 ------------
@@ -112,7 +112,7 @@ You can follow these steps to setup `CURD` interfaces of table `users`:
 Use the following command to create a controller for `App\User` model
 
 ```php
-php artisan admin:make UserController --model=App\\User
+php artisan merchant:make UserController --model=App\\User
 ```
 The above command will create the controller in `app/Admin/Controllers/UserController.php`.
 
@@ -125,7 +125,7 @@ $router->resource('users', UserController::class);
 
 #### 3.add left menu item
 
-Open `http://localhost:8000/admin/auth/menu`, add menu link and refresh the page, then you can find a link item in left menu bar.
+Open `http://localhost:8000/merchant/auth/menu`, add menu link and refresh the page, then you can find a link item in left menu bar.
 
 #### 3.build grid and form
 
@@ -133,7 +133,7 @@ The rest needs to be done is open `app/Admin/Contollers/UserController.php`, fin
 
 Other
 ------------
-`laravel-admin` based on thses plugins or services:
+`laravel-merchant` based on thses plugins or services:
 
 + [Laravel](https://laravel.com/)
 + [AdminLTE](https://almsaeedstudio.com/)
@@ -151,4 +151,4 @@ Other
 
 License
 ------------
-`laravel-admin` is licensed under [The MIT License (MIT)](LICENSE).
+`laravel-merchant` is licensed under [The MIT License (MIT)](LICENSE).

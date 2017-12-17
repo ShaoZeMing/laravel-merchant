@@ -4,11 +4,11 @@
 
     <div class="{{$viewClass['field']}}">
 
-        @include('admin::form.error')
+        @include('merchant::form.error')
 
         <input type="file" class="{{$class}}" name="{{$name}}[]" {!! $attributes !!} />
 
-        @include('admin::form.help-block')
+        @include('merchant::form.help-block')
 
     </div>
 </div>

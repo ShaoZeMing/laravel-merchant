@@ -1,14 +1,14 @@
 {
-    "name": "encore/laravel-admin",
-    "description": "laravel admin",
+    "name": "shaozeming/laravel-merchant",
+    "description": "laravel merchant",
     "type": "library",
-    "keywords": ["laravel", "admin", "grid", "form"],
-    "homepage": "https://github.com/z-song/laravel-admin",
+    "keywords": ["laravel", "merchant", "grid", "form"],
+    "homepage": "https://github.com/ShaoZeMing/laravel-merchant",
     "license": "MIT",
     "authors": [
         {
-            "name": "zsong",
-            "email": "zosong@126.com"
+            "name": "ShaoZeMing",
+            "email": "szm19920426@gmail.com"
         }
     ],
     "require": {
@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Encore\\Admin\\": "src/"
+            "ShaoZeMing\\Merchant\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -48,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Encore\\Admin\\AdminServiceProvider"
+                "ShaoZeMing\\Merchant\\AdminServiceProvider"
             ],
             "aliases": {
-                "Admin": "Encore\\Admin\\Facades\\Admin"
+                "Admin": "ShaoZeMing\\Merchant\\Facades\\Admin"
             }
 
         }

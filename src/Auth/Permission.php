@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Auth;
+namespace ShaoZeMing\Merchant\Auth;
 
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Middleware\Pjax;
+use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Middleware\Pjax;
 use Illuminate\Support\Facades\Auth;
 
 class Permission
@@ -29,7 +29,7 @@ class Permission
             return;
         }
 
-        if (Auth::guard('admin')->user()->cannot($permission)) {
+        if (Auth::guard('merchant')->user()->cannot($permission)) {
             static::error();
         }
     }
@@ -47,7 +47,7 @@ class Permission
             return true;
         }
 
-        if (!Auth::guard('admin')->user()->inRoles($roles)) {
+        if (!Auth::guard('merchant')->user()->inRoles($roles)) {
             static::error();
         }
     }
@@ -65,7 +65,7 @@ class Permission
             return true;
         }
 
-        if (Auth::guard('admin')->user()->inRoles($roles)) {
+        if (Auth::guard('merchant')->user()->inRoles($roles)) {
             static::error();
         }
     }
@@ -75,7 +75,7 @@ class Permission
      */
     public static function error()
     {
-        $response = response(Admin::content()->withError(trans('admin.deny')));
+        $response = response(Admin::content()->withError(trans('merchant.deny')));
 
         Pjax::respond($response);
     }
@@ -87,6 +87,6 @@ class Permission
      */
     public static function isAdministrator()
     {
-        return Auth::guard('admin')->user()->isRole('administrator');
+        return Auth::guard('merchant')->user()->isRole('administrator');
     }
 }

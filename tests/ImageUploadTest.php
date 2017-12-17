@@ -1,6 +1,6 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
+use ShaoZeMing\Merchant\Auth\Database\Administrator;
 use Illuminate\Support\Facades\File;
 use Tests\Models\Image;
 use Tests\Models\MultipleImage;
@@ -11,18 +11,18 @@ class ImageUploadTest extends TestCase
     {
         parent::setUp();
 
-        $this->be(Administrator::first(), 'admin');
+        $this->be(Administrator::first(), 'merchant');
     }
 
     public function testDisableFilter()
     {
-        $this->visit('admin/images')
+        $this->visit('merchant/images')
             ->dontSeeElement('input[name=id]');
     }
 
     public function testImageUploadPage()
     {
-        $this->visit('admin/images/create')
+        $this->visit('merchant/images/create')
             ->see('Upload image')
             ->seeInElement('h3[class=box-title]', 'Create')
             ->seeElement('input[name=image1]')
@@ -37,7 +37,7 @@ class ImageUploadTest extends TestCase
 
     protected function uploadImages()
     {
-        return $this->visit('admin/images/create')
+        return $this->visit('merchant/images/create')
             ->attach(__DIR__.'/assets/test.jpg', 'image1')
             ->attach(__DIR__.'/assets/test.jpg', 'image2')
             ->attach(__DIR__.'/assets/test.jpg', 'image3')
@@ -52,7 +52,7 @@ class ImageUploadTest extends TestCase
         File::cleanDirectory(public_path('uploads/images'));
 
         $this->uploadImages()
-            ->seePageIs('admin/images');
+            ->seePageIs('merchant/images');
 
         $this->assertEquals(Image::count(), 1);
 
@@ -86,7 +86,7 @@ class ImageUploadTest extends TestCase
 
         $old = Image::first();
 
-        $this->visit('admin/images/1/edit')
+        $this->visit('merchant/images/1/edit')
             ->see('ID')
             ->see('Created At')
             ->see('Updated At')
@@ -124,19 +124,19 @@ class ImageUploadTest extends TestCase
 
         $this->uploadImages();
 
-        $this->visit('admin/images')
+        $this->visit('merchant/images')
             ->seeInElement('td', 1);
 
         $images = Image::first()->toArray();
 
-        $this->delete('admin/images/1')
+        $this->delete('merchant/images/1')
             ->dontSeeInDatabase('test_images', ['id' => 1]);
 
         foreach (range(1, 6) as $index) {
             $this->assertFileNotExists(public_path('uploads/'.$images['image'.$index]));
         }
 
-        $this->visit('admin/images')
+        $this->visit('merchant/images')
             ->dontSeeInElement('td', 1);
     }
 
@@ -148,7 +148,7 @@ class ImageUploadTest extends TestCase
         $this->uploadImages();
         $this->uploadImages();
 
-        $this->visit('admin/images')
+        $this->visit('merchant/images')
             ->seeInElement('td', 1)
             ->seeInElement('td', 2)
             ->seeInElement('td', 3);
@@ -157,11 +157,11 @@ class ImageUploadTest extends TestCase
 
         $this->assertEquals(Image::count(), 3);
 
-        $this->delete('admin/images/1,2,3');
+        $this->delete('merchant/images/1,2,3');
 
         $this->assertEquals(Image::count(), 0);
 
-        $this->visit('admin/images')
+        $this->visit('merchant/images')
             ->dontSeeInElement('td', 1)
             ->dontSeeInElement('td', 2)
             ->dontSeeInElement('td', 3);
@@ -173,7 +173,7 @@ class ImageUploadTest extends TestCase
     {
         File::cleanDirectory(public_path('uploads/images'));
 
-        $this->visit('admin/multiple-images/create')
+        $this->visit('merchant/multiple-images/create')
             ->seeElement('input[type=file][name="pictures[]"][multiple=1]');
 
         $path = __DIR__.'/assets/test.jpg';
@@ -187,14 +187,14 @@ class ImageUploadTest extends TestCase
 
         $this->call(
             'POST', // $method
-            '/admin/multiple-images', // $action
+            '/merchant/multiple-images', // $action
             [], // $parameters
             [],
             $files
         );
 
         $this->assertResponseStatus(302);
-        $this->assertRedirectedTo('/admin/multiple-images');
+        $this->assertRedirectedTo('/merchant/multiple-images');
 
         $this->assertEquals($this->fileCountInImageDir(), $size);
 
@@ -223,7 +223,7 @@ class ImageUploadTest extends TestCase
 
         $this->call(
             'POST', // $method
-            '/admin/multiple-images', // $action
+            '/merchant/multiple-images', // $action
             [], // $parameters
             [],
             $files

@@ -4,28 +4,28 @@ class AuthTest extends TestCase
 {
     public function testLoginPage()
     {
-        $this->visit('admin/auth/login')
+        $this->visit('merchant/auth/login')
             ->see('login');
     }
 
     public function testVisitWithoutLogin()
     {
-        $this->visit('admin')
-            ->dontSeeIsAuthenticated('admin')
-            ->seePageIs('admin/auth/login');
+        $this->visit('merchant')
+            ->dontSeeIsAuthenticated('merchant')
+            ->seePageIs('merchant/auth/login');
     }
 
     public function testLogin()
     {
-        $credentials = ['username' => 'admin', 'password' => 'admin'];
+        $credentials = ['username' => 'merchant', 'password' => 'merchant'];
 
-        $this->visit('admin/auth/login')
+        $this->visit('merchant/auth/login')
             ->see('login')
             ->submitForm('Login', $credentials)
             ->see('dashboard')
-            ->seeCredentials($credentials, 'admin')
-            ->seeIsAuthenticated('admin')
-            ->seePageIs('admin')
+            ->seeCredentials($credentials, 'merchant')
+            ->seeIsAuthenticated('merchant')
+            ->seePageIs('merchant')
             ->see('Dashboard')
             ->see('Description...')
 
@@ -34,9 +34,9 @@ class AuthTest extends TestCase
             ->see('Laravel version')
 
             ->see('Available extensions')
-            ->seeLink('laravel-admin-ext/helpers', 'https://github.com/laravel-admin-extensions/helpers')
-            ->seeLink('laravel-admin-ext/backup', 'https://github.com/laravel-admin-extensions/backup')
-            ->seeLink('laravel-admin-ext/media-manager', 'https://github.com/laravel-admin-extensions/media-manager')
+            ->seeLink('laravel-merchant-ext/helpers', 'https://github.com/laravel-merchant-extensions/helpers')
+            ->seeLink('laravel-merchant-ext/backup', 'https://github.com/laravel-merchant-extensions/backup')
+            ->seeLink('laravel-merchant-ext/media-manager', 'https://github.com/laravel-merchant-extensions/media-manager')
 
             ->see('Dependencies')
             ->see('php')
@@ -54,8 +54,8 @@ class AuthTest extends TestCase
 
     public function testLogout()
     {
-        $this->visit('admin/auth/logout')
-            ->seePageIs('admin/auth/login')
-            ->dontSeeIsAuthenticated('admin');
+        $this->visit('merchant/auth/logout')
+            ->seePageIs('merchant/auth/login')
+            ->dontSeeIsAuthenticated('merchant');
     }
 }

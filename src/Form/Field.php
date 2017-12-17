@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace ShaoZeMing\Merchant\Form;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Form;
+use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Form;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Arr;
@@ -676,7 +676,7 @@ class Field implements Renderable
      */
     public function getPlaceholder()
     {
-        return $this->placeholder ?: trans('admin.input').' '.$this->label;
+        return $this->placeholder ?: trans('merchant.input').' '.$this->label;
     }
 
     /**
@@ -884,7 +884,7 @@ class Field implements Renderable
 
         $class = explode('\\', get_called_class());
 
-        return 'admin::form.'.strtolower(end($class));
+        return 'merchant::form.'.strtolower(end($class));
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace ShaoZeMing\Merchant\Controllers;
 
 trait ModelForm
 {
@@ -40,12 +40,12 @@ trait ModelForm
         if ($this->form()->destroy($id)) {
             return response()->json([
                 'status'  => true,
-                'message' => trans('admin.delete_succeeded'),
+                'message' => trans('merchant.delete_succeeded'),
             ]);
         } else {
             return response()->json([
                 'status'  => false,
-                'message' => trans('admin.delete_failed'),
+                'message' => trans('merchant.delete_failed'),
             ]);
         }
     }

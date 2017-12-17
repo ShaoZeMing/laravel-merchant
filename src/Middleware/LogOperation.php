@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace ShaoZeMing\Merchant\Middleware;
 
-use Encore\Admin\Auth\Database\OperationLog as OperationLogModel;
-use Encore\Admin\Facades\Admin;
+use ShaoZeMing\Merchant\Auth\Database\OperationLog as OperationLogModel;
+use ShaoZeMing\Merchant\Facades\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -41,7 +41,7 @@ class LogOperation
      */
     protected function shouldLogOperation(Request $request)
     {
-        return config('admin.operation_log.enable')
+        return config('merchant.operation_log.enable')
             && !$this->inExceptArray($request)
             && Admin::user();
     }
@@ -55,7 +55,7 @@ class LogOperation
      */
     protected function inExceptArray($request)
     {
-        foreach (config('admin.operation_log.except') as $except) {
+        foreach (config('merchant.operation_log.except') as $except) {
             if ($except !== '/') {
                 $except = trim($except, '/');
             }

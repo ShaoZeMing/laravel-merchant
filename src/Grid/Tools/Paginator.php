@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace ShaoZeMing\Merchant\Grid\Tools;
 
-use Encore\Admin\Grid;
+use ShaoZeMing\Merchant\Grid;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Input;
 
@@ -46,7 +46,7 @@ class Paginator extends AbstractTool
      */
     protected function paginationLinks()
     {
-        return $this->paginator->render('admin::pagination');
+        return $this->paginator->render('merchant::pagination');
     }
 
     /**
@@ -76,7 +76,7 @@ class Paginator extends AbstractTool
             return [$key => "<b>$parameter</b>"];
         });
 
-        return trans('admin.pagination.range', $parameters->all());
+        return trans('merchant.pagination.range', $parameters->all());
     }
 
     /**

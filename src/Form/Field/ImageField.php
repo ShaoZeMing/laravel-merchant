@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
 use Intervention\Image\ImageManagerStatic;
 
@@ -20,7 +20,7 @@ trait ImageField
      */
     public function defaultDirectory()
     {
-        return config('admin.upload.directory.image');
+        return config('merchant.upload.directory.image');
     }
 
     /**

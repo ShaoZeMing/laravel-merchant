@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin;
+namespace ShaoZeMing\Merchant;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -10,11 +10,11 @@ class AdminServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
-        'Encore\Admin\Console\MakeCommand',
-        'Encore\Admin\Console\MenuCommand',
-        'Encore\Admin\Console\InstallCommand',
-        'Encore\Admin\Console\UninstallCommand',
-        'Encore\Admin\Console\ImportCommand',
+        'ShaoZeMing\Merchant\Console\MakeCommand',
+        'ShaoZeMing\Merchant\Console\MenuCommand',
+        'ShaoZeMing\Merchant\Console\InstallCommand',
+        'ShaoZeMing\Merchant\Console\UninstallCommand',
+        'ShaoZeMing\Merchant\Console\ImportCommand',
     ];
 
     /**
@@ -23,11 +23,11 @@ class AdminServiceProvider extends ServiceProvider
      * @var array
      */
     protected $routeMiddleware = [
-        'admin.auth'       => \Encore\Admin\Middleware\Authenticate::class,
-        'admin.pjax'       => \Encore\Admin\Middleware\Pjax::class,
-        'admin.log'        => \Encore\Admin\Middleware\LogOperation::class,
-        'admin.permission' => \Encore\Admin\Middleware\Permission::class,
-        'admin.bootstrap'  => \Encore\Admin\Middleware\Bootstrap::class,
+        'merchant.auth'       => \ShaoZeMing\Merchant\Middleware\Authenticate::class,
+        'merchant.pjax'       => \ShaoZeMing\Merchant\Middleware\Pjax::class,
+        'merchant.log'        => \ShaoZeMing\Merchant\Middleware\LogOperation::class,
+        'merchant.permission' => \ShaoZeMing\Merchant\Middleware\Permission::class,
+        'merchant.bootstrap'  => \ShaoZeMing\Merchant\Middleware\Bootstrap::class,
     ];
 
     /**
@@ -36,12 +36,12 @@ class AdminServiceProvider extends ServiceProvider
      * @var array
      */
     protected $middlewareGroups = [
-        'admin' => [
-            'admin.auth',
-            'admin.pjax',
-            'admin.log',
-            'admin.bootstrap',
-            'admin.permission',
+        'merchant' => [
+            'merchant.auth',
+            'merchant.pjax',
+            'merchant.log',
+            'merchant.bootstrap',
+            'merchant.permission',
         ],
     ];
 
@@ -52,18 +52,18 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'admin');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'merchant');
 
-        if (file_exists($routes = admin_path('routes.php'))) {
+        if (file_exists($routes = merchant_path('routes.php'))) {
             $this->loadRoutesFrom($routes);
         }
 
         if ($this->app->runningInConsole()) {
-            $this->publishes([__DIR__.'/../config' => config_path()], 'laravel-admin-config');
-            $this->publishes([__DIR__.'/../resources/lang' => resource_path('lang')], 'laravel-admin-lang');
-//            $this->publishes([__DIR__.'/../resources/views' => resource_path('views/admin')],           'laravel-admin-views');
-            $this->publishes([__DIR__.'/../database/migrations' => database_path('migrations')], 'laravel-admin-migrations');
-            $this->publishes([__DIR__.'/../resources/assets' => public_path('vendor/laravel-admin')], 'laravel-admin-assets');
+            $this->publishes([__DIR__.'/../config' => config_path()], 'laravel-merchant-config');
+            $this->publishes([__DIR__.'/../resources/lang' => resource_path('lang')], 'laravel-merchant-lang');
+//            $this->publishes([__DIR__.'/../resources/views' => resource_path('views/merchant')],           'laravel-merchant-views');
+            $this->publishes([__DIR__.'/../database/migrations' => database_path('migrations')], 'laravel-merchant-migrations');
+            $this->publishes([__DIR__.'/../resources/assets' => public_path('vendor/laravel-merchant')], 'laravel-merchant-assets');
         }
     }
 
@@ -88,7 +88,7 @@ class AdminServiceProvider extends ServiceProvider
      */
     protected function loadAdminAuthConfig()
     {
-        config(array_dot(config('admin.auth', []), 'auth.'));
+        config(array_dot(config('merchant.auth', []), 'auth.'));
     }
 
     /**

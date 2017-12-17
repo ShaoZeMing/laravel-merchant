@@ -1,11 +1,11 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Form\Field;
-use Encore\Admin\Form\NestedForm;
+use ShaoZeMing\Merchant\Admin;
+use ShaoZeMing\Merchant\Form;
+use ShaoZeMing\Merchant\Form\Field;
+use ShaoZeMing\Merchant\Form\NestedForm;
 use Illuminate\Database\Eloquent\Relations\HasMany as Relation;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Validator;
@@ -52,8 +52,8 @@ class HasMany extends Field
      * @var array
      */
     protected $views = [
-        'default' => 'admin::form.hasmany',
-        'tab'     => 'admin::form.hasmanytab',
+        'default' => 'merchant::form.hasmany',
+        'tab'     => 'merchant::form.hasmanytab',
     ];
 
     /**

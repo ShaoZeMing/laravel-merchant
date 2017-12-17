@@ -1,14 +1,14 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
-use Encore\Admin\Form;
+use ShaoZeMing\Merchant\Form;
 
 class Captcha extends Text
 {
     protected $rules = 'required|captcha';
 
-    protected $view = 'admin::form.captcha';
+    protected $view = 'merchant::form.captcha';
 
     public function __construct($column, $arguments = [])
     {
@@ -17,7 +17,7 @@ class Captcha extends Text
         }
 
         $this->column = '__captcha__';
-        $this->label = trans('admin.captcha');
+        $this->label = trans('merchant.captcha');
     }
 
     public function setForm(Form $form = null)

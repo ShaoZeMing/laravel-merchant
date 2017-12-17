@@ -1,15 +1,15 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter;
+namespace ShaoZeMing\Merchant\Grid\Filter;
 
-use Encore\Admin\Admin;
+use ShaoZeMing\Merchant\Admin;
 
 class Between extends AbstractFilter
 {
     /**
      * {@inheritdoc}
      */
-    protected $view = 'admin::filter.between';
+    protected $view = 'merchant::filter.between';
 
     /**
      * Format id.
@@ -92,7 +92,7 @@ class Between extends AbstractFilter
      */
     public function datetime($options = [])
     {
-        $this->view = 'admin::filter.betweenDatetime';
+        $this->view = 'merchant::filter.betweenDatetime';
 
         $this->setupDatetime($options);
 

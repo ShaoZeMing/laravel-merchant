@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Layout;
+namespace ShaoZeMing\Merchant\Layout;
 
 interface Buildable
 {

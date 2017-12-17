@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace ShaoZeMing\Merchant\Console;
 
 use Illuminate\Console\Command;
 
@@ -11,14 +11,14 @@ class UninstallCommand extends Command
      *
      * @var string
      */
-    protected $name = 'admin:uninstall';
+    protected $name = 'merchant:uninstall';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Uninstall the admin package';
+    protected $description = 'Uninstall the merchant package';
 
     /**
      * Execute the console command.
@@ -27,13 +27,13 @@ class UninstallCommand extends Command
      */
     public function handle()
     {
-        if (!$this->confirm('Are you sure to uninstall laravel-admin?')) {
+        if (!$this->confirm('Are you sure to uninstall laravel-merchant?')) {
             return;
         }
 
         $this->removeFilesAndDirectories();
 
-        $this->line('<info>Uninstalling laravel-admin!</info>');
+        $this->line('<info>Uninstalling laravel-merchant!</info>');
     }
 
     /**
@@ -43,8 +43,8 @@ class UninstallCommand extends Command
      */
     protected function removeFilesAndDirectories()
     {
-        $this->laravel['files']->deleteDirectory(config('admin.directory'));
-        $this->laravel['files']->deleteDirectory(public_path('vendor/laravel-admin/'));
-        $this->laravel['files']->delete(config_path('admin.php'));
+        $this->laravel['files']->deleteDirectory(config('merchant.directory'));
+        $this->laravel['files']->deleteDirectory(public_path('vendor/laravel-merchant/'));
+        $this->laravel['files']->delete(config_path('merchant.php'));
     }
 }

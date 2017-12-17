@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace ShaoZeMing\Merchant\Grid\Displayers;
 
-use Encore\Admin\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Admin;
 use Illuminate\Support\Arr;
 
 class SwitchGroup extends AbstractDisplayer

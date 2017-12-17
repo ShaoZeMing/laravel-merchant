@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Tree;
+namespace ShaoZeMing\Merchant\Tree;
 
-use Encore\Admin\Tree;
+use ShaoZeMing\Merchant\Tree;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;

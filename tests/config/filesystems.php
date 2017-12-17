@@ -62,7 +62,7 @@ return [
             'bucket' => 'your-bucket',
         ],
 
-        'admin' => [
+        'merchant' => [
             'driver'     => 'local',
             'root'       => public_path('uploads'),
             'visibility' => 'public',
@@ -86,7 +86,7 @@ return [
             'driver'     => 'oss',
             'access_id'  => 'LTAIsOQNIDQN78Jr',
             'access_key' => 'ChsYewaCxm1mi7AIBPRniuncEbFHNO',
-            'bucket'     => 'laravel-admin',
+            'bucket'     => 'laravel-merchant',
             'endpoint'   => 'oss-cn-shanghai.aliyuncs.com',
         ],
 

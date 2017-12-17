@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace ShaoZeMing\Merchant\Form\Field;
 
-use Encore\Admin\Form\EmbeddedForm;
-use Encore\Admin\Form\Field;
+use ShaoZeMing\Merchant\Form\EmbeddedForm;
+use ShaoZeMing\Merchant\Form\Field;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 

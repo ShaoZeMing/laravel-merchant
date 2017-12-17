@@ -1,11 +1,11 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace ShaoZeMing\Merchant\Controllers;
 
-use Encore\Admin\Auth\Database\Administrator;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Layout\Content;
+use ShaoZeMing\Merchant\Auth\Database\Administrator;
+use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Form;
+use ShaoZeMing\Merchant\Layout\Content;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -22,11 +22,11 @@ class AuthController extends Controller
      */
     public function getLogin()
     {
-        if (!Auth::guard('admin')->guest()) {
-            return redirect(config('admin.route.prefix'));
+        if (!Auth::guard('merchant')->guest()) {
+            return redirect(config('merchant.route.prefix'));
         }
 
-        return view('admin::login');
+        return view('merchant::login');
     }
 
     /**
@@ -46,10 +46,10 @@ class AuthController extends Controller
             return Redirect::back()->withInput()->withErrors($validator);
         }
 
-        if (Auth::guard('admin')->attempt($credentials)) {
-            admin_toastr(trans('admin.login_successful'));
+        if (Auth::guard('merchant')->attempt($credentials)) {
+            merchant_toastr(trans('merchant.login_successful'));
 
-            return redirect()->intended(config('admin.route.prefix'));
+            return redirect()->intended(config('merchant.route.prefix'));
         }
 
         return Redirect::back()->withInput()->withErrors(['username' => $this->getFailedLoginMessage()]);
@@ -62,11 +62,11 @@ class AuthController extends Controller
      */
     public function getLogout()
     {
-        Auth::guard('admin')->logout();
+        Auth::guard('merchant')->logout();
 
         session()->forget('url.intented');
 
-        return redirect(config('admin.route.prefix'));
+        return redirect(config('merchant.route.prefix'));
     }
 
     /**
@@ -77,7 +77,7 @@ class AuthController extends Controller
     public function getSetting()
     {
         return Admin::content(function (Content $content) {
-            $content->header(trans('admin.user_setting'));
+            $content->header(trans('merchant.user_setting'));
             $form = $this->settingForm();
             $form->tools(
                 function (Form\Tools $tools) {
@@ -107,16 +107,16 @@ class AuthController extends Controller
     protected function settingForm()
     {
         return Administrator::form(function (Form $form) {
-            $form->display('username', trans('admin.username'));
-            $form->text('name', trans('admin.name'))->rules('required');
-            $form->image('avatar', trans('admin.avatar'));
-            $form->password('password', trans('admin.password'))->rules('confirmed|required');
-            $form->password('password_confirmation', trans('admin.password_confirmation'))->rules('required')
+            $form->display('username', trans('merchant.username'));
+            $form->text('name', trans('merchant.name'))->rules('required');
+            $form->image('avatar', trans('merchant.avatar'));
+            $form->password('password', trans('merchant.password'))->rules('confirmed|required');
+            $form->password('password_confirmation', trans('merchant.password_confirmation'))->rules('required')
                 ->default(function ($form) {
                     return $form->model()->password;
                 });
 
-            $form->setAction(admin_base_path('auth/setting'));
+            $form->setAction(merchant_base_path('auth/setting'));
 
             $form->ignore(['password_confirmation']);
 
@@ -127,9 +127,9 @@ class AuthController extends Controller
             });
 
             $form->saved(function () {
-                admin_toastr(trans('admin.update_succeeded'));
+                merchant_toastr(trans('merchant.update_succeeded'));
 
-                return redirect(admin_base_path('auth/setting'));
+                return redirect(merchant_base_path('auth/setting'));
             });
         });
     }

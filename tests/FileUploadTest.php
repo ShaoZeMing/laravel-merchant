@@ -1,6 +1,6 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
+use ShaoZeMing\Merchant\Auth\Database\Administrator;
 use Illuminate\Support\Facades\File;
 use Tests\Models\File as FileModel;
 
@@ -10,12 +10,12 @@ class FileUploadTest extends TestCase
     {
         parent::setUp();
 
-        $this->be(Administrator::first(), 'admin');
+        $this->be(Administrator::first(), 'merchant');
     }
 
     public function testFileUploadPage()
     {
-        $this->visit('admin/files/create')
+        $this->visit('merchant/files/create')
             ->see('Upload file')
             ->seeInElement('h3[class=box-title]', 'Create')
             ->seeElement('input[name=file1]')
@@ -24,14 +24,14 @@ class FileUploadTest extends TestCase
             ->seeElement('input[name=file4]')
             ->seeElement('input[name=file5]')
             ->seeElement('input[name=file6]')
-//            ->seeInElement('a[href="/admin/files"]', 'List')
+//            ->seeInElement('a[href="/merchant/files"]', 'List')
             ->seeInElement('button[type=reset]', 'Reset')
             ->seeInElement('button[type=submit]', 'Submit');
     }
 
     protected function uploadFiles()
     {
-        return $this->visit('admin/files/create')
+        return $this->visit('merchant/files/create')
             ->attach(__DIR__.'/AuthTest.php', 'file1')
             ->attach(__DIR__.'/InstallTest.php', 'file2')
             ->attach(__DIR__.'/IndexTest.php', 'file3')
@@ -46,7 +46,7 @@ class FileUploadTest extends TestCase
         File::cleanDirectory(public_path('uploads/files'));
 
         $this->uploadFiles()
-            ->seePageIs('admin/files');
+            ->seePageIs('merchant/files');
 
         $this->assertEquals(FileModel::count(), 1);
 
@@ -78,7 +78,7 @@ class FileUploadTest extends TestCase
 
         $old = FileModel::first();
 
-        $this->visit('admin/files/1/edit')
+        $this->visit('merchant/files/1/edit')
             ->see('ID')
             ->see('Created At')
             ->see('Updated At')
@@ -88,7 +88,7 @@ class FileUploadTest extends TestCase
             ->seeElement('input[name=file4]')
             ->seeElement('input[name=file5]')
             ->seeElement('input[name=file6]')
-//            ->seeInElement('a[href="/admin/files"]', 'List')
+//            ->seeInElement('a[href="/merchant/files"]', 'List')
             ->seeInElement('button[type=reset]', 'Reset')
             ->seeInElement('button[type=submit]', 'Submit');
 
@@ -117,19 +117,19 @@ class FileUploadTest extends TestCase
 
         $this->uploadFiles();
 
-        $this->visit('admin/files')
+        $this->visit('merchant/files')
             ->seeInElement('td', 1);
 
         $files = FileModel::first()->toArray();
 
-        $this->delete('admin/files/1')
+        $this->delete('merchant/files/1')
             ->dontSeeInDatabase('test_files', ['id' => 1]);
 
         foreach (range(1, 6) as $index) {
             $this->assertFileNotExists(public_path('uploads/'.$files['file'.$index]));
         }
 
-        $this->visit('admin/files')
+        $this->visit('merchant/files')
             ->dontSeeInElement('td', 1);
     }
 
@@ -141,7 +141,7 @@ class FileUploadTest extends TestCase
         $this->uploadFiles();
         $this->uploadFiles();
 
-        $this->visit('admin/files')
+        $this->visit('merchant/files')
             ->seeInElement('td', 1)
             ->seeInElement('td', 2)
             ->seeInElement('td', 3);
@@ -152,11 +152,11 @@ class FileUploadTest extends TestCase
 
         $this->assertEquals(FileModel::count(), 3);
 
-        $this->delete('admin/files/1,2,3');
+        $this->delete('merchant/files/1,2,3');
 
         $this->assertEquals(FileModel::count(), 0);
 
-        $this->visit('admin/files')
+        $this->visit('merchant/files')
             ->dontSeeInElement('td', 1)
             ->dontSeeInElement('td', 2)
             ->dontSeeInElement('td', 3);

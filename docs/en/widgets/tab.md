@@ -1,9 +1,9 @@
 # Tab component
 
-The `Encore\Admin\Widgets\Tab` class is used to generate the tab components:
+The `ShaoZeMing\Merchant\Widgets\Tab` class is used to generate the tab components:
 
 ```php
-use Encore\Admin\Widgets\Tab;
+use ShaoZeMing\Merchant\Widgets\Tab;
 
 $tab = new Tab();
 

@@ -1,6 +1,6 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
+use ShaoZeMing\Merchant\Auth\Database\Administrator;
 
 class IndexTest extends TestCase
 {
@@ -8,12 +8,12 @@ class IndexTest extends TestCase
     {
         parent::setUp();
 
-        $this->be(Administrator::first(), 'admin');
+        $this->be(Administrator::first(), 'merchant');
     }
 
     public function testIndex()
     {
-        $this->visit('admin/')
+        $this->visit('merchant/')
             ->see('Dashboard')
             ->see('Description...')
 
@@ -22,9 +22,9 @@ class IndexTest extends TestCase
             ->see('Laravel version')
 
             ->see('Available extensions')
-            ->seeLink('laravel-admin-ext/helpers', 'https://github.com/laravel-admin-extensions/helpers')
-            ->seeLink('laravel-admin-ext/backup', 'https://github.com/laravel-admin-extensions/backup')
-            ->seeLink('laravel-admin-ext/media-manager', 'https://github.com/laravel-admin-extensions/media-manager')
+            ->seeLink('laravel-merchant-ext/helpers', 'https://github.com/laravel-merchant-extensions/helpers')
+            ->seeLink('laravel-merchant-ext/backup', 'https://github.com/laravel-merchant-extensions/backup')
+            ->seeLink('laravel-merchant-ext/media-manager', 'https://github.com/laravel-merchant-extensions/media-manager')
 
             ->see('Dependencies')
             ->see('php')
@@ -34,16 +34,16 @@ class IndexTest extends TestCase
 
     public function testClickMenu()
     {
-        $this->visit('admin/')
+        $this->visit('merchant/')
             ->click('Users')
-            ->seePageis('admin/auth/users')
+            ->seePageis('merchant/auth/users')
             ->click('Roles')
-            ->seePageis('admin/auth/roles')
+            ->seePageis('merchant/auth/roles')
             ->click('Permission')
-            ->seePageis('admin/auth/permissions')
+            ->seePageis('merchant/auth/permissions')
             ->click('Menu')
-            ->seePageis('admin/auth/menu')
+            ->seePageis('merchant/auth/menu')
             ->click('Operation log')
-            ->seePageis('admin/auth/logs');
+            ->seePageis('merchant/auth/logs');
     }
 }

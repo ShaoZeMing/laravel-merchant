@@ -1,9 +1,9 @@
 # Tab组件
 
-`Encore\Admin\Widgets\Tab`类用来生成选项卡组件：
+`ShaoZeMing\Merchant\Widgets\Tab`类用来生成选项卡组件：
 
 ```php
-use Encore\Admin\Widgets\Tab;
+use ShaoZeMing\Merchant\Widgets\Tab;
 
 $tab = new Tab();
 

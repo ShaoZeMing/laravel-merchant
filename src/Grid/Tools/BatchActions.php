@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace ShaoZeMing\Merchant\Grid\Tools;
 
-use Encore\Admin\Admin;
+use ShaoZeMing\Merchant\Admin;
 use Illuminate\Support\Collection;
 
 class BatchActions extends AbstractTool
@@ -34,7 +34,7 @@ class BatchActions extends AbstractTool
      */
     protected function appendDefaultAction()
     {
-        $this->add(trans('admin.delete'), new BatchDelete());
+        $this->add(trans('merchant.delete'), new BatchDelete());
     }
 
     /**
@@ -133,6 +133,6 @@ EOT;
 
         $this->setUpScripts();
 
-        return view('admin::grid.batch-actions', ['actions' => $this->actions])->render();
+        return view('merchant::grid.batch-actions', ['actions' => $this->actions])->render();
     }
 }

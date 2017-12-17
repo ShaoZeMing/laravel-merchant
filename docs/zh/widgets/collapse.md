@@ -1,8 +1,8 @@
 # Collapse组件
 
-`Encore\Admin\Widgets\Collapse`类用来生成折叠插件：
+`ShaoZeMing\Merchant\Widgets\Collapse`类用来生成折叠插件：
 ```php
-use Encore\Admin\Widgets\Collapse;
+use ShaoZeMing\Merchant\Widgets\Collapse;
 
 $collapse = new Collapse();
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace ShaoZeMing\Merchant\Middleware;
 
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use ShaoZeMing\Merchant\Form;
+use ShaoZeMing\Merchant\Grid;
 use Illuminate\Http\Request;
 
 class Bootstrap
@@ -12,7 +12,7 @@ class Bootstrap
     {
         Form::registerBuiltinFields();
 
-        if (file_exists($bootstrap = admin_path('bootstrap.php'))) {
+        if (file_exists($bootstrap = merchant_path('bootstrap.php'))) {
             require $bootstrap;
         }
 

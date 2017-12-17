@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Exception;
+namespace ShaoZeMing\Merchant\Exception;
 
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
@@ -26,7 +26,7 @@ class Handler
         $errors = new ViewErrorBag();
         $errors->put('exception', $error);
 
-        return view('admin::partials.exception', compact('errors'))->render();
+        return view('merchant::partials.exception', compact('errors'))->render();
     }
 
     /**

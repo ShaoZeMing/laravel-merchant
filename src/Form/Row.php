@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace ShaoZeMing\Merchant\Form;
 
-use Encore\Admin\Form;
+use ShaoZeMing\Merchant\Form;
 use Illuminate\Contracts\Support\Renderable;
 
 class Row implements Renderable
@@ -71,7 +71,7 @@ class Row implements Renderable
      */
     public function render()
     {
-        return view('admin::form.row', ['fields' => $this->fields]);
+        return view('merchant::form.row', ['fields' => $this->fields]);
     }
 
     /**
