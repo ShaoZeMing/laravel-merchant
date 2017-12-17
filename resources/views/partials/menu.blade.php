@@ -1,4 +1,4 @@
-@if(Admin::user()->visible($item['roles']))
+@if(Merchant::user()->visible($item['roles']))
     @if(!isset($item['children']))
         <li>
             @if(url()->isValidUrl($item['uri']))

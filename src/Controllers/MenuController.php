@@ -4,7 +4,7 @@ namespace ShaoZeMing\Merchant\Controllers;
 
 use ShaoZeMing\Merchant\Auth\Database\Menu;
 use ShaoZeMing\Merchant\Auth\Database\Role;
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Form;
 use ShaoZeMing\Merchant\Layout\Column;
 use ShaoZeMing\Merchant\Layout\Content;
@@ -24,7 +24,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return Admin::content(function (Content $content) {
+        return Merchant::content(function (Content $content) {
             $content->header(trans('merchant.menu'));
             $content->description(trans('merchant.list'));
 
@@ -94,7 +94,7 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        return Admin::content(function (Content $content) use ($id) {
+        return Merchant::content(function (Content $content) use ($id) {
             $content->header(trans('merchant.menu'));
             $content->description(trans('merchant.edit'));
 

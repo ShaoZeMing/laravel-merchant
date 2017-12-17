@@ -4,7 +4,7 @@ namespace ShaoZeMing\Merchant\Controllers;
 
 use ShaoZeMing\Merchant\Auth\Database\Administrator;
 use ShaoZeMing\Merchant\Auth\Database\OperationLog;
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Grid;
 use ShaoZeMing\Merchant\Layout\Content;
 use Illuminate\Routing\Controller;
@@ -18,11 +18,11 @@ class LogController extends Controller
      */
     public function index()
     {
-        return Admin::content(function (Content $content) {
+        return Merchant::content(function (Content $content) {
             $content->header(trans('merchant.operation_log'));
             $content->description(trans('merchant.list'));
 
-            $grid = Admin::grid(OperationLog::class, function (Grid $grid) {
+            $grid = Merchant::grid(OperationLog::class, function (Grid $grid) {
                 $grid->model()->orderBy('id', 'DESC');
 
                 $grid->id('ID')->sortable();

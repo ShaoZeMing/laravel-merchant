@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 use InvalidArgumentException;
 
 /**
- * Class Admin.
+ * Class Merchant.
  */
 class Merchant
 {

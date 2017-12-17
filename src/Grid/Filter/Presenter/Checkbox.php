@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Filter\Presenter;
 
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 
 class Checkbox extends Radio
 {
@@ -10,6 +10,6 @@ class Checkbox extends Radio
     {
         $script = "$('.{$this->filter->getId()}').iCheck({checkboxClass:'icheckbox_minimal-blue'});";
 
-        Admin::script($script);
+        Merchant::script($script);
     }
 }

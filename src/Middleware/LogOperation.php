@@ -3,7 +3,7 @@
 namespace ShaoZeMing\Merchant\Middleware;
 
 use ShaoZeMing\Merchant\Auth\Database\OperationLog as OperationLogModel;
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -21,7 +21,7 @@ class LogOperation
     {
         if ($this->shouldLogOperation($request)) {
             $log = [
-                'user_id' => Admin::user()->id,
+                'user_id' => Merchant::user()->id,
                 'path'    => $request->path(),
                 'method'  => $request->method(),
                 'ip'      => $request->getClientIp(),
@@ -43,7 +43,7 @@ class LogOperation
     {
         return config('merchant.operation_log.enable')
             && !$this->inExceptArray($request)
-            && Admin::user();
+            && Merchant::user();
     }
 
     /**

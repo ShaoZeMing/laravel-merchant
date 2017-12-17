@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid;
 
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Grid\Filter\AbstractFilter;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Request;
@@ -220,7 +220,7 @@ $("#filter-modal .submit").click(function () {
 });
 
 EOT;
-        Admin::script($script);
+        Merchant::script($script);
 
         return view($this->view)->with([
             'action'  => $this->action ?: $this->urlWithoutFilters(),

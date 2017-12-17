@@ -81,7 +81,7 @@ class AdminTablesSeeder extends Seeder
             [
                 'parent_id' => 0,
                 'order'     => 2,
-                'title'     => 'Admin',
+                'title'     => 'Merchant',
                 'icon'      => 'fa-tasks',
                 'uri'       => '',
             ],

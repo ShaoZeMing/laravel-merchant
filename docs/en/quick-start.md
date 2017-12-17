@@ -26,11 +26,11 @@ Use the following command to create a controller for `App\User` model
 ```php
 php artisan merchant:make UserController --model=App\\User
 ```
-The above command will create the controller in `app/Admin/Controllers/UserController.php`.
+The above command will create the controller in `app/Merchant/Controllers/UserController.php`.
 
 #### 2.add route
 
-Add a route in `app/Admin/routes.php`：
+Add a route in `app/Merchant/routes.php`：
 ```
 $router->resource('users', UserController::class);
 ```
@@ -41,4 +41,4 @@ Open `http://localhost:8000/merchant/auth/menu`, add menu link and refresh the p
 
 #### 3.build grid and form
 
-The rest needs to be done is open `app/Admin/Contollers/UserController.php`, find `form()` and `grid()` method and write few lines of code with `model-grid` and `model-form`，for more detail, please read [model-grid](/docs/en/model-grid.md) and [model-form](/docs/en/model-form.md).
+The rest needs to be done is open `app/Merchant/Contollers/UserController.php`, find `form()` and `grid()` method and write few lines of code with `model-grid` and `model-form`，for more detail, please read [model-grid](/docs/en/model-grid.md) and [model-form](/docs/en/model-form.md).

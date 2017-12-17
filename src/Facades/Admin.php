@@ -5,7 +5,7 @@ namespace ShaoZeMing\Merchant\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class Admin.
+ * Class Merchant.
  *
  * @method static \ShaoZeMing\Merchant\Grid grid($model, \Closure $callable)
  * @method static \ShaoZeMing\Merchant\Form form($model, \Closure $callable)
@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static void registerAuthRoutes()
  * @method static void extend($name, $class)
  */
-class Admin extends Facade
+class Merchant extends Facade
 {
     protected static function getFacadeAccessor()
     {

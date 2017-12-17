@@ -6,10 +6,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{ Admin::user()->avatar }}" class="img-circle" alt="User Image">
+                <img src="{{ Merchant::user()->avatar }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>{{ Admin::user()->name }}</p>
+                <p>{{ Merchant::user()->name }}</p>
                 <!-- Status -->
                 <a href="#"><i class="fa fa-circle text-success"></i> {{ trans('merchant.online') }}</a>
             </div>
@@ -31,7 +31,7 @@
         <ul class="sidebar-menu">
             <li class="header">{{ trans('merchant.menu') }}</li>
 
-            @each('merchant::partials.menu', Admin::menu(), 'item')
+            @each('merchant::partials.menu', Merchant::menu(), 'item')
 
         </ul>
         <!-- /.sidebar-menu -->

@@ -11,7 +11,7 @@ laravel-merchant
 
 [Demo](http://120.26.143.106/merchant) 账号/密码:merchant/merchant
 
-Inspired by [SleepingOwlAdmin](https://github.com/sleeping-owl/merchant) and [rapyd-laravel](https://github.com/zofe/rapyd-laravel).
+Inspired by [SleepingOwlMerchant](https://github.com/sleeping-owl/merchant) and [rapyd-laravel](https://github.com/zofe/rapyd-laravel).
 
 截图
 ------------
@@ -37,7 +37,7 @@ composer require encore/laravel-merchant "1.1.x-dev"
 在`config/app.php`加入`ServiceProvider`:
 
 ```
-ShaoZeMing\Merchant\AdminServiceProvider::class
+ShaoZeMing\Merchant\MerchantServiceProvider::class
 ```
 
 然后运行下面的命令完成安装：
@@ -78,19 +78,19 @@ php artisan merchant:install
 
 目录结构
 ------------
-安装完成之后，后台的安装目录为`app/Admin`，之后大部分的后台开发编码工作都是在这个目录下进行。
+安装完成之后，后台的安装目录为`app/Merchant`，之后大部分的后台开发编码工作都是在这个目录下进行。
 
 ```
-app/Admin
+app/Merchant
 ├── Controllers
 │   ├── ExampleController.php
 │   └── HomeController.php
 └── routes.php
 ```
 
-`app/Admin/routes.php`文件用来配置后台路由，详细使用请阅读[路由配置](/docs/zh/router.md)。
+`app/Merchant/routes.php`文件用来配置后台路由，详细使用请阅读[路由配置](/docs/zh/router.md)。
 
-`app/Admin/Controllers`目录用来存放后台路由器文件，该目录下的`HomeController.php`文件是后台首页的显示控制器，`ExampleController.php`为实例文件。
+`app/Merchant/Controllers`目录用来存放后台路由器文件，该目录下的`HomeController.php`文件是后台首页的显示控制器，`ExampleController.php`为实例文件。
 
 快速开始
 ------------
@@ -120,11 +120,11 @@ CREATE TABLE `users` (
 php artisan merchant:make UserController --model=App\\User
 ```
 
-上面的命令会创建路由器文件`app/Admin/Controllers/UserController.php`.
+上面的命令会创建路由器文件`app/Merchant/Controllers/UserController.php`.
 
 ### 2.添加路由配置
 
-在`laravel-merchant`的路由配置文件`app/Admin/routes.php`里添加一行：
+在`laravel-merchant`的路由配置文件`app/Merchant/routes.php`里添加一行：
 ```
 $router->resource('users', UserController::class);
 ```
@@ -137,14 +137,14 @@ $router->resource('users', UserController::class);
 
 ### 4.创建表格表单
 
-剩下的工作就是构建数据表格和表单了，打开 `app/Admin/Contollers/UserController.php`,找到`form()`和`grid()`方法，然添加构建代码,更多详细使用请查看[model-grid](/docs/zh/model-grid.md)和[model-form](/docs/zh/model-form.md)。
+剩下的工作就是构建数据表格和表单了，打开 `app/Merchant/Contollers/UserController.php`,找到`form()`和`grid()`方法，然添加构建代码,更多详细使用请查看[model-grid](/docs/zh/model-grid.md)和[model-form](/docs/zh/model-form.md)。
 
 其它
 ------------
 `laravel-merchant` 基于以下组件或者服务:
 
 + [Laravel](https://laravel.com/)
-+ [AdminLTE](https://almsaeedstudio.com/)
++ [MerchantLTE](https://almsaeedstudio.com/)
 + [Datetimepicker](http://eonasdan.github.io/bootstrap-datetimepicker/)
 + [CodeMirror](https://codemirror.net/)
 + [font-awesome](http://fontawesome.io)

@@ -2,7 +2,7 @@
 
 use Illuminate\Routing\Router;
 
-Admin::registerAuthRoutes();
+Merchant::registerAuthRoutes();
 
 Route::group([
     'prefix'        => config('merchant.route.prefix'),

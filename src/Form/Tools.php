@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Form;
 
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Form;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\Support\Renderable;
@@ -55,7 +55,7 @@ $('.form-history-back').on('click', function (event) {
 });
 EOT;
 
-        Admin::script($script);
+        Merchant::script($script);
 
         $text = trans('merchant.back');
 

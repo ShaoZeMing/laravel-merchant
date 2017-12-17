@@ -24,9 +24,9 @@ CREATE TABLE `movies` (
 
 use App\Models\Movie;
 use ShaoZeMing\Merchant\Grid;
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 
-$grid = Admin::grid(Movie::class, function(Grid $grid){
+$grid = Merchant::grid(Movie::class, function(Grid $grid){
 
     // 第一列显示id字段，并将这一列设置为可排序列
     $grid->id('ID')->sortable();
@@ -265,7 +265,7 @@ class Profile extends Model
 通过下面的代码可以关联在一个grid里面:
 
 ```php
-Admin::grid(User::class, function (Grid $grid) {
+Merchant::grid(User::class, function (Grid $grid) {
 
     $grid->id('ID')->sortable();
 
@@ -336,7 +336,7 @@ class Comment extends Model
 
 ```php
 
-return Admin::grid(Post::class, function (Grid $grid) {
+return Merchant::grid(Post::class, function (Grid $grid) {
     $grid->id('id')->sortable();
     $grid->title();
     $grid->content();
@@ -351,7 +351,7 @@ return Admin::grid(Post::class, function (Grid $grid) {
 });
 
 
-return Admin::grid(Comment::class, function (Grid $grid) {
+return Merchant::grid(Comment::class, function (Grid $grid) {
     $grid->id('id');
     $grid->post()->title();
     $grid->content();
@@ -424,7 +424,7 @@ class Role extends Model
 
 
 ```php
-return Admin::grid(User::class, function (Grid $grid) {
+return Merchant::grid(User::class, function (Grid $grid) {
     $grid->id('ID')->sortable();
     $grid->username();
     $grid->name();

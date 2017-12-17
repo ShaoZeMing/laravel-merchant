@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Middleware;
 
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use Illuminate\Http\Request;
 
 class Permission
@@ -17,11 +17,11 @@ class Permission
      */
     public function handle(Request $request, \Closure $next)
     {
-        if (!Admin::user()) {
+        if (!Merchant::user()) {
             return $next($request);
         }
 
-        if (!Admin::user()->allPermissions()->first(function ($permission) use ($request) {
+        if (!Merchant::user()->allPermissions()->first(function ($permission) use ($request) {
             return $permission->shouldPassThrough($request);
         })) {
             \ShaoZeMing\Merchant\Auth\Permission::error();

@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Filter\Presenter;
 
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use Illuminate\Contracts\Support\Arrayable;
 
 class Radio extends Presenter
@@ -51,7 +51,7 @@ class Radio extends Presenter
     {
         $script = "$('.{$this->filter->getId()}').iCheck({radioClass:'iradio_minimal-blue'});";
 
-        Admin::script($script);
+        Merchant::script($script);
     }
 
     /**

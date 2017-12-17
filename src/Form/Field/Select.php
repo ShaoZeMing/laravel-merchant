@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Form\Field;
 
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Form\Field;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
@@ -125,7 +125,7 @@ $(document).on('change', "{$this->getElementClassSelector()}", function () {
 });
 EOT;
 
-        Admin::script($script);
+        Merchant::script($script);
 
         return $this;
     }

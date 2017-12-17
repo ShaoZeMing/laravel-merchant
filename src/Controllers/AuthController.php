@@ -3,7 +3,7 @@
 namespace ShaoZeMing\Merchant\Controllers;
 
 use ShaoZeMing\Merchant\Auth\Database\Administrator;
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Form;
 use ShaoZeMing\Merchant\Layout\Content;
 use Illuminate\Http\Request;
@@ -76,7 +76,7 @@ class AuthController extends Controller
      */
     public function getSetting()
     {
-        return Admin::content(function (Content $content) {
+        return Merchant::content(function (Content $content) {
             $content->header(trans('merchant.user_setting'));
             $form = $this->settingForm();
             $form->tools(
@@ -85,7 +85,7 @@ class AuthController extends Controller
                     $tools->disableListButton();
                 }
             );
-            $content->body($form->edit(Admin::user()->id));
+            $content->body($form->edit(Merchant::user()->id));
         });
     }
 
@@ -96,7 +96,7 @@ class AuthController extends Controller
      */
     public function putSetting()
     {
-        return $this->settingForm()->update(Admin::user()->id);
+        return $this->settingForm()->update(Merchant::user()->id);
     }
 
     /**

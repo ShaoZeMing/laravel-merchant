@@ -37,7 +37,7 @@ return [
     /*
      * Laravel-merchant html title.
      */
-    'title' => 'Admin',
+    'title' => 'Merchant',
 
     /*
      * Use `https`.

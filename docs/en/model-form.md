@@ -24,9 +24,9 @@ The corresponding data model is `App\Models\Movie`, and the following code can g
 
 use App\Models\Movie;
 use ShaoZeMing\Merchant\Form;
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 
-$grid = Admin::form(Movie::class, function(Form $grid){
+$grid = Merchant::form(Movie::class, function(Form $grid){
 
     // Displays the record id
     $form->display('id', 'ID');

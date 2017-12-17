@@ -20,7 +20,7 @@ class TestCase extends BaseTestCase
 
         $app->booting(function () {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('Admin', \ShaoZeMing\Merchant\Facades\Admin::class);
+            $loader->alias('Merchant', \ShaoZeMing\Merchant\Facades\Merchant::class);
         });
 
         $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();

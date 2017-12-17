@@ -4,7 +4,7 @@ namespace DummyNamespace;
 
 use ShaoZeMing\Merchant\Form;
 use ShaoZeMing\Merchant\Grid;
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Layout\Content;
 use App\Http\Controllers\Controller;
 use ShaoZeMing\Merchant\Controllers\ModelForm;
@@ -20,7 +20,7 @@ class ExampleController extends Controller
      */
     public function index()
     {
-        return Admin::content(function (Content $content) {
+        return Merchant::content(function (Content $content) {
 
             $content->header('header');
             $content->description('description');
@@ -37,7 +37,7 @@ class ExampleController extends Controller
      */
     public function edit($id)
     {
-        return Admin::content(function (Content $content) use ($id) {
+        return Merchant::content(function (Content $content) use ($id) {
 
             $content->header('header');
             $content->description('description');
@@ -53,7 +53,7 @@ class ExampleController extends Controller
      */
     public function create()
     {
-        return Admin::content(function (Content $content) {
+        return Merchant::content(function (Content $content) {
 
             $content->header('header');
             $content->description('description');
@@ -69,7 +69,7 @@ class ExampleController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(YourModel::class, function (Grid $grid) {
+        return Merchant::grid(YourModel::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
 
@@ -85,7 +85,7 @@ class ExampleController extends Controller
      */
     protected function form()
     {
-        return Admin::form(YourModel::class, function (Form $form) {
+        return Merchant::form(YourModel::class, function (Form $form) {
 
             $form->display('id', 'ID');
 

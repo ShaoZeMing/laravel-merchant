@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Console;
 
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use Illuminate\Console\Command;
 
 class MenuCommand extends Command
@@ -28,7 +28,7 @@ class MenuCommand extends Command
      */
     public function handle()
     {
-        $menu = Admin::menu();
+        $menu = Merchant::menu();
 
         echo json_encode($menu, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), "\r\n";
     }

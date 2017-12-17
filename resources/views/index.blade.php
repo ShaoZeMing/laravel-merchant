@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ Admin::title() }}</title>
+    <title>{{ Merchant::title() }}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -14,7 +14,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ merchant_asset("/vendor/laravel-merchant/AdminLTE/dist/css/skins/" . config('merchant.skin') .".min.css") }}">
 
-    {!! Admin::css() !!}
+    {!! Merchant::css() !!}
     <link rel="stylesheet" href="{{ merchant_asset("/vendor/laravel-merchant/laravel-merchant/laravel-merchant.css") }}">
     <link rel="stylesheet" href="{{ merchant_asset("/vendor/laravel-merchant/nprogress/nprogress.css") }}">
     <link rel="stylesheet" href="{{ merchant_asset("/vendor/laravel-merchant/sweetalert/dist/sweetalert.css") }}">
@@ -48,7 +48,7 @@
 
     <div class="content-wrapper" id="pjax-container">
         @yield('content')
-        {!! Admin::script() !!}
+        {!! Merchant::script() !!}
     </div>
 
     @include('merchant::partials.footer')
@@ -67,7 +67,7 @@
 <script src="{{ merchant_asset ("/vendor/laravel-merchant/toastr/build/toastr.min.js") }}"></script>
 <script src="{{ merchant_asset ("/vendor/laravel-merchant/bootstrap3-editable/js/bootstrap-editable.min.js") }}"></script>
 <script src="{{ merchant_asset ("/vendor/laravel-merchant/sweetalert/dist/sweetalert.min.js") }}"></script>
-{!! Admin::js() !!}
+{!! Merchant::js() !!}
 <script src="{{ merchant_asset ("/vendor/laravel-merchant/laravel-merchant/laravel-merchant.js") }}"></script>
 
 </body>

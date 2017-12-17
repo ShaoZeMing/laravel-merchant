@@ -16,31 +16,31 @@
             <span class="sr-only">Toggle navigation</span>
         </a>
 
-        {!! Admin::getNavbar()->render('left') !!}
+        {!! Merchant::getNavbar()->render('left') !!}
 
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
-                {!! Admin::getNavbar()->render() !!}
+                {!! Merchant::getNavbar()->render() !!}
 
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        <img src="{{ Admin::user()->avatar }}" class="user-image" alt="User Image">
+                        <img src="{{ Merchant::user()->avatar }}" class="user-image" alt="User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                        <span class="hidden-xs">{{ Admin::user()->name }}</span>
+                        <span class="hidden-xs">{{ Merchant::user()->name }}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="{{ Admin::user()->avatar }}" class="img-circle" alt="User Image">
+                            <img src="{{ Merchant::user()->avatar }}" class="img-circle" alt="User Image">
 
                             <p>
-                                {{ Admin::user()->name }}
-                                <small>Member since merchant {{ Admin::user()->created_at }}</small>
+                                {{ Merchant::user()->name }}
+                                <small>Member since merchant {{ Merchant::user()->created_at }}</small>
                             </p>
                         </li>
                         <li class="user-footer">

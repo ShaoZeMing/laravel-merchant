@@ -24,9 +24,9 @@ And the model of this table is `App\Models\Movie`,The following code can generat
 
 use App\Models\Movie;
 use ShaoZeMing\Merchant\Grid;
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 
-$grid = Admin::grid(Movie::class, function(Grid $grid){
+$grid = Merchant::grid(Movie::class, function(Grid $grid){
 
     // The first column displays the id field and sets the column as a sortable column
     $grid->id('ID')->sortable();
@@ -256,7 +256,7 @@ class Profile extends Model
 You can associate them in a grid with the following code:
 
 ```php
-Admin::grid(User::class, function (Grid $grid) {
+Merchant::grid(User::class, function (Grid $grid) {
 
     $grid->id('ID')->sortable();
 
@@ -327,7 +327,7 @@ You can associate them in a grid with the following code:
 
 ```php
 
-return Admin::grid(Post::class, function (Grid $grid) {
+return Merchant::grid(Post::class, function (Grid $grid) {
     $grid->id('id')->sortable();
     $grid->title();
     $grid->content();
@@ -342,7 +342,7 @@ return Admin::grid(Post::class, function (Grid $grid) {
 });
 
 
-return Admin::grid(Comment::class, function (Grid $grid) {
+return Merchant::grid(Comment::class, function (Grid $grid) {
     $grid->id('id');
     $grid->post()->title();
     $grid->content();
@@ -414,7 +414,7 @@ class Role extends Model
 You can associate them in a grid with the following code:
 
 ```php
-return Admin::grid(User::class, function (Grid $grid) {
+return Merchant::grid(User::class, function (Grid $grid) {
     $grid->id('ID')->sortable();
     $grid->username();
     $grid->name();

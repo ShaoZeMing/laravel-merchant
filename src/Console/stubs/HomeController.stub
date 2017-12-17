@@ -4,7 +4,7 @@ namespace DummyNamespace;
 
 use App\Http\Controllers\Controller;
 use ShaoZeMing\Merchant\Controllers\Dashboard;
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Layout\Column;
 use ShaoZeMing\Merchant\Layout\Content;
 use ShaoZeMing\Merchant\Layout\Row;
@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return Admin::content(function (Content $content) {
+        return Merchant::content(function (Content $content) {
 
             $content->header('Dashboard');
             $content->description('Description...');

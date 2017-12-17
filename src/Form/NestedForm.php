@@ -312,11 +312,11 @@ class NestedForm
         /* @var Field $field */
         foreach ($this->fields() as $field) {
 
-            //when field render, will push $script to Admin
+            //when field render, will push $script to Merchant
             $html .= $field->render();
 
             /*
-             * Get and remove the last script of Admin::$script stack.
+             * Get and remove the last script of Merchant::$script stack.
              */
             if ($field->getScript()) {
                 $scripts[] = array_pop(Merchant::$script);

@@ -51,7 +51,7 @@
                 "ShaoZeMing\\Merchant\\AdminServiceProvider"
             ],
             "aliases": {
-                "Admin": "ShaoZeMing\\Merchant\\Facades\\Admin"
+                "Merchant": "ShaoZeMing\\Merchant\\Facades\\Merchant"
             }
 
         }

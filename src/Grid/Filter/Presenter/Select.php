@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Grid\Filter\Presenter;
 
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use Illuminate\Contracts\Support\Arrayable;
 
 class Select extends Presenter
@@ -59,7 +59,7 @@ $(".{$this->getElementClass()}").select2({
 SCRIPT;
         }
 
-        Admin::script($this->script);
+        Merchant::script($this->script);
 
         return is_array($this->options) ? $this->options : [];
     }
@@ -185,7 +185,7 @@ $(document).on('change', ".{$this->getClass($column)}", function () {
 });
 EOT;
 
-        Admin::script($script);
+        Merchant::script($script);
 
         return $this;
     }

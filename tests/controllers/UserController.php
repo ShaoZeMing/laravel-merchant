@@ -4,7 +4,7 @@ namespace Tests\Controllers;
 
 use App\Http\Controllers\Controller;
 use ShaoZeMing\Merchant\Controllers\ModelForm;
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Form;
 use ShaoZeMing\Merchant\Grid;
 use ShaoZeMing\Merchant\Layout\Content;
@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return Admin::content(function (Content $content) {
+        return Merchant::content(function (Content $content) {
             $content->header('All users');
             $content->description('description');
 
@@ -39,7 +39,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return Admin::content(function (Content $content) use ($id) {
+        return Merchant::content(function (Content $content) use ($id) {
             $content->header('Edit user');
             $content->description('description');
 
@@ -54,7 +54,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return Admin::content(function (Content $content) {
+        return Merchant::content(function (Content $content) {
             $content->header('Create user');
 
             $content->body($this->form());
@@ -68,7 +68,7 @@ class UserController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(User::class, function (Grid $grid) {
+        return Merchant::grid(User::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
 
             $grid->username();
@@ -130,7 +130,7 @@ class UserController extends Controller
         Form::extend('map', Form\Field\Map::class);
         Form::extend('editor', Form\Field\Editor::class);
 
-        return Admin::form(User::class, function (Form $form) {
+        return Merchant::form(User::class, function (Form $form) {
             $form->disableDeletion();
 
             $form->display('id', 'ID');

@@ -4,7 +4,7 @@ namespace Tests\Controllers;
 
 use App\Http\Controllers\Controller;
 use ShaoZeMing\Merchant\Controllers\ModelForm;
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Form;
 use ShaoZeMing\Merchant\Grid;
 use ShaoZeMing\Merchant\Layout\Content;
@@ -21,7 +21,7 @@ class FileController extends Controller
      */
     public function index()
     {
-        return Admin::content(function (Content $content) {
+        return Merchant::content(function (Content $content) {
             $content->header('header');
             $content->description('description');
 
@@ -38,7 +38,7 @@ class FileController extends Controller
      */
     public function edit($id)
     {
-        return Admin::content(function (Content $content) use ($id) {
+        return Merchant::content(function (Content $content) use ($id) {
             $content->header('header');
             $content->description('description');
 
@@ -53,7 +53,7 @@ class FileController extends Controller
      */
     public function create()
     {
-        return Admin::content(function (Content $content) {
+        return Merchant::content(function (Content $content) {
             $content->header('Upload file');
 
             $content->body($this->form());
@@ -67,7 +67,7 @@ class FileController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(File::class, function (Grid $grid) {
+        return Merchant::grid(File::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
 
             $grid->created_at();
@@ -82,7 +82,7 @@ class FileController extends Controller
      */
     protected function form()
     {
-        return Admin::form(File::class, function (Form $form) {
+        return Merchant::form(File::class, function (Form $form) {
             $form->display('id', 'ID');
 
             $form->file('file1');

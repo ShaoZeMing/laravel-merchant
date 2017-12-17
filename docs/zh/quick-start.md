@@ -26,11 +26,11 @@ CREATE TABLE `users` (
 php artisan merchant:make UserController --model=App\\User
 ```
 
-上面的命令会创建路由器文件`app/Admin/Controllers/UserController.php`.
+上面的命令会创建路由器文件`app/Merchant/Controllers/UserController.php`.
 
 ### 2.添加路由配置
 
-在`laravel-merchant`的路由配置文件`app/Admin/routes.php`里添加一行：
+在`laravel-merchant`的路由配置文件`app/Merchant/routes.php`里添加一行：
 ```
 $router->resource('users', UserController::class);
 ```
@@ -43,4 +43,4 @@ $router->resource('users', UserController::class);
 
 ### 4.创建表格表单
 
-剩下的工作就是构建数据表格和表单了，打开 `app/Admin/Contollers/UserController.php`,找到`form()`和`grid()`方法，然添加构建代码,更多详细使用请查看[model-grid](/docs/zh/model-grid.md)和[model-form](/docs/zh/model-form.md)。
+剩下的工作就是构建数据表格和表单了，打开 `app/Merchant/Contollers/UserController.php`,找到`form()`和`grid()`方法，然添加构建代码,更多详细使用请查看[model-grid](/docs/zh/model-grid.md)和[model-form](/docs/zh/model-form.md)。

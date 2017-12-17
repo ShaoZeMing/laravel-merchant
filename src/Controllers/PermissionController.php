@@ -3,7 +3,7 @@
 namespace ShaoZeMing\Merchant\Controllers;
 
 use ShaoZeMing\Merchant\Auth\Database\Permission;
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Form;
 use ShaoZeMing\Merchant\Grid;
 use ShaoZeMing\Merchant\Layout\Content;
@@ -21,7 +21,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        return Admin::content(function (Content $content) {
+        return Merchant::content(function (Content $content) {
             $content->header(trans('merchant.permissions'));
             $content->description(trans('merchant.list'));
             $content->body($this->grid()->render());
@@ -37,7 +37,7 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        return Admin::content(function (Content $content) use ($id) {
+        return Merchant::content(function (Content $content) use ($id) {
             $content->header(trans('merchant.permissions'));
             $content->description(trans('merchant.edit'));
             $content->body($this->form()->edit($id));
@@ -51,7 +51,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return Admin::content(function (Content $content) {
+        return Merchant::content(function (Content $content) {
             $content->header(trans('merchant.permissions'));
             $content->description(trans('merchant.create'));
             $content->body($this->form());
@@ -65,7 +65,7 @@ class PermissionController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Permission::class, function (Grid $grid) {
+        return Merchant::grid(Permission::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
             $grid->slug(trans('merchant.slug'));
             $grid->name(trans('merchant.name'));
@@ -109,7 +109,7 @@ class PermissionController extends Controller
      */
     public function form()
     {
-        return Admin::form(Permission::class, function (Form $form) {
+        return Merchant::form(Permission::class, function (Form $form) {
             $form->display('id', 'ID');
 
             $form->text('slug', trans('merchant.slug'))->rules('required');

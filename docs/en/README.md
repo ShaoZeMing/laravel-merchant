@@ -11,7 +11,7 @@ laravel-merchant
 
 [Demo](http://120.26.143.106/merchant) use `username/password:merchant/merchant`
 
-Inspired by [SleepingOwlAdmin](https://github.com/sleeping-owl/merchant) and [rapyd-laravel](https://github.com/zofe/rapyd-laravel).
+Inspired by [SleepingOwlMerchant](https://github.com/sleeping-owl/merchant) and [rapyd-laravel](https://github.com/zofe/rapyd-laravel).
 
 [中文文档](/docs/zh/README.md)
 
@@ -71,20 +71,20 @@ Documentation
 
 Directory structure
 ------------
-After install,you can find directory`app/Admin`,and then most of our develop work is under this directory.
+After install,you can find directory`app/Merchant`,and then most of our develop work is under this directory.
 
 ```
 
-app/Admin
+app/Merchant
 ├── Controllers
 │   ├── ExampleController.php
 │   └── HomeController.php
 └── routes.php
 ```
 
-`app/Admin/routes.php` is used to define routes，for more detail please read [routes](/docs/zh/router.md).
+`app/Merchant/routes.php` is used to define routes，for more detail please read [routes](/docs/zh/router.md).
 
-The `app/Admin/Controllers` directory  is used to store all the controllers, The `HomeController.php` file under this directory is used to handle home request of merchant,The `ExampleController.php` file is a controller example.
+The `app/Merchant/Controllers` directory  is used to store all the controllers, The `HomeController.php` file under this directory is used to handle home request of merchant,The `ExampleController.php` file is a controller example.
 
 Quick start
 ------------
@@ -114,11 +114,11 @@ Use the following command to create a controller for `App\User` model
 ```php
 php artisan merchant:make UserController --model=App\\User
 ```
-The above command will create the controller in `app/Admin/Controllers/UserController.php`.
+The above command will create the controller in `app/Merchant/Controllers/UserController.php`.
 
 #### 2.add route
 
-Add a route in `app/Admin/routes.php`：
+Add a route in `app/Merchant/routes.php`：
 ```
 $router->resource('users', UserController::class);
 ```
@@ -129,14 +129,14 @@ Open `http://localhost:8000/merchant/auth/menu`, add menu link and refresh the p
 
 #### 3.build grid and form
 
-The rest needs to be done is open `app/Admin/Contollers/UserController.php`, find `form()` and `grid()` method and write few lines of code with `model-grid` and `model-form`，for more detail, please read [model-grid](/docs/en/model-grid.md) and [model-form](/docs/en/model-form.md).
+The rest needs to be done is open `app/Merchant/Contollers/UserController.php`, find `form()` and `grid()` method and write few lines of code with `model-grid` and `model-form`，for more detail, please read [model-grid](/docs/en/model-grid.md) and [model-form](/docs/en/model-form.md).
 
 Other
 ------------
 `laravel-merchant` based on thses plugins or services:
 
 + [Laravel](https://laravel.com/)
-+ [AdminLTE](https://almsaeedstudio.com/)
++ [MerchantLTE](https://almsaeedstudio.com/)
 + [Bootstrap Markdown](http://toopay.github.io/bootstrap-markdown/)
 + [Datetimepicker](http://eonasdan.github.io/bootstrap-datetimepicker/)
 + [CodeMirror](https://codemirror.net/)

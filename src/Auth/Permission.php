@@ -2,7 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Auth;
 
-use ShaoZeMing\Merchant\Facades\Admin;
+use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Middleware\Pjax;
 use Illuminate\Support\Facades\Auth;
 
@@ -75,7 +75,7 @@ class Permission
      */
     public static function error()
     {
-        $response = response(Admin::content()->withError(trans('merchant.deny')));
+        $response = response(Merchant::content()->withError(trans('merchant.deny')));
 
         Pjax::respond($response);
     }
