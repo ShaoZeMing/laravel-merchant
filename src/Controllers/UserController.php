@@ -68,14 +68,14 @@ class UserController extends Controller
     {
         return Administrator::grid(function (Grid $grid) {
             $grid->id('ID')->sortable();
-            $grid->username(trans('merchant.username'));
+            $grid->mobile(trans('merchant.mobile'));
             $grid->name(trans('merchant.name'));
             $grid->roles(trans('merchant.roles'))->pluck('name')->label();
             $grid->created_at(trans('merchant.created_at'));
             $grid->updated_at(trans('merchant.updated_at'));
 
             $grid->actions(function (Grid\Displayers\Actions $actions) {
-                if ($actions->getKey() == 1) {
+                if (Merchant::user()->user_type == 1) {
                     $actions->disableDelete();
                 }
             });
@@ -96,9 +96,8 @@ class UserController extends Controller
     public function form()
     {
         return Administrator::form(function (Form $form) {
-            $form->display('id', 'ID');
-
-            $form->text('username', trans('merchant.username'))->rules('required');
+            $form->display('mobile', trans('merchant.mobile'))->rules('required');
+            $form->email('email', trans('merchant.email'))->default('');
             $form->text('name', trans('merchant.name'))->rules('required');
             $form->image('avatar', trans('merchant.avatar'));
             $form->password('password', trans('merchant.password'))->rules('required|confirmed');
@@ -108,14 +107,14 @@ class UserController extends Controller
                 });
 
             $form->ignore(['password_confirmation']);
-
             $form->multipleSelect('roles', trans('merchant.roles'))->options(Role::all()->pluck('name', 'id'));
             $form->multipleSelect('permissions', trans('merchant.permissions'))->options(Permission::all()->pluck('name', 'id'));
-
             $form->display('created_at', trans('merchant.created_at'));
             $form->display('updated_at', trans('merchant.updated_at'));
+            $form->hidden('merchant_id');
 
             $form->saving(function (Form $form) {
+                $form->merchant_id = Merchant::user()->merchant_id;
                 if ($form->password && $form->model()->password != $form->password) {
                     $form->password = bcrypt($form->password);
                 }

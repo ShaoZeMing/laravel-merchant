@@ -32,7 +32,7 @@ return [
     /*
      * Laravel-merchant install directory.
      */
-    'directory' => app_path('Http/Merchant'),
+    'directory' => app_path('Http/Controllers/Web/Merchant'),
 
     /*
      * Laravel-merchant html title.

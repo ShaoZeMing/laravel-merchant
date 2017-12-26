@@ -26,7 +26,7 @@ class LogController extends Controller
                 $grid->model()->orderBy('id', 'DESC');
 
                 $grid->id('ID')->sortable();
-                $grid->user()->name('User');
+                $grid->user()->name(trans('merchant.user'));
                 $grid->method()->display(function ($method) {
                     $color = array_get(OperationLog::$methodColors, $method, 'grey');
 

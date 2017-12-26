@@ -36,10 +36,10 @@ class AuthController extends Controller
      */
     public function postLogin(Request $request)
     {
-        $credentials = $request->only(['username', 'password']);
+        $credentials = $request->only(['mobile', 'password']);
 
         $validator = Validator::make($credentials, [
-            'username' => 'required', 'password' => 'required',
+            'mobile' => 'required', 'password' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -52,7 +52,7 @@ class AuthController extends Controller
             return redirect()->intended(config('merchant.route.prefix'));
         }
 
-        return Redirect::back()->withInput()->withErrors(['username' => $this->getFailedLoginMessage()]);
+        return Redirect::back()->withInput()->withErrors(['mobile' => $this->getFailedLoginMessage()]);
     }
 
     /**
@@ -107,7 +107,8 @@ class AuthController extends Controller
     protected function settingForm()
     {
         return Administrator::form(function (Form $form) {
-            $form->display('username', trans('merchant.username'));
+            $form->display('mobile', trans('merchant.mobile'))->rules('required');
+            $form->email('email', trans('merchant.email'))->rules('required');
             $form->text('name', trans('merchant.name'))->rules('required');
             $form->image('avatar', trans('merchant.avatar'));
             $form->password('password', trans('merchant.password'))->rules('confirmed|required');
@@ -117,7 +118,6 @@ class AuthController extends Controller
                 });
 
             $form->setAction(merchant_base_path('auth/setting'));
-
             $form->ignore(['password_confirmation']);
 
             $form->saving(function (Form $form) {

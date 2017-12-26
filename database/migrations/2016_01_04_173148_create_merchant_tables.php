@@ -16,12 +16,16 @@ class CreateMerchantTables extends Migration
 
         Schema::connection($connection)->create(config('merchant.database.users_table'), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username', 190)->unique();
+            $table->string('mobile', 12);
+            $table->string('email', 190);
             $table->string('password', 60);
             $table->string('name');
+            $table->string('merchant_id')->default(0);
+            $table->tinyInteger('user_type')->default(0)->default('1是企业号,9是开发人员');
             $table->string('avatar')->nullable();
             $table->string('remember_token', 100)->nullable();
             $table->timestamps();
+            $table->unique(['mobile','merchant_id']);
         });
 
         Schema::connection($connection)->create(config('merchant.database.roles_table'), function (Blueprint $table) {

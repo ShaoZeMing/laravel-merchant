@@ -6,6 +6,7 @@ use ShaoZeMing\Merchant\Traits\AdminBuilder;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Model;
+use App\Entities\Merchant;
 
 /**
  * Class Administrator.
@@ -16,7 +17,7 @@ class Administrator extends Model implements AuthenticatableContract
 {
     use Authenticatable, AdminBuilder, HasPermissions;
 
-    protected $fillable = ['username', 'password', 'name', 'avatar'];
+    protected $fillable = ['mobile','email', 'password', 'name', 'avatar','merchant_id','user_type'];
 
     /**
      * Create a new Eloquent model instance.
@@ -32,5 +33,10 @@ class Administrator extends Model implements AuthenticatableContract
         $this->setTable(config('merchant.database.users_table'));
 
         parent::__construct($attributes);
+    }
+
+
+    public function merchant(){
+        return $this->belongsTo(Merchant::class);
     }
 }
