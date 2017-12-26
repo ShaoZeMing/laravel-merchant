@@ -250,8 +250,12 @@ class Merchant
                 $router->resource('auth/logs', 'LogController', ['only' => ['index', 'destroy']]);
             });
 
+            $router->get('auth/forget', 'AuthController@getForget');
+            $router->get('auth/register', 'AuthController@getRegister');
             $router->get('auth/login', 'AuthController@getLogin');
             $router->post('auth/login', 'AuthController@postLogin');
+            $router->post('auth/register', 'AuthController@postRegister');
+            $router->post('auth/forget', 'AuthController@postForget');
             $router->get('auth/logout', 'AuthController@getLogout');
             $router->get('auth/setting', 'AuthController@getSetting');
             $router->put('auth/setting', 'AuthController@putSetting');

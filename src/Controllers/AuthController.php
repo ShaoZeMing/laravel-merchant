@@ -29,6 +29,83 @@ class AuthController extends Controller
         return view('merchant::login');
     }
 
+
+    /**
+     * Login page.
+     *
+     * @return \Illuminate\Contracts\View\Factory|Redirect|\Illuminate\View\View
+     */
+    public function getRegister()
+    {
+        if (!Auth::guard('merchant')->guest()) {
+            return redirect(config('merchant.route.prefix'));
+        }
+
+        return view('merchant::register');
+    }
+
+
+    /**
+     * @param Request $request
+     *
+     * @return mixed
+     */
+    public function postRegister(Request $request)
+    {
+        $credentials = $request->only(['mobile', 'password']);
+
+        $validator = Validator::make($credentials, [
+            'mobile' => 'required', 'password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return Redirect::back()->withInput()->withErrors($validator);
+        }
+
+
+        //这儿需要重写
+
+        return Redirect::back()->withInput()->withErrors(['mobile' => $this->getFailedLoginMessage()]);
+    }
+    /**
+     * Login page.
+     *
+     * @return \Illuminate\Contracts\View\Factory|Redirect|\Illuminate\View\View
+     */
+    public function getForget()
+    {
+        if (!Auth::guard('merchant')->guest()) {
+            return redirect(config('merchant.route.prefix'));
+        }
+
+        return view('merchant::forget');
+    }
+
+
+    /**
+     * @param Request $request
+     *
+     * @return mixed
+     */
+    public function postForget(Request $request)
+    {
+        $credentials = $request->only(['mobile', 'password']);
+
+        $validator = Validator::make($credentials, [
+            'mobile' => 'required', 'password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return Redirect::back()->withInput()->withErrors($validator);
+        }
+
+
+        //这儿需要重写
+
+        return Redirect::back()->withInput()->withErrors(['mobile' => $this->getFailedLoginMessage()]);
+    }
+
+
     /**
      * @param Request $request
      *
