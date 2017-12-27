@@ -32,15 +32,15 @@
     <p class="login-box-msg">{{ trans('merchant.forget') }}</p>
 
     <form action="{{ merchant_base_path('auth/forget') }}" method="post">
-      <div class="form-group has-feedback {!! !$errors->has('username') ?: 'has-error' !!}">
+      <div class="form-group has-feedback {!! !$errors->has('mobile') ?: 'has-error' !!}">
 
-        @if($errors->has('username'))
-          @foreach($errors->get('username') as $message)
+        @if($errors->has('mobile'))
+          @foreach($errors->get('mobile') as $message)
             <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>{{$message}}</label></br>
           @endforeach
         @endif
 
-        <input type="input" class="form-control" placeholder="{{ trans('merchant.username') }}" name="username" value="{{ old('username') }}">
+        <input type="input" class="form-control" placeholder="{{ trans('merchant.mobile') }}" name="mobile" value="{{ old('mobile') }}">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback {!! !$errors->has('password') ?: 'has-error' !!}">
