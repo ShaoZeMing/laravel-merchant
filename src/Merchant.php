@@ -238,7 +238,6 @@ class Merchant
         ];
 
         Route::group($attributes, function ($router) {
-
             /* @var \Illuminate\Routing\Router $router */
             $router->group([], function ($router) {
 
@@ -252,13 +251,26 @@ class Merchant
 
             $router->get('auth/forget', 'AuthController@getForget');
             $router->get('auth/register', 'AuthController@getRegister');
-            $router->get('auth/login', 'AuthController@getLogin');
-            $router->post('auth/login', 'AuthController@postLogin');
             $router->post('auth/register', 'AuthController@postRegister');
             $router->post('auth/forget', 'AuthController@postForget');
+            $router->get('auth/login', 'AuthController@getLogin');
+            $router->post('auth/login', 'AuthController@postLogin');
             $router->get('auth/logout', 'AuthController@getLogout');
             $router->get('auth/setting', 'AuthController@getSetting');
             $router->put('auth/setting', 'AuthController@putSetting');
+        });
+
+
+        $attributes = [
+            'prefix'     => config('merchant.route.prefix'),
+            'namespace'  => 'ShaoZeMing\Merchant\Controllers',
+            'middleware' => ['web'],
+        ];
+        Route::group($attributes, function ($router) {
+            $router->get('auth/forget', 'AuthController@getForget');
+            $router->get('auth/register', 'AuthController@getRegister');
+            $router->post('auth/register', 'AuthController@postRegister');
+            $router->post('auth/forget', 'AuthController@postForget');
         });
     }
 

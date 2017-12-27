@@ -20,7 +20,7 @@ class CreateMerchantTables extends Migration
             $table->string('email', 190);
             $table->string('password', 60);
             $table->string('name');
-            $table->string('merchant_id')->default(0);
+            $table->bigint('merchant_id')->default(0);
             $table->tinyInteger('user_type')->default(0)->default('1是企业号,9是开发人员');
             $table->string('avatar')->nullable();
             $table->string('remember_token', 100)->nullable();
