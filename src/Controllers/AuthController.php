@@ -15,31 +15,18 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    /**
-     * Login page.
-     *
-     * @return \Illuminate\Contracts\View\Factory|Redirect|\Illuminate\View\View
-     */
-    public function getLogin()
-    {
-        if (!Auth::guard('merchant')->guest()) {
-            return redirect(config('merchant.route.prefix'));
-        }
-
-        return view('merchant::login');
-    }
 
 
     /**
-     * Login page.
+     * Register page.
      *
      * @return \Illuminate\Contracts\View\Factory|Redirect|\Illuminate\View\View
      */
     public function getRegister()
     {
-        if (!Auth::guard('merchant')->guest()) {
-            return redirect(config('merchant.route.prefix'));
-        }
+//        if (!Auth::guard('merchant')->guest()) {
+//            return redirect(config('merchant.route.prefix'));
+//        }
 
         return view('merchant::register');
     }
@@ -67,22 +54,26 @@ class AuthController extends Controller
 
         return Redirect::back()->withInput()->withErrors(['mobile' => $this->getFailedLoginMessage()]);
     }
+
+
     /**
-     * Login page.
+     * Forget page.
      *
      * @return \Illuminate\Contracts\View\Factory|Redirect|\Illuminate\View\View
      */
     public function getForget()
     {
-        if (!Auth::guard('merchant')->guest()) {
-            return redirect(config('merchant.route.prefix'));
-        }
+//        if (!Auth::guard('merchant')->guest()) {
+//            return redirect(config('merchant.route.prefix'));
+//        }
 
         return view('merchant::forget');
     }
 
 
     /**
+     *
+     *
      * @param Request $request
      *
      * @return mixed
@@ -104,6 +95,24 @@ class AuthController extends Controller
 
         return Redirect::back()->withInput()->withErrors(['mobile' => $this->getFailedLoginMessage()]);
     }
+
+
+
+    /**
+     * Login page.
+     *
+     * @return \Illuminate\Contracts\View\Factory|Redirect|\Illuminate\View\View
+     */
+    public function getLogin()
+    {
+        if (!Auth::guard('merchant')->guest()) {
+            return redirect(config('merchant.route.prefix'));
+        }
+
+        return view('merchant::login');
+    }
+
+
 
 
     /**
