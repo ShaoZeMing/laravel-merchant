@@ -2,6 +2,7 @@
 
 namespace ShaoZeMing\Merchant\Controllers;
 
+use Illuminate\Routing\Controller;
 use ShaoZeMing\Merchant\Auth\Database\Administrator;
 use ShaoZeMing\Merchant\Auth\Database\Permission;
 use ShaoZeMing\Merchant\Auth\Database\Role;
@@ -9,7 +10,6 @@ use ShaoZeMing\Merchant\Facades\Merchant;
 use ShaoZeMing\Merchant\Form;
 use ShaoZeMing\Merchant\Grid;
 use ShaoZeMing\Merchant\Layout\Content;
-use Illuminate\Routing\Controller;
 
 class UserController extends Controller
 {
@@ -67,17 +67,16 @@ class UserController extends Controller
     protected function grid()
     {
         return Administrator::grid(function (Grid $grid) {
-            $grid->id('ID')->sortable();
+            $grid->model()->where('merchant_id', auth('merchant')->user()->merchant_id);
             $grid->mobile(trans('merchant.mobile'));
             $grid->name(trans('merchant.name'));
             $grid->roles(trans('merchant.roles'))->pluck('name')->label();
             $grid->created_at(trans('merchant.created_at'));
             $grid->updated_at(trans('merchant.updated_at'));
 
-            $grid->actions(function (Grid\Displayers\Actions $actions) {
-                if (Merchant::user()->user_type == 1) {
-                    $actions->disableDelete();
-                }
+            $grid->actions(function (Grid\Displayers\Actions $actions)use($grid) {
+                if (Administrator::find($actions->getKey())->user_type) {
+                    $actions->disableDelete();}
             });
 
             $grid->tools(function (Grid\Tools $tools) {
@@ -96,7 +95,7 @@ class UserController extends Controller
     public function form()
     {
         return Administrator::form(function (Form $form) {
-            $form->display('mobile', trans('merchant.mobile'))->rules('required');
+            $form->mobile('mobile', trans('merchant.mobile'))->rules('required');
             $form->email('email', trans('merchant.email'))->default('');
             $form->text('name', trans('merchant.name'))->rules('required');
             $form->image('avatar', trans('merchant.avatar'));
@@ -114,7 +113,7 @@ class UserController extends Controller
             $form->hidden('merchant_id');
 
             $form->saving(function (Form $form) {
-                $form->merchant_id = Merchant::user()->merchant_id;
+                $form->merchant_id = auth('merchant')->user()->merchant_id;
                 if ($form->password && $form->model()->password != $form->password) {
                     $form->password = bcrypt($form->password);
                 }
